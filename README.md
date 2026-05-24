@@ -1,109 +1,186 @@
-# Microsoft 365 Tenant Health Audit Dashboard
+# Enterprise IT Security Operations Toolkit
 
-### PowerShell · Microsoft Graph · Entra ID · Exchange Online · Live Lab Tenant
-
-**Md Rahat Islam Anik · George Brown College · Cloud Computing & Network Administration (T465)**
-
-[![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)](https://rahatislamanik-spec.github.io/M365-Tenant-Health-Audit-Dashboard/)
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rahatislamanik-spec/M365-Tenant-Health-Audit-Dashboard)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-rahatislamanik-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/rahatislamanik)
+Enterprise-grade Microsoft 365, Entra ID, Identity Security, Compliance, and Operational Reporting toolkit built using PowerShell, Microsoft Graph, HTML dashboards, and security automation workflows.
 
 ---
 
-| Live Lab Tenant | Microsoft Graph API | Entra ID Auditing | HTML Report Output |
-|:---:|:---:|:---:|:---:|
+# Overview
+
+This repository contains a growing collection of:
+
+- Microsoft 365 administration scripts
+- Entra ID governance reports
+- Conditional Access auditing
+- MFA compliance reporting
+- Privileged access analysis
+- Sign-in security monitoring
+- Device compliance reporting
+- License optimization reporting
+- Identity governance workflows
+- Security operations automation
+- Operational dashboards
+- PowerShell reporting pipelines
+
+The project is designed as a centralized enterprise IT operations and security reporting platform simulating real-world Tier 2 / Tier 3 Microsoft 365 administration and security operations workflows.
 
 ---
 
-## Overview
+# Core Technologies
 
-This project is a PowerShell-based Microsoft 365 tenant auditing toolkit that connects to a **live lab tenant** through the **Microsoft Graph API**, inventories **Entra ID users**, exports structured audit data, and generates a browser-viewable HTML report — all from a lightweight, portable PowerShell workflow.
-
-This is not a simulation. Every script was executed against a real M365 tenant, with real Graph API authentication, producing real audit output. The case study documents the full workflow: connection, enumeration, export, and reporting — end to end.
-
-The project reflects the kind of operational reporting and tenant visibility work that IT administrators perform daily in enterprise Microsoft 365 environments.
-
----
-
-## What Was Built
-
-### Microsoft Graph Connection & Authentication
-Authenticated to a live Microsoft 365 lab tenant using the **Microsoft Graph PowerShell SDK**. Established a secure delegated connection with the correct permission scopes to query tenant directory data — no hardcoded credentials, no workarounds.
-
-### Entra ID User Enumeration
-Used Graph API queries to inventory all **Entra ID (Azure AD) users** in the tenant. Pulled user attributes including display name, UPN, account status, and assigned licenses — the same data an M365 admin would audit during an access review or compliance check.
-
-### CSV Audit Export
-Exported enumerated user data to a structured **CSV report** — formatted for audit readiness. The output mirrors the kind of reporting artifact that would be handed to a compliance team, a manager, or reviewed during an IT audit engagement.
-
-### HTML Audit Report Generation
-Generated a **browser-viewable HTML dashboard** from the audit data — a clean, readable report that surfaces tenant health information without requiring the reader to open PowerShell or parse a CSV. Deployed via GitHub Pages for live demonstration.
-
-### Exchange Online Administration
-Connected to **Exchange Online** using the Exchange Online Management Module to perform mailbox-level administration tasks — extending the audit scope beyond Entra ID into the messaging layer of the tenant.
-
-### Enterprise Reporting Workflow
-The full pipeline — authenticate → enumerate → export → report — reflects a real enterprise M365 operational workflow. The toolkit is lightweight, portable, and built entirely in PowerShell 7 with no external dependencies beyond the Microsoft-published SDK modules.
+- PowerShell 7
+- Microsoft Graph PowerShell SDK
+- Microsoft Entra ID
+- Microsoft 365
+- Conditional Access
+- Microsoft Intune
+- Microsoft Defender
+- HTML / CSS / JavaScript
+- GitHub
+- CSV Operational Reporting
+- Identity Governance
+- Security Operations Automation
 
 ---
 
-## Tech Stack
+# Current Reporting Modules
 
-| Component | Detail |
-|---|---|
-| Scripting | PowerShell 7 |
-| Identity & Directory | Microsoft Graph PowerShell SDK · Entra ID |
-| Messaging | Exchange Online Management Module |
-| Reporting | CSV export · HTML dashboard generation |
-| Deployment | GitHub Pages |
-| Development Environment | VS Code |
-| Tenant | Live Microsoft 365 Lab Tenant |
+## Microsoft 365 Reporting Suite
+
+### Tenant Health Reporting
+- Tenant inventory
+- User statistics
+- Group summaries
+- Administrative role visibility
+
+### MFA Coverage Reporting
+- MFA-enabled users
+- Non-compliant users
+- Authentication posture analysis
+
+### Admin Role Auditing
+- Global Administrator review
+- Privileged role assignments
+- RBAC visibility
+
+### License Optimization
+- Licensed vs unlicensed users
+- Disabled licensed accounts
+- Cost optimization opportunities
+
+### Sign-In Security Reporting
+- Sign-in analytics
+- Failed login visibility
+- Security event reporting
+- Identity activity monitoring
+
+### Device Compliance Reporting
+- Device inventory
+- Operating system visibility
+- Trust type auditing
+- Endpoint reporting
+
+### Conditional Access Auditing
+- Conditional Access policy visibility
+- Policy state analysis
+- Zero Trust reporting
+
+### Inactive User Governance
+- Dormant accounts
+- Inactive identities
+- Governance cleanup opportunities
+
+### Privileged User Exposure Audit
+- High-risk administrative accounts
+- Privileged role exposure
+- Security governance analysis
 
 ---
 
-## Workflow
+# Repository Structure
 
+```text
+Enterprise-IT-Security-Operations-Toolkit/
+│
+├── dashboard/
+├── sample-reports/
+│   └── m365/
+├── screenshots/
+├── scripts/
+│   ├── m365-admin-toolkit/
+│   └── m365-reports/
+└── README.md
 ```
-Authenticate to M365 tenant (Graph API)
-        ↓
-Query Entra ID — enumerate users & attributes
-        ↓
-Export structured data → audit-ready CSV
-        ↓
-Generate HTML report → browser-viewable dashboard
-        ↓
-Deploy report → GitHub Pages (live)
-```
 
 ---
 
-## Roadmap
+# Dashboard Features
 
-Planned enhancements to expand tenant visibility and reporting depth:
+Current dashboard capabilities include:
 
-- **Conditional Access reporting** — surface policy coverage gaps across the tenant
-- **MFA status auditing** — flag users without MFA enabled, by department or role
-- **License utilization tracking** — identify unassigned or underutilized M365 licenses
-- **Exchange mailbox reporting** — mailbox size, last logon, delegate access summary
-- **SharePoint usage analytics** — site activity, storage consumption, stale sites
-- **Security Score integration** — pull Microsoft Secure Score and surface improvement actions
-- **Dark-mode reporting dashboard** — improved HTML report theme and layout
-- **Executive summary output** — condensed, non-technical report format for leadership
+- GitHub operational metrics
+- Repository traffic reporting
+- Clone analytics
+- Security operations structure
+- Report tracking
+- Operational reporting workflows
+
+Future roadmap includes:
+
+- Executive security dashboard
+- MFA compliance visualization
+- Risk scoring
+- SIEM-style analytics
+- Secure Score integration
+- Automated report scheduling
+- Defender telemetry integration
+- HTML reporting engine
+- Power BI integration
 
 ---
 
-## Live Case Study
+# Security Operations Focus
 
-The full interactive case study — with workflow documentation, evidence screenshots, and the deployed HTML report — is published at:
+This project emphasizes:
 
-**[rahatislamanik-spec.github.io/M365-Tenant-Health-Audit-Dashboard](https://rahatislamanik-spec.github.io/M365-Tenant-Health-Audit-Dashboard/)**
+- Identity governance
+- Zero Trust operations
+- Privileged access visibility
+- Compliance reporting
+- Security posture assessment
+- Operational automation
+- Enterprise administration workflows
 
 ---
 
-## Author
+# Lab Environment Disclaimer
 
-**Md Rahat Islam Anik**
-Cloud Computing & Network Administration · George Brown College · May 2026
+All reports and tenant data included in this repository are generated from a personal Microsoft 365 lab environment used exclusively for educational, testing, and portfolio development purposes.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/rahatislamanik)
-[![GitHub](https://img.shields.io/badge/GitHub-Portfolio-181717?style=flat&logo=github)](https://github.com/rahatislamanik-spec)
+No production organizational data is included.
+
+---
+
+# Future Roadmap
+
+Planned future enhancements:
+
+- Microsoft Defender integrations
+- Risky user reporting
+- Insider risk analysis
+- Security event correlation
+- SIEM integrations
+- Automated weekly reporting
+- GitHub Actions automation
+- Scheduled PowerShell pipelines
+- Threat hunting workflows
+- Endpoint security auditing
+- Intune device governance
+- HTML executive dashboards
+
+---
+
+# Author
+
+Md Rahat Islam Anik
+
+Enterprise IT | Microsoft 365 | Identity Security | Cloud Operations | PowerShell Automation
