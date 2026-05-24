@@ -1,0 +1,11 @@
+RoleName,DisplayName,UserPrincipalName,Department,JobTitle,AccountEnabled,RiskLevel
+Teams Administrator,Emma Davis,emma.davis@nirjala.onmicrosoft.com,Collaboration Services,Teams Administrator,TRUE,STANDARD
+Security Reader,Md Rahat Islam Anik,rahat.it.lab@nirjala.onmicrosoft.com,,,TRUE,STANDARD
+User Administrator,Bill Clinton,bc@nirjala.onmicrosoft.com,IT Operations,User Administrator,TRUE,STANDARD
+Exchange Administrator,Ethan King,ethan.king@nirjala.onmicrosoft.com,Messaging Services,Exchange Administrator,TRUE,HIGH
+Helpdesk Administrator,Liam Thomas,liam.thomas@nirjala.onmicrosoft.com,IT Support,Helpdesk Technician,TRUE,STANDARD
+Helpdesk Administrator,,,,,,STANDARD
+Global Administrator,Md Rahat Islam Anik,rahat.it.lab@nirjala.onmicrosoft.com,,,TRUE,CRITICAL
+Global Administrator,Mia Allen,mia.allen@nirjala.onmicrosoft.com,Security Operations,Security Analyst,TRUE,CRITICAL
+Service Support Administrator,Harsh Gupta,hg@nirjala.onmicrosoft.com,IT Support,Service Support Administrator,TRUE,STANDARD
+SharePoint Administrator,Barak Obama,bo@nirjala.onmicrosoft.com,IT Operations ,SharePoint Administrator,TRUE,MEDIUM

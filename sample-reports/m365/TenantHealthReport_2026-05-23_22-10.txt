@@ -1,0 +1,38 @@
+===============================================
+RAHATOS | MICROSOFT 365 TENANT HEALTH REPORT
+===============================================
+
+Generated On: 05/23/2026 22:11:03
+
+Tenant Name: xyz.inc
+Tenant ID: 31faeb7a-0aac-4053-9668-2f2ccdf58abb
+Country: CA
+
+USER SUMMARY
+-----------------------------------------------
+Total Users: 28
+Enabled Users: 27
+Disabled Users: 1
+Guest Users: 0
+Licensed Users: 21
+Unlicensed Users: 7
+
+GROUP SUMMARY
+-----------------------------------------------
+Total Groups: 10
+Security Groups: 7
+Mail Enabled Groups: 3
+Dynamic Groups: 4
+
+ADMIN / ROLE SUMMARY
+-----------------------------------------------
+Active Directory Roles: 11
+
+REPORT FILES
+-----------------------------------------------
+CSV: /Users/rahatislam/Documents/RahatOS-Progress-Center/reports/m365/TenantHealthReport_2026-05-23_22-10.csv
+TXT: /Users/rahatislam/Documents/RahatOS-Progress-Center/reports/m365/TenantHealthReport_2026-05-23_22-10.txt
+
+===============================================
+Report completed successfully.
+===============================================

@@ -1,0 +1,9 @@
+PolicyName,State,CreatedDate,ModifiedDate
+Require multifactor authentication for admins,enabledForReportingButNotEnforced,3/5/2026 1:01:04 AM,
+Require compliant or hybrid Azure AD joined device or multifactor authentication for all users,enabledForReportingButNotEnforced,3/5/2026 1:01:40 AM,
+Require MFA for Admin Roles,enabledForReportingButNotEnforced,15/5/2026 1:22:10 AM,
+Block Legacy Authentication,enabledForReportingButNotEnforced,15/5/2026 1:26:05 AM,
+Require multifactor authentication for all users,enabledForReportingButNotEnforced,21/5/2026 5:46:42 AM,
+Require MDM-enrolled and compliant device to access cloud apps for all users (Preview),enabledForReportingButNotEnforced,21/5/2026 8:43:05 PM,
+Require multifactor authentication for all users,enabledForReportingButNotEnforced,21/5/2026 8:43:19 PM,
+Require MFA for Standard Users,enabledForReportingButNotEnforced,21/5/2026 8:50:19 PM,

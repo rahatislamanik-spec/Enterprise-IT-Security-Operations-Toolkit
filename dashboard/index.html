@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RahatOS Progress Center</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>RahatOS Progress Center</h1>
+      <p>Operational Career Intelligence Dashboard</p>
+    </header>
+
+    <section class="grid">
+
+      <div class="card">
+        <h2>GitHub Metrics</h2>
+
+        <p id="repoCount">Total Repositories: --</p>
+        <p id="cloneCount">Total Clones: --</p>
+        <p id="uniqueCloners">Unique Cloners: --</p>
+        <p id="topRepo">Top Repo: --</p>
+        <p id="lastUpdated">Last Updated: --</p>
+
+      </div>
+
+      <div class="card">
+        <h2>Certifications</h2>
+
+        <p>AZ-900</p>
+        <p>MS-900</p>
+        <p>SC-900 In Progress</p>
+
+      </div>
+
+      <div class="card">
+        <h2>Study Operations</h2>
+
+        <p>AZ-104 Tracking</p>
+        <p>SC-900 Tracking</p>
+
+      </div>
+
+      <div class="card">
+        <h2>Projects</h2>
+
+        <p>M365 Tenant Lab</p>
+        <p>Enterprise IT Toolkit</p>
+        <p>Coquitlam ITSM</p>
+
+      </div>
+
+    </section>
+
+    <section class="leaderboard-section">
+
+      <h2>Repository Traffic Leaderboard</h2>
+
+      <p>
+        Manual 14-day GitHub traffic snapshot across selected repositories.
+      </p>
+
+      <div id="leaderboard" class="leaderboard"></div>
+
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+DisplayName,UserPrincipalName,AccountEnabled,UserType,Department,JobTitle,LastSignIn,LicenseCount,RiskFlag
+Aisha Rahman,aisha.rahman@nirjala.onmicrosoft.com,TRUE,Member,Mathematics,,,0,Review - Enabled User With No Sign-In Data
+Alex Johnson,alex.johnson@nirjala.onmicrosoft.com,TRUE,Member,Arts,Professor,15/5/2026 2:45:34 AM,1,OK
+Ava Lewis,ava.lewis@nirjala.onmicrosoft.com,TRUE,Member,Science,Professor,,1,Review - Enabled User With No Sign-In Data
+Bill Clinton,bc@nirjala.onmicrosoft.com,TRUE,Member,IT Operations,User Administrator,15/5/2026 2:45:04 AM,1,OK
+Barak Obama,bo@nirjala.onmicrosoft.com,TRUE,Member,IT Operations ,SharePoint Administrator,,1,Review - Enabled User With No Sign-In Data
+Chloe Martin,chloe.martin@nirjala.onmicrosoft.com,TRUE,Member,English Studies,,,0,Review - Enabled User With No Sign-In Data
+Daniel Kim,daniel.kim@nirjala.onmicrosoft.com,TRUE,Member,Computer Science,,,0,Review - Enabled User With No Sign-In Data
+Elijah Young,elijah.young@nirjala.onmicrosoft.com,TRUE,Member,Science,Professor,,1,Review - Enabled User With No Sign-In Data
+Emma Davis,emma.davis@nirjala.onmicrosoft.com,TRUE,Member,Collaboration Services,Teams Administrator,,1,Review - Enabled User With No Sign-In Data
+Emily Parker,ep@nirjala.onmicrosoft.com,TRUE,Member,,,,1,Review - Enabled User With No Sign-In Data
+Ethan King,ethan.king@nirjala.onmicrosoft.com,TRUE,Member,Messaging Services,Exchange Administrator,,1,Review - Enabled User With No Sign-In Data
+Hillary Clinton,hc@nirjala.onmicrosoft.com,TRUE,Member,,,,1,Review - Enabled User With No Sign-In Data
+IT Helpdesk,helpdesk@nirjala.onmicrosoft.com,FALSE,Member,,,,0,OK
+Harsh Gupta,hg@nirjala.onmicrosoft.com,TRUE,Member,IT Support,Service Support Administrator,,1,Review - Enabled User With No Sign-In Data
+Jason Patel,jason.patel@nirjala.onmicrosoft.com,TRUE,Member,Media & Communications,,,0,Review - Enabled User With No Sign-In Data
+Jessica Biel,jb@nirjala.onmicrosoft.com,TRUE,Member,,,,1,Review - Enabled User With No Sign-In Data
+Liam Thomas,liam.thomas@nirjala.onmicrosoft.com,TRUE,Member,IT Support,Helpdesk Technician,,1,Review - Enabled User With No Sign-In Data
+Megan  Fox,mf@nirjala.onmicrosoft.com,TRUE,Member,,,,1,Review - Enabled User With No Sign-In Data
+Mike Hoffman,mh@nirjala.onmicrosoft.com,TRUE,Member,,,,1,Review - Enabled User With No Sign-In Data
+Mia Allen,mia.allen@nirjala.onmicrosoft.com,TRUE,Member,Security Operations,Security Analyst,15/5/2026 2:50:11 AM,1,OK
+Michelle Obama,mo@nirjala.onmicrosoft.com,TRUE,Member,,,,1,Review - Enabled User With No Sign-In Data
+Nancy Jones,nj@nirjala.onmicrosoft.com,TRUE,Member,,,,1,Review - Enabled User With No Sign-In Data
+Noah Harris,noah.harris@nirjala.onmicrosoft.com,TRUE,Member,Arts,Professor,,1,Review - Enabled User With No Sign-In Data
+Oliver Clark,oliver.clark@nirjala.onmicrosoft.com,TRUE,Member,Science,Professor,,1,Review - Enabled User With No Sign-In Data
+Md Rahat Islam Anik,rahat.it.lab@nirjala.onmicrosoft.com,TRUE,Member,,,22/5/2026 5:53:09 PM,2,OK
+Ryan Chen,ryan.chen@nirjala.onmicrosoft.com,TRUE,Member,Computer Science,,,0,Review - Enabled User With No Sign-In Data
+Sarah Ahmed,sarah.ahmed@nirjala.onmicrosoft.com,TRUE,Member,Business Administration,,,0,Review - Enabled User With No Sign-In Data
+Sophia Walker,sophia.walker@nirjala.onmicrosoft.com,TRUE,Member,Arts,Professor,,1,Review - Enabled User With No Sign-In Data
