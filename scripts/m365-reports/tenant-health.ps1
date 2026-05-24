@@ -1,17 +1,17 @@
-# RahatOS Progress Center
+# Enterprise IT Security Operations Toolkit
 # Microsoft 365 Tenant Health Report
 # Report: Tenant Health Summary
 # Author: Md Rahat Islam Anik
 
 Write-Host "===============================================" -ForegroundColor Cyan
-Write-Host " RAHATOS | MICROSOFT 365 TENANT HEALTH REPORT " -ForegroundColor Cyan
+Write-Host " ENTERPRISE SECURITY OPS | MICROSOFT 365 TENANT HEALTH REPORT " -ForegroundColor Cyan
 Write-Host "===============================================" -ForegroundColor Cyan
 
 # Connect to Microsoft Graph
 Connect-MgGraph -Scopes "User.Read.All","Directory.Read.All","Organization.Read.All"
 
 # Create report folder
-$ReportPath = "$HOME/Documents/RahatOS-Progress-Center/reports/m365"
+$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-1-enterprise-operations-foundation/reports"
 New-Item -ItemType Directory -Force -Path $ReportPath | Out-Null
 
 # Date stamp
@@ -73,7 +73,7 @@ $TxtFile = "$ReportPath/TenantHealthReport_$DateStamp.txt"
 
 @"
 ===============================================
-RAHATOS | MICROSOFT 365 TENANT HEALTH REPORT
+ENTERPRISE SECURITY OPS | MICROSOFT 365 TENANT HEALTH REPORT
 ===============================================
 
 Generated On: $($Report.GeneratedOn)

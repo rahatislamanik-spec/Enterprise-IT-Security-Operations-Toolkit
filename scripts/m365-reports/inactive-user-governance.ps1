@@ -1,14 +1,14 @@
-# RahatOS Progress Center
+# Enterprise IT Security Operations Toolkit
 # Inactive User Governance Report
 # Tier 2/3 Identity Hygiene Audit
 
 Write-Host "=========================================="
-Write-Host " RAHATOS | INACTIVE USER GOVERNANCE AUDIT "
+Write-Host " ENTERPRISE SECURITY OPS | INACTIVE USER GOVERNANCE AUDIT "
 Write-Host "=========================================="
 
 Connect-MgGraph -Scopes "User.Read.All","AuditLog.Read.All","Directory.Read.All"
 
-$ReportPath = "$HOME/Documents/RahatOS-Progress-Center/reports/m365"
+$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-1-enterprise-operations-foundation/reports"
 New-Item -ItemType Directory -Force -Path $ReportPath | Out-Null
 
 $DateStamp = Get-Date -Format "yyyy-MM-dd_HH-mm"

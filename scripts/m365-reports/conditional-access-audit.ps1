@@ -1,10 +1,15 @@
-Write-Host "======================================="
-Write-Host " RAHATOS | CONDITIONAL ACCESS AUDIT "
-Write-Host "======================================="
+# Enterprise IT Security Operations Toolkit
+# Phase 1 — Enterprise Operations Foundation
+# Conditional Access Audit Report
+# Author: Md Rahat Islam Anik
+
+Write-Host "=======================================" -ForegroundColor Cyan
+Write-Host " ENTERPRISE SECURITY OPS | CONDITIONAL ACCESS AUDIT " -ForegroundColor Cyan
+Write-Host "=======================================" -ForegroundColor Cyan
 
 Connect-MgGraph -Scopes "Policy.Read.All","Directory.Read.All"
 
-$ReportPath = "$HOME/Documents/RahatOS-Progress-Center/reports/m365"
+$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-1-enterprise-operations-foundation/reports"
 New-Item -ItemType Directory -Force -Path $ReportPath | Out-Null
 
 $DateStamp = Get-Date -Format "yyyy-MM-dd_HH-mm"

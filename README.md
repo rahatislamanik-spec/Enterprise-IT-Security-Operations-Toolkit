@@ -1,344 +1,228 @@
 # Enterprise IT Security Operations Toolkit
 
-Enterprise-grade Microsoft 365, Entra ID, Identity Security, Endpoint Security, Compliance, Governance, and Operational Reporting platform built using PowerShell, Microsoft Graph, Microsoft Defender, Intune, HTML dashboards, and security automation workflows.
+Enterprise-grade Microsoft 365 security operations and governance platform built with PowerShell, Microsoft Graph, Entra ID, Intune, Microsoft Defender, and HTML dashboards.
+
+**19 PowerShell scripts. 3 operational phases. Real lab evidence. End-to-end enterprise security simulation.**
 
 ---
 
-# Platform Overview
+## Platform Overview
 
-The Enterprise IT Security Operations Toolkit is a multi-phase enterprise security operations and governance platform designed to simulate real-world Microsoft 365 administration, identity security, endpoint security, governance, compliance, and operational reporting workflows commonly encountered in modern enterprise environments.
+The Enterprise IT Security Operations Toolkit is a multi-phase, hands-on security operations and governance platform built to simulate real-world Microsoft 365 administration — from tenant health baselines through identity threat visibility to endpoint security operations.
 
-The platform combines:
-
-- Microsoft Graph automation
-- PowerShell operational tooling
-- Governance reporting
-- Endpoint security visibility
-- Identity protection workflows
-- Security operations reporting
-- HTML dashboards and visualization
-- Operational evidence collection
-- Enterprise reporting pipelines
-
-into a centralized operational and security engineering platform.
+The platform was developed in an isolated Microsoft 365 E3/E5 lab environment and includes **real executed scripts, real CSV output reports, and operational screenshots** as evidence of live implementation.
 
 ---
 
-# Multi-Phase Platform Architecture
+## What This Platform Does
 
-The platform is organized into modular operational phases designed to simulate the evolution of enterprise security operations programs.
+| Capability | Detail |
+|---|---|
+| Tenant Governance | Automated health, user, group, license, and role reporting |
+| MFA Compliance | Per-user MFA method audit with passwordless-readiness tracking |
+| Privileged Access | Admin role inventory with CRITICAL / HIGH / MEDIUM risk tier classification |
+| Identity Threat | Risky user auditing, risk detection reporting, Secure Score tracking |
+| License Optimization | Waste detection — disabled users with licenses, unlicensed active members |
+| Endpoint Security | Intune device governance, Defender visibility, compliance posture |
+| CA Policy Governance | Policy state audit — enforced vs. report-only vs. disabled |
+| Offboarding Automation | Disable + session revoke + license removal + group cleanup in one script |
+| PIM Auditing | Privileged Identity Management activation event tracking |
+| External Access | Guest user governance with domain mapping and inactivity detection |
 
-## Phase 1 — Enterprise Operations Foundation
+**Before this toolkit:** A full MFA compliance review, admin role audit, and CA policy inventory required 2–3 hours of manual navigation across the Microsoft 365 Admin Center, Entra ID portal, and Intune portal.
 
-Focus Areas:
-
-- Microsoft 365 administration
-- Governance reporting
-- MFA compliance visibility
-- Conditional Access auditing
-- Tenant operational visibility
-- Privileged role auditing
-- Device compliance reporting
-- Administrative reporting automation
-- HTML operational dashboards
-
-This phase establishes the centralized operational reporting and governance foundation of the platform.
-
----
-
-## Phase 2 — Identity Threat & Security Operations
-
-Focus Areas:
-
-- Identity Protection workflows
-- Risk detection monitoring
-- Secure Score analysis
-- Risky user auditing
-- Guest user governance
-- Security operations reporting
-- Identity threat visibility
-- Governance monitoring
-- Operational security analysis
-
-This phase expands the platform into enterprise identity security operations and threat visibility workflows.
+**After:** Each report runs in under 3 minutes. All outputs are structured CSVs ready for governance review or executive reporting.
 
 ---
 
-## Phase 3 — Endpoint Security & Defender Operations
+## Real Lab Results
 
-Focus Areas:
+From the M365 E3/E5 lab environment:
 
-- Microsoft Defender for Endpoint
-- Microsoft Intune governance
-- Endpoint compliance monitoring
-- Endpoint protection visibility
-- Device governance workflows
-- Defender operational reporting
-- Endpoint security posture analysis
-- Security operations dashboards
-- Endpoint investigation visibility
-- Compliance reporting
-
-This phase extends the platform into enterprise endpoint security operations and Defender-based governance workflows.
+| Metric | Value |
+|---|---|
+| Total users audited | 28 |
+| Enabled accounts | 27 |
+| Licensed accounts | 21 |
+| Active directory roles | 11 |
+| Microsoft Secure Score | 146.26 / 204 |
+| Groups audited | 10 (7 security, 3 mail-enabled, 4 dynamic) |
+| Report types generated | 11 unique report files across 3 phases |
+| Scripts in platform | 19 PowerShell scripts |
 
 ---
 
-# Overall Platform Architecture
+## Multi-Phase Platform Architecture
+
+### Phase 1 — Enterprise Operations Foundation
+
+**Focus:** Baseline tenant health, identity hygiene, license governance, MFA compliance, CA auditing, privileged access reviews, and administrative reporting.
+
+**Scripts:** 9 reporting modules + 10 admin toolkit scripts = **19 total scripts**
+
+**Highlights:**
+- Full tenant health snapshot (users, groups, licenses, roles) in a single script
+- MFA method-level audit — Authenticator, Phone, FIDO2, Passwordless-ready classification
+- Admin role review with CRITICAL/HIGH/MEDIUM/STANDARD risk tier classification
+- License waste identification — disabled users holding licenses flagged automatically
+- User offboarding automation — disable, revoke sessions, remove licenses and groups
+
+[→ Phase 1 README](phase-1-enterprise-operations-foundation/README.md)
+
+---
+
+### Phase 2 — Identity Threat & Security Operations
+
+**Focus:** Microsoft Entra ID Identity Protection workflows — risky users, risk detections, Secure Score analysis, and guest user governance.
+
+**Highlights:**
+- Risky user audit — High / Medium / Low risk classification with state tracking
+- Risk detection reporting — impossible travel, anonymous IP, malware-linked sign-ins
+- Secure Score analysis — lab tenant scored **146.26 / 204**
+- Guest user governance — inactive guest detection with external domain mapping
+
+[→ Phase 2 README](phase-2-identity-threat-security-operations/README.md)
+
+---
+
+### Phase 3 — Endpoint Security & Defender Operations
+
+**Focus:** Microsoft Intune device governance, Microsoft Defender for Endpoint visibility, endpoint compliance monitoring, and security posture reporting.
+
+**Highlights:**
+- Defender Endpoint Overview — device risk and protection status
+- Intune device inventory and compliance posture reporting
+- Endpoint compliance dashboards and security baseline verification
+- Defender security recommendations and incident visibility workflows
+
+[→ Phase 3 README](phase-3-endpoint-security-defender-operations/README.md)
+
+---
+
+## Platform Architecture
 
 ```text
-Enterprise Environment
-        ↓
+Enterprise Environment (M365 E3/E5 Lab)
+                    ↓
 Microsoft 365 / Entra ID / Intune / Defender
-        ↓
-Microsoft Graph + Security APIs
-        ↓
-PowerShell Automation Layer
-        ↓
-Security & Governance Reporting
-        ↓
-Identity + Endpoint Operational Analysis
-        ↓
-CSV / TXT / Operational Reports
-        ↓
-HTML Dashboards & Visualization
-        ↓
-GitHub Security Operations Platform
+                    ↓
+        Microsoft Graph + Security APIs
+                    ↓
+       PowerShell Automation Layer (19 scripts)
+                    ↓
+  Governance & Risk Classification Logic
+     ↙                                    ↘
+Identity + Endpoint               License + Access
+Security Operations               Governance Reporting
+     ↓                                    ↓
+CSV / TXT Reports         HTML Dashboards & Visualization
+                    ↓
+      GitHub Security Operations Platform
 ```
 
 ---
 
-# Operational Objectives
-
-This project was built to simulate and improve real-world Microsoft 365 enterprise administration and security operations workflows where administrators and security teams must manage environments efficiently, securely, and at scale.
-
-The platform focuses heavily on reducing repetitive manual administrative work through automation, centralized reporting, governance workflows, and operational visibility.
-
----
-
-# Key Operational Goals
-
-- Reduce manual audit and reporting effort
-- Automate repetitive Microsoft 365 administration tasks
-- Improve tenant-wide operational visibility
-- Simplify privileged access reviews
-- Accelerate governance and compliance reporting
-- Enable scalable administrative operations
-- Improve endpoint security visibility
-- Enhance identity threat monitoring
-- Improve operational consistency across environments
-- Support faster investigation and operational review workflows
-- Centralize operational reporting into a unified platform
-- Simulate enterprise-grade security operations processes
-
----
-
-# Real-World Enterprise Scenario Simulation
-
-This platform was designed to replicate operational and security challenges commonly encountered in modern enterprise environments.
-
-The workflows represented throughout the platform simulate:
-
-- Identity governance operations
-- Endpoint security operations
-- Compliance monitoring
-- Conditional Access governance
-- MFA validation workflows
-- Privileged access auditing
-- Device compliance visibility
-- Security posture analysis
-- Microsoft Defender operational monitoring
-- Security operations reporting
-- Governance evidence collection
-- Enterprise operational reporting
-
-The project emphasizes scalable operational workflows similar to those commonly used by:
-
-- Tier 2 / Tier 3 Administrators
-- Security Operations Center (SOC) teams
-- Microsoft 365 Administrators
-- Intune Administrators
-- Security Analysts
-- Governance & Compliance teams
-- Identity & Access Management teams
-
----
-
-# Administrative & Business Impact
-
-The platform is designed to improve operational efficiency by reducing repetitive manual work while improving centralized security and governance visibility.
-
-## Operational Improvements
-
-- Reduced manual reporting effort
-- Faster tenant-wide visibility reviews
-- Centralized operational reporting
-- Bulk administrative analysis capabilities
-- Improved governance consistency
-- Repeatable operational workflows
-- Improved reporting scalability
-- Faster operational investigations
-- Centralized endpoint governance visibility
-- Improved security operations efficiency
-
-## Security & Governance Benefits
-
-- Identity governance visibility
-- Endpoint security posture reporting
-- Privileged access auditing
-- Compliance visibility
-- Administrative exposure analysis
-- Defender operational reporting
-- Centralized governance workflows
-- Security posture visibility
-- Operational security reporting
-- Endpoint compliance governance
-
----
-
-# Core Technologies
-
-- PowerShell 7
-- Microsoft Graph PowerShell SDK
-- Microsoft 365
-- Microsoft Entra ID
-- Microsoft Intune
-- Microsoft Defender for Endpoint
-- Conditional Access
-- Exchange Online PowerShell
-- HTML / CSS / JavaScript
-- GitHub
-- CSV Operational Reporting
-- Identity Governance
-- Endpoint Governance
-- Security Operations Automation
-
----
-
-# Current Platform Capabilities
-
-## Governance & Operational Reporting
-
-- Tenant health reporting
-- User inventory reporting
-- Administrative visibility
-- Group governance reporting
-- Governance analysis workflows
-
-## Identity Security Operations
-
-- MFA coverage reporting
-- Risky user auditing
-- Identity protection workflows
-- Risk detection reporting
-- Guest governance monitoring
-- Secure Score analysis
-
-## Endpoint Security Operations
-
-- Endpoint protection visibility
-- Intune device governance
-- Endpoint compliance reporting
-- Defender operational monitoring
-- Device inventory analysis
-- Endpoint risk visibility
-- Endpoint health monitoring
-
-## Security Operations Monitoring
-
-- Sign-in security visibility
-- Security event analysis
-- Conditional Access auditing
-- Administrative exposure analysis
-- Governance evidence collection
-- Security posture visibility
-
----
-
-# Repository Structure
+## Repository Structure
 
 ```text
 Enterprise-IT-Security-Operations-Toolkit/
 │
-├── dashboard/
-├── sample-reports/
-├── screenshots/
-├── scripts/
+├── phase-1-enterprise-operations-foundation/
+│   └── README.md
 │
 ├── phase-2-identity-threat-security-operations/
-│   ├── dashboard/
 │   ├── reports/
 │   ├── screenshots/
 │   ├── scripts/
 │   └── README.md
 │
 ├── phase-3-endpoint-security-defender-operations/
-│   ├── dashboard/
-│   ├── reports/
 │   ├── screenshots/
-│   ├── scripts/
 │   └── README.md
 │
-├── README.md
-├── index.html
+├── scripts/
+│   ├── m365-reports/          ← 9 core reporting scripts
+│   └── m365-admin-toolkit/    ← 10 operational admin scripts
+│
+├── sample-reports/
+│   └── m365/                  ← Real CSV outputs from lab
+│
+├── screenshots/               ← Phase 1 operational evidence
+├── dashboard/                 ← HTML dashboard assets
+├── index.html                 ← Interactive security operations dashboard
 └── LICENSE
 ```
 
 ---
 
-# Lab Environment Disclaimer
+## Prerequisites
 
-This platform was developed using isolated Microsoft 365 E3 and E5 lab environments created exclusively for:
-
-- Security operations simulation
-- Governance workflow testing
-- Operational reporting development
-- Automation engineering
-- Educational purposes
-- Portfolio demonstration
-- Enterprise administration practice
-
-All reports, screenshots, operational evidence, identities, and configurations contained within this repository originate from controlled non-production lab tenants.
-
-No real-world organizational infrastructure, customer data, confidential business information, or production enterprise tenant data are exposed within this repository.
+| Requirement | Details |
+|---|---|
+| PowerShell | Version 7+ |
+| Microsoft Graph SDK | `Install-Module Microsoft.Graph -Force` |
+| Exchange Online | `Install-Module ExchangeOnlineManagement -Force` (script 08 only) |
+| M365 Tenant | Admin account with appropriate role assignments |
+| Entra ID P2 | Required for PIM activation audits and Identity Protection scripts |
 
 ---
 
-# Future Platform Roadmap
+## Quick Start
 
-Planned future platform enhancements include:
+```powershell
+# Clone the repository
+git clone https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit.git
+cd Enterprise-IT-Security-Operations-Toolkit
 
-- Advanced Defender integrations
-- Threat analytics workflows
-- Endpoint exposure analysis
-- Security event correlation
-- Automated reporting pipelines
-- GitHub Actions automation
-- SIEM-style operational dashboards
-- Executive KPI visualization
-- Secure Score trend analysis
-- Cross-platform endpoint governance
-- Automated investigation workflows
-- Power BI integrations
-- Security telemetry visualization
-- Threat hunting workflows
+# Phase 1 — Run a tenant health report
+./scripts/m365-reports/tenant-health.ps1
+
+# Phase 1 — MFA compliance check
+./scripts/m365-admin-toolkit/06-mfa-enforcement-check.ps1
+
+# Phase 1 — Offboard a user
+./scripts/m365-admin-toolkit/01-user-offboarding.ps1 -UserPrincipalName "user@domain.com"
+
+# Phase 2 — Identity risk audit
+./phase-2-identity-threat-security-operations/scripts/risky-user-audit.ps1
+
+# Phase 2 — Secure Score report
+./phase-2-identity-threat-security-operations/scripts/secure-score-report.ps1
+```
+
+All reports export to:
+`~/Documents/Enterprise-IT-Security-Operations-Toolkit/`
+
+---
+
+## Core Technologies
+
+PowerShell 7 · Microsoft Graph PowerShell SDK · Microsoft 365 · Microsoft Entra ID · Microsoft Intune · Microsoft Defender for Endpoint · Exchange Online PowerShell · Conditional Access · Identity Protection · HTML / CSS / JavaScript · GitHub
 
 ---
 
-# Platform Vision
+## Lab Environment Disclaimer
 
-The Enterprise IT Security Operations Toolkit is designed as a scalable multi-phase enterprise security operations platform focused on:
+This platform was developed in isolated Microsoft 365 E3 and E5 lab tenants created exclusively for security operations simulation, governance workflow testing, automation engineering, and portfolio demonstration.
 
-- Governance
-- Identity Security
-- Endpoint Security
-- Security Operations
-- Compliance Visibility
-- Operational Reporting
-- Automation Engineering
-- Security Monitoring
-- Enterprise Administration
-- Operational Scalability
-
-The long-term vision is to continue evolving the platform into a comprehensive enterprise security operations and governance environment simulating real-world operational processes used within modern organizations.
+No production organizational infrastructure, customer data, confidential business information, or real enterprise tenant data is exposed within this repository.
 
 ---
+
+## Platform Roadmap
+
+Near-term planned additions:
+
+1. **GitHub Actions** — automated scheduled reporting pipeline
+2. **Power BI integration** — executive KPI dashboard layer over CSV outputs
+3. **Threat hunting workflows** — Defender Advanced Hunting queries (KQL)
+4. **Automated investigation playbooks** — scripted response for common alert types
+5. **Secure Score trend tracking** — longitudinal score history and improvement analysis
+
+---
+
+## Author
+
+**Md Rahat Islam Anik**
+Cloud Computing & Network Administration, George Brown College
+[linkedin.com/in/rahatislamanik](https://linkedin.com/in/rahatislamanik) · [github.com/rahatislamanik-spec](https://github.com/rahatislamanik-spec)

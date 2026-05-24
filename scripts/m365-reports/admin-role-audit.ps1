@@ -1,14 +1,14 @@
-# RahatOS Progress Center
+# Enterprise IT Security Operations Toolkit
 # Microsoft 365 Admin Role Audit Report
 # Author: Md Rahat Islam Anik
 
 Write-Host "=======================================" -ForegroundColor Cyan
-Write-Host " RAHATOS | ADMIN ROLE AUDIT REPORT " -ForegroundColor Cyan
+Write-Host " ENTERPRISE SECURITY OPS | ADMIN ROLE AUDIT REPORT " -ForegroundColor Cyan
 Write-Host "=======================================" -ForegroundColor Cyan
 
 Connect-MgGraph -Scopes "RoleManagement.Read.Directory","Directory.Read.All","User.Read.All"
 
-$ReportPath = "$HOME/Documents/RahatOS-Progress-Center/reports/m365"
+$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-1-enterprise-operations-foundation/reports"
 New-Item -ItemType Directory -Force -Path $ReportPath | Out-Null
 
 $DateStamp = Get-Date -Format "yyyy-MM-dd_HH-mm"

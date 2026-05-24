@@ -1,56 +1,38 @@
-async function loadGitHubMetrics() {
-    try {
-        const response = await fetch('../data/github/github_metrics.json');
-        const data = await response.json();
+// Enterprise IT Security Operations Toolkit
+// Dashboard — Static Metrics (GitHub Pages compatible)
+// Author: Md Rahat Islam Anik
 
-        document.getElementById('repoCount').innerText =
-            `Total Repositories: ${data.totalReposTracked}`;
+const platformMetrics = {
+  totalScripts: 19,
+  phases: 3,
+  reportTypes: 11,
+  labUsers: 28,
+  secureScore: "146.26 / 204",
+  technologies: 14
+};
 
-        document.getElementById('cloneCount').innerText =
-            `Total Clones: ${data.totalClones}`;
+function renderMetrics() {
+  const metricsEl = document.getElementById('platformMetrics');
+  if (!metricsEl) return;
 
-        document.getElementById('uniqueCloners').innerText =
-            `Unique Cloners: ${data.uniqueCloners}`;
-
-        document.getElementById('topRepo').innerText =
-            `Top Repo: ${data.topRepo}`;
-
-        document.getElementById('lastUpdated').innerText =
-            `Last Updated: ${data.lastUpdated}`;
-
-    } catch (error) {
-        console.error('Error loading GitHub metrics:', error);
-    }
+  metricsEl.innerHTML = `
+    <div class="metric-card">
+      <span class="metric-value">${platformMetrics.totalScripts}</span>
+      <span class="metric-label">PowerShell Scripts</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-value">${platformMetrics.phases}</span>
+      <span class="metric-label">Operational Phases</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-value">${platformMetrics.reportTypes}</span>
+      <span class="metric-label">Report Types</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-value">${platformMetrics.secureScore}</span>
+      <span class="metric-label">Lab Secure Score</span>
+    </div>
+  `;
 }
 
-async function loadTrafficLeaderboard() {
-    try {
-        const response = await fetch('../data/github/repo_traffic_report.json');
-        const repos = await response.json();
-
-        const leaderboard = document.getElementById('leaderboard');
-
-        repos.sort((a, b) => b.clones - a.clones);
-
-        repos.forEach(repo => {
-            const item = document.createElement('div');
-
-            item.classList.add('leaderboard-item');
-
-            item.innerHTML = `
-                <h3>${repo.name}</h3>
-                <p>Views: ${repo.views}</p>
-                <p>Clones: ${repo.clones}</p>
-                <p>Unique Cloners: ${repo.uniqueCloners}</p>
-            `;
-
-            leaderboard.appendChild(item);
-        });
-
-    } catch (error) {
-        console.error('Error loading traffic leaderboard:', error);
-    }
-}
-
-loadGitHubMetrics();
-loadTrafficLeaderboard();
+document.addEventListener('DOMContentLoaded', renderMetrics);

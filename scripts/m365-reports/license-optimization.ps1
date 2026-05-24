@@ -1,14 +1,14 @@
-# RahatOS Progress Center
+# Enterprise IT Security Operations Toolkit
 # Microsoft 365 License Optimization Report
 # Author: Md Rahat Islam Anik
 
 Write-Host "=======================================" -ForegroundColor Cyan
-Write-Host " RAHATOS | LICENSE OPTIMIZATION REPORT " -ForegroundColor Cyan
+Write-Host " ENTERPRISE SECURITY OPS | LICENSE OPTIMIZATION REPORT " -ForegroundColor Cyan
 Write-Host "=======================================" -ForegroundColor Cyan
 
 Connect-MgGraph -Scopes "User.Read.All","Directory.Read.All","Organization.Read.All"
 
-$ReportPath = "$HOME/Documents/RahatOS-Progress-Center/reports/m365"
+$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-1-enterprise-operations-foundation/reports"
 New-Item -ItemType Directory -Force -Path $ReportPath | Out-Null
 
 $DateStamp = Get-Date -Format "yyyy-MM-dd_HH-mm"

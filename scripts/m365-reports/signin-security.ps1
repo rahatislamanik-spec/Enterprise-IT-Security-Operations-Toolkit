@@ -1,14 +1,14 @@
-# RahatOS Progress Center
+# Enterprise IT Security Operations Toolkit
 # Microsoft 365 Sign-In Security Report
 # Author: Md Rahat Islam Anik
 
 Write-Host "=======================================" -ForegroundColor Cyan
-Write-Host " RAHATOS | SIGN-IN SECURITY REPORT " -ForegroundColor Cyan
+Write-Host " ENTERPRISE SECURITY OPS | SIGN-IN SECURITY REPORT " -ForegroundColor Cyan
 Write-Host "=======================================" -ForegroundColor Cyan
 
 Connect-MgGraph -Scopes "AuditLog.Read.All","Directory.Read.All"
 
-$ReportPath = "$HOME/Documents/RahatOS-Progress-Center/reports/m365"
+$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-1-enterprise-operations-foundation/reports"
 New-Item -ItemType Directory -Force -Path $ReportPath | Out-Null
 
 $DateStamp = Get-Date -Format "yyyy-MM-dd_HH-mm"

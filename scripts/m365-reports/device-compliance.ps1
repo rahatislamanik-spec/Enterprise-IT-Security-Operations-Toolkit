@@ -1,14 +1,14 @@
-# RahatOS Progress Center
+# Enterprise IT Security Operations Toolkit
 # Microsoft 365 Device Compliance Report
 # Author: Md Rahat Islam Anik
 
 Write-Host "======================================="
-Write-Host " RAHATOS | DEVICE COMPLIANCE REPORT "
+Write-Host " ENTERPRISE SECURITY OPS | DEVICE COMPLIANCE REPORT "
 Write-Host "======================================="
 
 Connect-MgGraph -Scopes "Device.Read.All","Directory.Read.All"
 
-$ReportPath = "$HOME/Documents/RahatOS-Progress-Center/reports/m365"
+$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-1-enterprise-operations-foundation/reports"
 New-Item -ItemType Directory -Force -Path $ReportPath | Out-Null
 
 $DateStamp = Get-Date -Format "yyyy-MM-dd_HH-mm"

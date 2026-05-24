@@ -1,14 +1,14 @@
-# RahatOS Progress Center
+# Enterprise IT Security Operations Toolkit
 # Privileged User Exposure Audit
 # Tier 3 Security Operations Report
 
 Write-Host "==========================================="
-Write-Host " RAHATOS | PRIVILEGED USER EXPOSURE AUDIT "
+Write-Host " ENTERPRISE SECURITY OPS | PRIVILEGED USER EXPOSURE AUDIT "
 Write-Host "==========================================="
 
 Connect-MgGraph -Scopes "RoleManagement.Read.Directory","Directory.Read.All","User.Read.All"
 
-$ReportPath = "$HOME/Documents/RahatOS-Progress-Center/reports/m365"
+$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-1-enterprise-operations-foundation/reports"
 New-Item -ItemType Directory -Force -Path $ReportPath | Out-Null
 
 $DateStamp = Get-Date -Format "yyyy-MM-dd_HH-mm"
