@@ -269,7 +269,7 @@ The Zero Trust principle applied here: **never trust, always verify** — every 
 
 | Phase | Topic |
 |---|---|
-| [Phase 1](../phase-1-identity-tenant-security-baseline/) | Identity & Tenant Security Baseline |
+| [Phase 1](../phase-1-enterprise-operations-foundation/) | Identity & Tenant Security Baseline |
 | [Phase 2](../phase-2-identity-threat-security-operations/) | Identity Threat & Security Operations |
 | [Phase 3](../phase-3-endpoint-security-defender-operations/) | Endpoint Security & Defender Operations |
 | **Phase 4** | **BYOD Conditional Access Governance** ← You are here |
