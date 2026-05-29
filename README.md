@@ -226,3 +226,19 @@ Near-term planned additions:
 **Md Rahat Islam Anik**
 Cloud Computing & Network Administration, George Brown College
 [linkedin.com/in/rahatislamanik](https://linkedin.com/in/rahatislamanik) · [github.com/rahatislamanik-spec](https://github.com/rahatislamanik-spec)
+
+---
+
+### Phase 4 — BYOD Conditional Access Governance
+
+**Focus:** Zero Trust device governance — enforcing compliant device requirements for BYOD and personal devices accessing Microsoft 365 resources via Conditional Access.
+
+**Highlights:**
+
+- BYOD device inventory — classifies all Entra ID devices by ownership, trust type, and compliance state
+- Conditional Access policy audit — identifies policies requiring compliant devices, targeting BYOD, or blocking unmanaged devices
+- Compliant device access audit — cross-references device compliance with CA policy impact per device
+- Three tiered Intune compliance policies: iOS BYOD, Windows Standard, Windows Faculty/Staff
+- Non-compliant device retirement workflow demonstrated via Intune Device Actions
+
+[→ Phase 4 README](https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/blob/main/phase-4-byod-conditional-access-governance/README.md)
