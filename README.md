@@ -242,3 +242,18 @@ Cloud Computing & Network Administration, George Brown College
 - Non-compliant device retirement workflow demonstrated via Intune Device Actions
 
 [→ Phase 4 README](https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/blob/main/phase-4-byod-conditional-access-governance/README.md)
+
+---
+
+## 🌐 Portfolio Ecosystem
+
+This project is part of a 4-repo enterprise IT portfolio covering the full IT lifecycle.
+
+| Layer | Project | Focus |
+|---|---|---|
+| 01 — Network Foundation | [Enterprise IT Network Diagnostics Toolkit](https://github.com/rahatislamanik-spec/Enterprise-IT-Network-Diagnostics-Toolkit) | DNS · Connectivity · Network Diagnostics |
+| 02 — User Lifecycle | [Project Arabesque](https://github.com/rahatislamanik-spec/Project-Arabesque) | Onboarding · Offboarding · M365 Automation |
+| 03 — Identity & Security | **You are here** | Entra ID · Intune · Defender · Zero Trust |
+| 04 — M365 Operations | [Meridian Institute M365 Lab](https://github.com/rahatislamanik-spec/Meridian-Institute-M365-Lab) | Exchange · Teams · SharePoint · Purview |
+
+👉 [View Full Portfolio](https://rahatislamanik-spec.github.io/IT-Portfolio-Rahat-Islam-Anik/)
