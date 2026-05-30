@@ -257,3 +257,33 @@ This project is part of a 4-repo enterprise IT portfolio covering the full IT li
 | 04 — M365 Operations | [Meridian Institute M365 Lab](https://github.com/rahatislamanik-spec/Meridian-Institute-M365-Lab) | Exchange · Teams · SharePoint · Purview |
 
 👉 [View Full Portfolio](https://rahatislamanik-spec.github.io/IT-Portfolio-Rahat-Islam-Anik/)
+
+---
+
+### Phase 5 — Exchange Online Mail Flow Audit
+
+**Focus:** Automated audit of Exchange Online mail flow security — external forwarding rules, inbox rules, transport rules, anti-spam policies, and litigation hold status across all mailboxes.
+
+**Highlights:**
+- 23 mailboxes audited for unauthorized external forwarding — none detected
+- Inbox rules scanned for forwarding/redirect actions
+- Transport rule inventory with state and action documentation
+- Anti-spam policy coverage verified across inbound, outbound, and connection filtering
+- 4 CSV reports exported via PowerShell and Exchange Online Management module
+
+[→ Phase 5 README](https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/blob/main/phase-5-exchange-online-mail-flow-audit/README.md)
+
+---
+
+### Phase 6 — Web-Only Access Governance for Unmanaged Devices
+
+**Focus:** Zero Trust web-only access enforcement — Conditional Access app-enforced restrictions limiting non-compliant and unmanaged BYOD devices to browser-only access for SharePoint Online and Exchange Online.
+
+**Highlights:**
+- CA policy targeting non-compliant devices with device filter rule
+- App-enforced restrictions session control — browser-only, no native apps, no downloads
+- Targets Office 365 SharePoint Online and Exchange Online
+- PowerShell audit script detects and classifies web-only governance policies
+- Before/after audit evidence showing 0 → 1 web-only policy detection
+
+[→ Phase 6 README](https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/blob/main/phase-6-web-only-access-governance/README.md)
