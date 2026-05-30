@@ -1,0 +1,2 @@
+"PolicyName","IsDefault","SpamAction","HighConfidenceSpam","PhishAction","BulkThreshold","QuarantineRetention"
+"Default","True","MoveToJmf","MoveToJmf","MoveToJmf","7","15"

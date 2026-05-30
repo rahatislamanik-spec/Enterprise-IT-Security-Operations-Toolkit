@@ -1,0 +1,8 @@
+"RuleName","State","Priority","Description","Actions","Conditions"
+"Block External Auto-Forwarding","Disabled","0","If the message:
+	Is sent to 'Outside the organization'
+	and Is message type 'Auto-forward'
+Take the following actions:
+	Set audit severity level to 'Medium'
+	and reject the message and include the explanation 'External auto-forwarding is blocked by organizational security policy.' with the status code: '5.7.1'
+","Microsoft.Exchange.MessagingPolicies.Rules.Tasks.SetAuditSeverityAction; Microsoft.Exchange.MessagingPolicies.Rules.Tasks.RejectMessageAction","Microsoft.Exchange.MessagingPolicies.Rules.Tasks.SentToScopePredicate; Microsoft.Exchange.MessagingPolicies.Rules.Tasks.MessageTypeMatchesPredicate"
