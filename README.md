@@ -47,8 +47,8 @@ From the M365 E3/E5 lab environment:
 | Active directory roles | 11 |
 | Microsoft Secure Score | 146.26 / 204 |
 | Groups audited | 10 (7 security, 3 mail-enabled, 4 dynamic) |
-| Report types generated | 11 unique report files across 3 phases |
-| Scripts in platform | 19 PowerShell scripts |
+| Report types generated | 25+ unique report files across 6 phases |
+| Scripts in platform    | 25+ PowerShell scripts                     |
 
 ---
 
@@ -108,7 +108,7 @@ Microsoft 365 / Entra ID / Intune / Defender
                     ↓
         Microsoft Graph + Security APIs
                     ↓
-       PowerShell Automation Layer (19 scripts)
+       PowerShell Automation Layer (25+ scripts)
                     ↓
   Governance & Risk Classification Logic
      ↙                                    ↘
@@ -247,7 +247,7 @@ Cloud Computing & Network Administration, George Brown College
 
 ## 🌐 Portfolio Ecosystem
 
-This project is part of a 4-repo enterprise IT portfolio covering the full IT lifecycle.
+This project is part of a multi-repo enterprise IT portfolio covering the full IT lifecycle.
 
 | Layer | Project | Focus |
 |---|---|---|
