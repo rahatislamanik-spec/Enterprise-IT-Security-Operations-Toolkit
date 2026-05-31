@@ -287,3 +287,19 @@ This project is part of a multi-repo enterprise IT portfolio covering the full I
 - Before/after audit evidence showing 0 → 1 web-only policy detection
 
 [→ Phase 6 README](https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/blob/main/phase-6-web-only-access-governance/README.md)
+
+---
+
+### Phase 7 — Entra ID App Registration Audit
+
+**Focus:** Automated audit of all Entra ID app registrations, OAuth permission grants, service principals, credential expiry, and high-risk permission assignments across the Microsoft 365 tenant.
+
+**Highlights:**
+- 1 app registration audited — AWS Single-Account Access (SAML SSO integration)
+- 241 service principals inventoried across Microsoft first-party and third-party apps
+- 8 OAuth grants reviewed — full delegated permission inventory
+- 3 high-risk permission grants detected — User.ReadWrite.All, Directory.ReadWrite.All, AuditLog.Read.All
+- 0 expired credentials — no abandoned app registrations
+- 4 CSV reports exported via PowerShell and Microsoft Graph
+
+[→ Phase 7 README](https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/blob/main/phase-7-entra-app-registration-audit/README.md)
