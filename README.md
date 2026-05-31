@@ -47,8 +47,8 @@ From the M365 E3/E5 lab environment:
 | Active directory roles | 11 |
 | Microsoft Secure Score | 146.26 / 204 |
 | Groups audited | 10 (7 security, 3 mail-enabled, 4 dynamic) |
-| Report types generated | 25+ unique report files across 6 phases |
-| Scripts in platform    | 25+ PowerShell scripts                     |
+| Report types generated | 25+ unique report files across 7 phases |
+| Scripts in platform    | 30+ PowerShell scripts                     |
 
 ---
 
