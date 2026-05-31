@@ -2,7 +2,7 @@
 
 Enterprise-grade Microsoft 365 security operations and governance platform built with PowerShell, Microsoft Graph, Entra ID, Intune, Microsoft Defender, and HTML dashboards.
 
-**25+ PowerShell scripts. 6 operational phases. Real lab evidence. End-to-end enterprise security simulation.**
+**30+ PowerShell scripts. 7 operational phases. Real lab evidence. End-to-end enterprise security simulation.**
 
 ---
 
