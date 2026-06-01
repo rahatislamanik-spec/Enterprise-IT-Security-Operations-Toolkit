@@ -303,3 +303,19 @@ This project is part of a multi-repo enterprise IT portfolio covering the full I
 - 4 CSV reports exported via PowerShell and Microsoft Graph
 
 [→ Phase 7 README](https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/blob/main/phase-7-entra-app-registration-audit/README.md)
+
+---
+
+### Phase 8 — M365 Incident Response Security Triage
+
+**Focus:** Rapid evidence collection for Microsoft 365 security incidents — user enumeration, license governance, security group review, and administrative role exposure assessment using Microsoft Graph PowerShell.
+
+**Highlights:**
+- 25 user accounts enumerated with account status and identity details
+- 3 license SKUs reviewed — consumption and capability status documented
+- 10 security groups inventoried — membership and security enablement verified
+- 11 administrative roles identified — exposure assessment for incident triage
+- Executive summary report generated for escalation documentation
+- 5 structured reports exported via PowerShell and Microsoft Graph
+
+[→ Phase 8 README](https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/blob/main/phase-8-m365-incident-response-security-triage/README.md)
