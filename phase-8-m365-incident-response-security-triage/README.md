@@ -1,4 +1,4 @@
-# Phase 5 — Microsoft 365 Security Investigation & Incident Response
+# Phase 8 — Microsoft 365 Incident Response Security Triage & Incident Response
 
 > **Enterprise-IT-Security-Operations-Toolkit**  
 > Microsoft 365 security triage workflow using Microsoft Graph PowerShell, Entra ID, licensing, group, and administrative role evidence.
@@ -7,7 +7,7 @@
 
 ## Project Overview
 
-Phase 5 adds an incident-response layer to the Enterprise IT Security Operations Toolkit.
+Phase 8 adds an incident-response layer to the Enterprise IT Security Operations Toolkit.
 
 This phase simulates what an IT administrator, Microsoft 365 administrator, or security operations analyst would do during an initial Microsoft 365 security investigation.
 

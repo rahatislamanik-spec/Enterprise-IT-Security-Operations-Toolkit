@@ -1,78 +1,84 @@
-# ==========================================================
-# Enterprise IT Security Operations Toolkit
-# Phase 5 - Microsoft 365 Security Investigation & Incident Response
-# Author: Md Rahat Islam Anik
-# ==========================================================
-
-$ReportRoot = Join-Path $PSScriptRoot "../reports"
-$DateStamp = Get-Date -Format "yyyy-MM-dd_HH-mm"
-New-Item -ItemType Directory -Force -Path $ReportRoot | Out-Null
-
-Write-Host ""
-Write-Host "===================================================="
-Write-Host " PHASE 5 | M365 SECURITY INVESTIGATION TRIAGE"
-Write-Host "===================================================="
-Write-Host ""
+# =============================================================
+#  invoke-m365-incident-response.ps1
+#  Phase 8 — M365 Incident Response Security Triage
+#  Enterprise-IT-Security-Operations-Toolkit
+#  Author: Md Rahat Islam Anik
+#  Description: Rapid evidence collection script for Microsoft
+#  365 security incidents — user enumeration, license governance,
+#  group review, and administrative role exposure triage.
+# =============================================================
 
 Connect-MgGraph -Scopes "User.Read.All","Directory.Read.All","Policy.Read.All","Organization.Read.All" -NoWelcome
 
-Write-Host "Collecting user evidence..."
-$Users = Get-MgUser -Top 25
-$Users | Select-Object DisplayName, Id, Mail, UserPrincipalName |
-Export-Csv (Join-Path $ReportRoot "Phase5_User_Enumeration_$DateStamp.csv") -NoTypeInformation
+$DateStamp = Get-Date -Format "yyyy-MM-dd"
+$ReportRoot = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-8-m365-incident-response-security-triage/reports"
 
-Write-Host "Collecting license evidence..."
+Write-Host "`n🔐 Phase 8 — M365 Incident Response Security Triage" -ForegroundColor Cyan
+Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor DarkGray
+
+# ── 1. User Enumeration ──────────────────────────────────────
+Write-Host "`n📋 Collecting user evidence..." -ForegroundColor Cyan
+$Users = Get-MgUser -Top 25 -Property DisplayName,Id,Mail,UserPrincipalName,AccountEnabled,CreatedDateTime
+$UserReport = $Users | Select-Object DisplayName, UserPrincipalName, Mail, AccountEnabled, CreatedDateTime
+$UserReport | Export-Csv "$ReportRoot/Phase8_User_Enumeration_$DateStamp.csv" -NoTypeInformation
+Write-Host "   Users collected: $($Users.Count)" -ForegroundColor Green
+
+# ── 2. License Governance ────────────────────────────────────
+Write-Host "`n📋 Collecting license evidence..." -ForegroundColor Cyan
 $Skus = Get-MgSubscribedSku
-$Skus | Select-Object Id, AccountName, AppliesTo, CapabilityStatus, ConsumedUnits, SkuId |
-Export-Csv (Join-Path $ReportRoot "Phase5_License_Governance_$DateStamp.csv") -NoTypeInformation
+$LicenseReport = $Skus | Select-Object @{N="LicenseName";E={$_.SkuPartNumber}}, CapabilityStatus, ConsumedUnits, @{N="TotalUnits";E={$_.PrepaidUnits.Enabled}}
+$LicenseReport | Export-Csv "$ReportRoot/Phase8_License_Governance_$DateStamp.csv" -NoTypeInformation
+Write-Host "   License SKUs reviewed: $($Skus.Count)" -ForegroundColor Green
 
-Write-Host "Collecting group evidence..."
-$Groups = Get-MgGroup -Top 25
-$Groups | Select-Object DisplayName, Id, MailNickname, Description |
-Export-Csv (Join-Path $ReportRoot "Phase5_Security_Group_Review_$DateStamp.csv") -NoTypeInformation
+# ── 3. Security Group Review ─────────────────────────────────
+Write-Host "`n📋 Collecting group evidence..." -ForegroundColor Cyan
+$Groups = Get-MgGroup -Top 25 -Property DisplayName,Id,MailNickname,Description,GroupTypes,SecurityEnabled
+$GroupReport = $Groups | Select-Object DisplayName, MailNickname, SecurityEnabled, Description
+$GroupReport | Export-Csv "$ReportRoot/Phase8_Security_Group_Review_$DateStamp.csv" -NoTypeInformation
+Write-Host "   Groups reviewed: $($Groups.Count)" -ForegroundColor Green
 
-Write-Host "Collecting administrative role evidence..."
+# ── 4. Administrative Role Review ────────────────────────────
+Write-Host "`n📋 Collecting administrative role evidence..." -ForegroundColor Cyan
 $Roles = Get-MgDirectoryRole
-$Roles | Select-Object DisplayName, Id, Description |
-Export-Csv (Join-Path $ReportRoot "Phase5_Admin_Role_Review_$DateStamp.csv") -NoTypeInformation
+$RoleReport = $Roles | Select-Object DisplayName, Description, Id
+$RoleReport | Export-Csv "$ReportRoot/Phase8_Admin_Role_Review_$DateStamp.csv" -NoTypeInformation
+Write-Host "   Administrative roles reviewed: $($Roles.Count)" -ForegroundColor Green
+
+# ── 5. Summary ───────────────────────────────────────────────
+Write-Host "`n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor DarkGray
+Write-Host "  PHASE 8 — INCIDENT RESPONSE TRIAGE SUMMARY" -ForegroundColor Yellow
+Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor DarkGray
+Write-Host "  Users Enumerated        : $($Users.Count)"
+Write-Host "  License SKUs Reviewed   : $($Skus.Count)"
+Write-Host "  Groups Reviewed         : $($Groups.Count)"
+Write-Host "  Admin Roles Identified  : $($Roles.Count)"
+Write-Host ""
 
 $Summary = @"
 ====================================================
-M365 SECURITY INVESTIGATION TRIAGE SUMMARY
+M365 INCIDENT RESPONSE SECURITY TRIAGE SUMMARY
 ====================================================
+Generated: $(Get-Date)
+Phase: 8 — M365 Incident Response Security Triage
 
-Generated:
-$(Get-Date)
-
-Users Reviewed:
-$($Users.Count)
-
-License SKUs Reviewed:
-$($Skus.Count)
-
-Groups Reviewed:
-$($Groups.Count)
-
-Administrative Roles Reviewed:
-$($Roles.Count)
+Users Enumerated     : $($Users.Count)
+License SKUs         : $($Skus.Count)
+Groups Reviewed      : $($Groups.Count)
+Admin Roles          : $($Roles.Count)
 
 Investigation Areas:
-- User identity visibility
-- License governance
-- Security and operational groups
-- Administrative role exposure
-- Initial Microsoft 365 incident response evidence
+- User identity visibility and account status
+- License governance and consumption
+- Security and operational group review
+- Administrative role exposure assessment
+- Initial M365 incident response evidence collection
 
-Generated By:
-Enterprise IT Security Operations Toolkit
-Phase 5 - Microsoft 365 Security Investigation & Incident Response
-
+Generated By: Enterprise IT Security Operations Toolkit
+Phase 8 — M365 Incident Response Security Triage
 ====================================================
 "@
 
-$Summary | Out-File (Join-Path $ReportRoot "Phase5_Executive_Summary_$DateStamp.txt")
+$Summary | Out-File "$ReportRoot/Phase8_Executive_Summary_$DateStamp.txt"
 
-Write-Host ""
-Write-Host "Reports generated successfully."
-Write-Host "Location: $ReportRoot"
-Write-Host ""
+Write-Host "✅ Reports saved to: $ReportRoot" -ForegroundColor Green
+Write-Host "`nDone!`n" -ForegroundColor Cyan
