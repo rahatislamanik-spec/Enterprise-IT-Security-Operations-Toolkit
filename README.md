@@ -1,4 +1,3 @@
-
 # Enterprise IT Security Operations Toolkit
 
 Enterprise-grade Microsoft 365 security operations and governance platform built with PowerShell, Microsoft Graph, Entra ID, Intune, Microsoft Defender, and Exchange Online.
@@ -46,7 +45,7 @@ Built in an isolated Microsoft 365 E3/E5 lab environment with **real executed sc
 | Licensed accounts | 21 |
 | Active directory roles | 11 |
 | Microsoft Secure Score | 238.26 / 413 (57.7%) |
-| Groups audited | 10 (7 security, 3 mail-enabled, 4 dynamic) |
+| Groups audited | 10 |
 | App registrations audited | 1 (AWS Single-Account Access) |
 | Service principals inventoried | 241 |
 | High-risk OAuth grants detected | 3 |
@@ -110,7 +109,6 @@ Built in an isolated Microsoft 365 E3/E5 lab environment with **real executed sc
 - Conditional Access policy audit — identifies policies requiring compliant devices
 - Three tiered Intune compliance policies: iOS BYOD, Windows Standard, Windows Faculty/Staff
 - Non-compliant device retirement workflow demonstrated via Intune Device Actions
-- 3 PowerShell scripts with real CSV evidence
 
 [→ Phase 4 README](phase-4-byod-conditional-access-governance/README.md)
 
@@ -136,7 +134,7 @@ Built in an isolated Microsoft 365 E3/E5 lab environment with **real executed sc
 **Focus:** Zero Trust web-only access enforcement — Conditional Access app-enforced restrictions limiting non-compliant BYOD devices to browser-only access for SharePoint Online and Exchange Online.
 
 **Highlights:**
-- CA policy targeting non-compliant devices with device filter rule (`device.isCompliant -ne True`)
+- CA policy targeting non-compliant devices with device filter rule
 - App-enforced restrictions session control — browser-only, no native apps, no downloads
 - PowerShell audit script detects and classifies web-only governance policies
 - Before/after audit evidence showing 0 → 1 web-only policy detection
@@ -208,58 +206,20 @@ CSV / TXT Reports         HTML Dashboards & Visualization
 Enterprise-IT-Security-Operations-Toolkit/
 │
 ├── phase-1-enterprise-operations-foundation/
-│   └── README.md
-│
 ├── phase-2-identity-threat-security-operations/
-│   ├── reports/
-│   ├── screenshots/
-│   ├── scripts/
-│   └── README.md
-│
 ├── phase-3-endpoint-security-defender-operations/
-│   ├── screenshots/
-│   └── README.md
-│
 ├── phase-4-byod-conditional-access-governance/
-│   ├── reports/
-│   ├── screenshots/
-│   ├── scripts/
-│   └── README.md
-│
 ├── phase-5-exchange-online-mail-flow-audit/
-│   ├── reports/
-│   ├── screenshots/
-│   ├── scripts/
-│   └── README.md
-│
 ├── phase-6-web-only-access-governance/
-│   ├── reports/
-│   ├── screenshots/
-│   ├── scripts/
-│   └── README.md
-│
 ├── phase-7-entra-app-registration-audit/
-│   ├── reports/
-│   ├── screenshots/
-│   ├── scripts/
-│   └── README.md
-│
 ├── phase-8-m365-incident-response-security-triage/
-│   ├── reports/
-│   ├── screenshots/
-│   ├── scripts/
-│   └── README.md
-│
 ├── scripts/
-│   ├── m365-reports/          ← 9 core reporting scripts
-│   └── m365-admin-toolkit/    ← 10 operational admin scripts
-│
+│   ├── m365-reports/
+│   └── m365-admin-toolkit/
 ├── sample-reports/
-│   └── m365/                  ← Real CSV outputs from lab
-│
-├── screenshots/               ← Phase 1 operational evidence
-├── dashboard/                 ← HTML dashboard assets
-├── index.html                 ← Interactive security operations dashboard
+├── screenshots/
+├── dashboard/
+├── index.html
 └── LICENSE
 ```
 
@@ -273,7 +233,7 @@ Enterprise-IT-Security-Operations-Toolkit/
 | Microsoft Graph SDK | `Install-Module Microsoft.Graph -Force` |
 | Exchange Online | `Install-Module ExchangeOnlineManagement -Force` (Phase 5) |
 | M365 Tenant | Admin account with appropriate role assignments |
-| Entra ID P2 | Required for PIM activation audits and Identity Protection scripts |
+| Entra ID P2 | Required for PIM and Identity Protection scripts |
 
 ---
 
@@ -284,11 +244,8 @@ Enterprise-IT-Security-Operations-Toolkit/
 git clone https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit.git
 cd Enterprise-IT-Security-Operations-Toolkit
 
-# Phase 1 — Run a tenant health report
+# Phase 1 — Tenant health report
 ./scripts/m365-reports/tenant-health.ps1
-
-# Phase 4 — BYOD device audit
-./phase-4-byod-conditional-access-governance/scripts/byod-device-inventory.ps1
 
 # Phase 5 — Exchange mail flow audit
 ./phase-5-exchange-online-mail-flow-audit/scripts/exchange-mail-flow-audit.ps1
@@ -312,13 +269,11 @@ PowerShell 7 · Microsoft Graph PowerShell SDK · Microsoft 365 · Microsoft Ent
 
 This platform was developed in isolated Microsoft 365 E3 and E5 lab tenants created exclusively for security operations simulation, governance workflow testing, automation engineering, and portfolio demonstration.
 
-No production organizational infrastructure, customer data, confidential business information, or real enterprise tenant data is exposed within this repository.
+No production organizational infrastructure, customer data, or real enterprise tenant data is exposed within this repository.
 
 ---
 
 ## 🌐 Portfolio Ecosystem
-
-This project is part of a multi-repo enterprise IT portfolio covering the full IT lifecycle.
 
 | Layer | Project | Focus |
 |---|---|---|
