@@ -288,3 +288,11 @@ No production organizational infrastructure, customer data, or real enterprise t
 
 *Built by Md Rahat Islam Anik — Cloud Computing & Network Administration Graduate, George Brown Polytechnic*
 *[LinkedIn](https://linkedin.com/in/rahatislamanik) · [GitHub](https://github.com/rahatislamanik-spec) · [Portfolio](https://rahatislamanik-spec.github.io/IT-Portfolio-Rahat-Islam-Anik/)*
+
+## 🔗 Related Portfolio Projects
+
+| Project | Description |
+|---|---|
+| [AD Identity Operations Toolkit](https://github.com/rahatislamanik-spec/AD-Identity-Operations-Toolkit) | Enterprise AD governance — stale accounts, privileged access, service account security, OSFI E-21 |
+| [Meridian Institute M365 Lab](https://github.com/rahatislamanik-spec/Meridian-Institute-M365-Lab) | End-to-end M365 tenant governance simulation — Defender XDR, Entra ID, Secure Score |
+| [Enterprise IT Network Diagnostics Toolkit](https://github.com/rahatislamanik-spec/Enterprise-IT-Network-Diagnostics-Toolkit) | Cross-platform PowerShell network diagnostics with HTML reporting |
