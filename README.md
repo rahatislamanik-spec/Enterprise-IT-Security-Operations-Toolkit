@@ -1,18 +1,45 @@
 # Enterprise IT Security Operations Toolkit
 
-Enterprise-grade Microsoft 365 security operations and governance platform built with PowerShell, Microsoft Graph, Entra ID, Intune, Microsoft Defender, and Exchange Online.
+Microsoft 365 security operations lab and governance toolkit built with PowerShell, Microsoft Graph, Entra ID, Intune, Microsoft Defender, and Exchange Online.
 
-**30+ PowerShell scripts. 8 operational phases. Real lab evidence. End-to-end enterprise security simulation.**
+**30+ PowerShell scripts. 8 operational phases. Executed lab evidence. Microsoft 365 security operations simulation.**
 
 🌐 **[View Live Portfolio Site](https://rahatislamanik-spec.github.io/Enterprise-IT-Security-Operations-Toolkit/)**
 
 ---
 
-## Platform Overview
+## Portfolio Case Summary
 
-The Enterprise IT Security Operations Toolkit is a multi-phase, hands-on security operations and governance platform built to simulate real-world Microsoft 365 administration — from tenant health baselines through identity threat visibility, endpoint security, BYOD governance, mail flow auditing, web-only access enforcement, app registration auditing, and incident response triage.
+| STAR element | Summary |
+|---|---|
+| Situation | Microsoft 365 administrators often need to review tenant health, identity exposure, endpoint posture, mail flow security, app permissions, and investigation evidence across several portals. |
+| Task | Build a repeatable lab toolkit that collects security and governance evidence with PowerShell instead of relying only on manual portal review. |
+| Action | Implemented Microsoft Graph, Exchange Online, Entra ID, Intune, Defender, Conditional Access, and reporting workflows across 8 operational phases. |
+| Result | Produced scripts, CSV/TXT reports, screenshots, and dashboard views that demonstrate Microsoft 365 administration, security review, and incident triage readiness. |
 
-Built in an isolated Microsoft 365 E3/E5 lab environment with **real executed scripts, real CSV output reports, and operational screenshots** as evidence of live implementation.
+---
+
+## Toolkit Overview
+
+The Enterprise IT Security Operations Toolkit is a multi-phase, hands-on Microsoft 365 security operations and governance lab built to simulate real-world administration workflows — from tenant health baselines through identity threat visibility, endpoint security, BYOD governance, mail flow auditing, web-only access configuration, app registration auditing, and incident response triage.
+
+Built in isolated Microsoft 365 E3/E5 lab environments with **executed scripts, CSV/TXT output reports, and operational screenshots** as evidence of implementation.
+
+---
+
+## What This Proves for Hiring Managers
+
+| Target skill | Evidence in this repo |
+|---|---|
+| Microsoft 365 administration | Tenant health, users, groups, licenses, roles, Exchange Online, and report generation |
+| Entra ID / identity governance | MFA method review, risky users, guest users, admin roles, PIM-related review, OAuth grants |
+| Conditional Access | Policy inventory, report-only validation, compliant-device requirements, web-only access controls |
+| Intune / endpoint administration | Device inventory, compliance posture, Defender visibility, endpoint governance screenshots |
+| PowerShell automation | 30+ scripts using Microsoft Graph and Exchange Online modules |
+| Security operations | Secure Score tracking, high-risk permission review, sign-in evidence, incident triage package |
+| Documentation discipline | Phase READMEs, screenshots, sample reports, GitHub Pages site, and evidence map |
+
+For a quick evidence review, start with [`docs/evidence-map.md`](docs/evidence-map.md).
 
 ---
 
@@ -26,12 +53,12 @@ Built in an isolated Microsoft 365 E3/E5 lab environment with **real executed sc
 | Identity Threat | Risky user auditing, risk detection reporting, Secure Score tracking |
 | License Optimization | Waste detection — disabled users with licenses, unlicensed active members |
 | Endpoint Security | Intune device governance, Defender visibility, compliance posture |
-| CA Policy Governance | Policy state audit — enforced vs. report-only vs. disabled |
-| BYOD Governance | Zero Trust device enforcement via Conditional Access |
+| CA Policy Governance | Policy state audit — enabled vs. report-only vs. disabled |
+| BYOD Governance | Zero Trust device access controls via Conditional Access |
 | Mail Flow Security | External forwarding, inbox rules, transport rules, anti-spam audit |
-| Web-Only Access | App-enforced restrictions for unmanaged devices |
+| Web-Only Access | App-enforced restrictions configured for unmanaged-device scenarios |
 | App Registration Audit | OAuth grants, service principals, high-risk permission detection |
-| Incident Response | Rapid evidence collection — users, licenses, groups, admin roles |
+| Incident Triage | Rapid evidence collection — users, licenses, groups, admin roles |
 | Offboarding Automation | Disable + session revoke + license removal + group cleanup |
 
 ---
@@ -51,7 +78,7 @@ Built in an isolated Microsoft 365 E3/E5 lab environment with **real executed sc
 | High-risk OAuth grants detected | 3 |
 | Mailboxes audited | 23 |
 | Report types generated | 25+ unique report files across 8 phases |
-| Scripts in platform | 30+ PowerShell scripts |
+| Scripts in toolkit | 30+ PowerShell scripts |
 
 ---
 
@@ -102,7 +129,7 @@ Built in an isolated Microsoft 365 E3/E5 lab environment with **real executed sc
 
 ### Phase 4 — BYOD Conditional Access Governance
 
-**Focus:** Zero Trust device governance — enforcing compliant device requirements for BYOD and personal devices accessing Microsoft 365 resources via Conditional Access.
+**Focus:** Zero Trust device governance — configured and audited compliant-device requirements for BYOD and personal devices accessing Microsoft 365 resources via Conditional Access.
 
 **Highlights:**
 - BYOD device inventory — classifies all Entra ID devices by ownership, trust type, and compliance state
@@ -131,7 +158,7 @@ Built in an isolated Microsoft 365 E3/E5 lab environment with **real executed sc
 
 ### Phase 6 — Web-Only Access Governance for Unmanaged Devices
 
-**Focus:** Zero Trust web-only access enforcement — Conditional Access app-enforced restrictions limiting non-compliant BYOD devices to browser-only access for SharePoint Online and Exchange Online.
+**Focus:** Zero Trust web-only access configuration — Conditional Access app-enforced restrictions limiting non-compliant BYOD devices to browser-only access for SharePoint Online and Exchange Online.
 
 **Highlights:**
 - CA policy targeting non-compliant devices with device filter rule
@@ -161,7 +188,7 @@ Built in an isolated Microsoft 365 E3/E5 lab environment with **real executed sc
 
 ### Phase 8 — M365 Incident Response Security Triage
 
-**Focus:** Rapid evidence collection for Microsoft 365 security incidents — user enumeration, license governance, security group review, and administrative role exposure assessment.
+**Focus:** Rapid evidence collection for Microsoft 365 security triage — user enumeration, license governance, security group review, and administrative role exposure assessment.
 
 **Business Scenario:** A user reports suspicious activity on their account. The administrator performs triage using Microsoft Graph PowerShell to collect early-stage evidence before escalation.
 
@@ -195,7 +222,7 @@ Security Operations               Governance Reporting
      ↓                                    ↓
 CSV / TXT Reports         HTML Dashboards & Visualization
                     ↓
-      GitHub Security Operations Platform
+      GitHub Security Operations Lab Evidence
 ```
 
 ---
@@ -267,9 +294,9 @@ PowerShell 7 · Microsoft Graph PowerShell SDK · Microsoft 365 · Microsoft Ent
 
 ## Lab Environment Disclaimer
 
-This platform was developed in isolated Microsoft 365 E3 and E5 lab tenants created exclusively for security operations simulation, governance workflow testing, automation engineering, and portfolio demonstration.
+This toolkit was developed in isolated Microsoft 365 E3 and E5 lab tenants created exclusively for security operations simulation, governance workflow testing, automation engineering, and portfolio demonstration.
 
-No production organizational infrastructure, customer data, or real enterprise tenant data is exposed within this repository.
+Reports and screenshots are preserved as public lab evidence to show reporting format, audit logic, and operational workflow. They are not production customer records or confidential organizational data.
 
 ---
 
