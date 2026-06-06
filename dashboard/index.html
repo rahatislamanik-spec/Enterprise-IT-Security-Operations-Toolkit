@@ -3,75 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RahatOS Progress Center</title>
+  <title>M365 Security Operations Evidence Dashboard</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-  <div class="container">
-
-    <header>
-      <h1>RahatOS Progress Center</h1>
-      <p>Operational Career Intelligence Dashboard</p>
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">Enterprise IT Security Operations Toolkit</p>
+      <h1>Microsoft 365 Security Operations Evidence Dashboard</h1>
+      <p class="lead">Static GitHub Pages dashboard summarizing the lab evidence collected across identity, endpoint, Conditional Access, Exchange Online, OAuth, and incident triage phases.</p>
+      <nav class="actions" aria-label="Dashboard links">
+        <a href="../">Root Site</a>
+        <a href="../README.md">README</a>
+        <a href="../docs/evidence-map.md">Evidence Map</a>
+      </nav>
     </header>
 
-    <section class="grid">
+    <section class="metrics" id="platformMetrics" aria-label="Project metrics"></section>
 
-      <div class="card">
-        <h2>GitHub Metrics</h2>
+    <section class="panel-grid" aria-label="Evidence summary">
+      <article class="panel">
+        <h2>Implemented Evidence</h2>
+        <ul>
+          <li>8 documented operational phases</li>
+          <li>PowerShell audit scripts using Microsoft Graph and Exchange Online</li>
+          <li>CSV/TXT reports retained for interview review</li>
+          <li>Portal screenshots tied to phase-level documentation</li>
+        </ul>
+      </article>
 
-        <p id="repoCount">Total Repositories: --</p>
-        <p id="cloneCount">Total Clones: --</p>
-        <p id="uniqueCloners">Unique Cloners: --</p>
-        <p id="topRepo">Top Repo: --</p>
-        <p id="lastUpdated">Last Updated: --</p>
+      <article class="panel">
+        <h2>Validation Scope</h2>
+        <ul>
+          <li>Conditional Access policies reviewed in report-only mode where noted</li>
+          <li>Lab tenant evidence, not production customer data</li>
+          <li>Security findings documented with recommendations and limitations</li>
+          <li>Incident triage workflow designed for first-response evidence gathering</li>
+        </ul>
+      </article>
 
-      </div>
-
-      <div class="card">
-        <h2>Certifications</h2>
-
-        <p>AZ-900</p>
-        <p>MS-900</p>
-        <p>SC-900 In Progress</p>
-
-      </div>
-
-      <div class="card">
-        <h2>Study Operations</h2>
-
-        <p>AZ-104 Tracking</p>
-        <p>SC-900 Tracking</p>
-
-      </div>
-
-      <div class="card">
-        <h2>Projects</h2>
-
-        <p>M365 Tenant Lab</p>
-        <p>Enterprise IT Toolkit</p>
-        <p>Coquitlam ITSM</p>
-
-      </div>
-
+      <article class="panel">
+        <h2>Hiring Signals</h2>
+        <ul>
+          <li>Microsoft 365 administration and security reporting</li>
+          <li>Entra ID identity and OAuth permission review</li>
+          <li>Endpoint and Conditional Access governance awareness</li>
+          <li>Professional evidence organization for technical interviews</li>
+        </ul>
+      </article>
     </section>
-
-    <section class="leaderboard-section">
-
-      <h2>Repository Traffic Leaderboard</h2>
-
-      <p>
-        Manual 14-day GitHub traffic snapshot across selected repositories.
-      </p>
-
-      <div id="leaderboard" class="leaderboard"></div>
-
-    </section>
-
-  </div>
+  </main>
 
   <script src="app.js"></script>
-
 </body>
 </html>
