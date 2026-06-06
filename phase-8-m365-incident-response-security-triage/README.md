@@ -1,4 +1,4 @@
-# Phase 8 — Microsoft 365 Incident Response Security Triage & Incident Response
+# Phase 8 — Microsoft 365 Incident Response Security Triage
 
 > **Enterprise-IT-Security-Operations-Toolkit**  
 > Microsoft 365 security triage workflow using Microsoft Graph PowerShell, Entra ID, licensing, group, and administrative role evidence.
@@ -77,7 +77,7 @@ The workflow is designed for quick triage, not full forensic investigation.
 
 ## Architecture
 
-![Phase 5 Architecture Diagram](phase5-architecture-diagram.png)
+![Phase 8 Architecture Diagram](phase5-architecture-diagram.png)
 
 ```text
 Suspicious Activity Reported
@@ -100,7 +100,7 @@ Incident Response Evidence Package
 ## Repository Structure
 
 ```text
-phase-5-m365-incident-response-security-triage/
+phase-8-m365-incident-response-security-triage/
 ├── README.md
 ├── scripts/
 │   └── invoke-m365-incident-response.ps1
@@ -110,7 +110,7 @@ phase-5-m365-incident-response-security-triage/
 │   ├── 02-microsoft-365-license-governance.png
 │   ├── 03-entra-security-group-review.png
 │   └── 04-administrative-role-review.png
-└── dashboard/
+└── README.md
 ```
 
 ---
@@ -154,8 +154,7 @@ This validates visibility into operational and security groups such as:
 - Security Operations
 - IT Operations
 - Helpdesk-Level1
-- Students
-- Professors
+- Lab cohort groups
 - All Company
 
 ![Entra Security Group Review](screenshots/03-entra-security-group-review.png)
@@ -229,9 +228,12 @@ It mirrors real-world first-response activities performed during account comprom
 | Phase 2 | Identity threat and security operations |
 | Phase 3 | Endpoint security and Defender operations |
 | Phase 4 | BYOD Conditional Access governance |
-| **Phase 5** | **Microsoft 365 security investigation and incident response** |
+| Phase 5 | Exchange Online mail flow audit |
+| Phase 6 | Web-only access governance |
+| Phase 7 | Entra ID app registration audit |
+| **Phase 8** | **Microsoft 365 security investigation and incident triage** |
 
-Phase 5 acts as the triage layer that brings identity, access, device, and governance evidence together during an investigation.
+Phase 8 acts as the triage layer that brings identity, access, device, and governance evidence together during an investigation.
 
 ---
 
@@ -266,4 +268,4 @@ Planned improvements:
 ---
 
 Built by **Md Rahat Islam Anik**  
-Cloud Computing & Network Administration Graduate · George Brown Polytechnic
+Microsoft 365 Security Operations Portfolio

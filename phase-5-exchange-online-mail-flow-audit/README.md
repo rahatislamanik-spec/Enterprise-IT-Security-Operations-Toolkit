@@ -1,7 +1,7 @@
 # Phase 5 — Exchange Online Mail Flow Audit
 
 > **Enterprise-IT-Security-Operations-Toolkit**
-> Simulated enterprise environment using Microsoft 365 Developer Tenant (xyz.inc / nirjala.onmicrosoft.com)
+> Simulated enterprise environment using an isolated Microsoft 365 lab tenant.
 
 ---
 
@@ -64,7 +64,7 @@ Cross-references mailbox litigation hold status — identifying mailboxes not pr
 
 ## 📊 Lab Audit Results
 
-From the Microsoft 365 Developer Tenant (nirjala.onmicrosoft.com):
+From the isolated Microsoft 365 lab tenant:
 
 | Finding | Result | Status |
 |---|---|---|
@@ -190,5 +190,5 @@ This type of audit is standard practice in organizations subject to HIPAA, SOC 2
 
 ---
 
-*Built by Md Rahat Islam Anik — Cloud Computing & Network Administration Graduate, George Brown Polytechnic*
+*Built by Md Rahat Islam Anik — Microsoft 365 Security Operations Portfolio*
 *[LinkedIn](https://linkedin.com/in/rahatislamanik) • [GitHub](https://github.com/rahatislamanik-spec)*

@@ -1,7 +1,7 @@
 # Phase 7 — Entra ID App Registration Audit
 
 > **Enterprise-IT-Security-Operations-Toolkit**
-> Simulated enterprise environment using Microsoft 365 Developer Tenant (xyz.inc / nirjala.onmicrosoft.com)
+> Simulated enterprise environment using an isolated Microsoft 365 lab tenant.
 
 ---
 
@@ -69,7 +69,7 @@ Identifies app registrations with expired secrets/certificates and those expirin
 
 ## 📊 Lab Audit Results
 
-From the Microsoft 365 Developer Tenant (nirjala.onmicrosoft.com):
+From the isolated Microsoft 365 lab tenant:
 
 | Finding | Result | Status |
 |---|---|---|
@@ -106,17 +106,17 @@ phase-7-entra-app-registration-audit/
 
 ## 📸 Implementation Screenshots
 
-### 1. Script Execution — Audit Summary
-Full script execution showing Microsoft Graph connection, all 5 audit sections running, and the final summary output with 3 high-risk permission grants detected.
+### 1. Script Setup — Folder Creation
+Terminal evidence showing the Phase 7 working folders and script file created before the Microsoft Graph audit was executed.
 
-![Script Execution](screenshots/01-script-execution-audit-summary.png)
+![Script Setup](screenshots/01-script-setup-folder-creation.png)
 
 ---
 
-### 2. CSV Reports Generated
-Four CSV reports generated in the reports directory — app registrations, service principals, OAuth grants, and high-risk permissions.
+### 2. Script Execution — Audit Summary
+Full script execution showing Microsoft Graph connection, all 5 audit sections running, and the final summary output with 3 high-risk permission grants detected.
 
-![CSV Reports](screenshots/02-csv-reports-generated.png)
+![Script Execution](screenshots/02-script-execution-audit-summary.png)
 
 ---
 
@@ -134,10 +134,26 @@ Enterprise applications list showing the 241 service principals across Microsoft
 
 ---
 
-### 5. Entra ID — OAuth Permission Grants
-OAuth permission grants view showing the delegated permissions granted to applications in the tenant.
+### 5. Entra ID — User Consent Settings
+User consent settings showing how app consent governance is reviewed from the Entra admin center.
 
-![OAuth Grants](screenshots/05-entra-oauth-permission-grants.png)
+![User Consent Settings](screenshots/05-entra-user-consent-settings.png)
+
+---
+
+### 6. Entra ID — Admin Consent Settings
+Admin consent workflow settings showing how elevated app permission approval is governed.
+
+![Admin Consent Settings](screenshots/06-entra-admin-consent-settings.png)
+
+---
+
+### 7. Enterprise App Permissions Review
+Application permission evidence showing third-party and Microsoft Graph permissions reviewed during the OAuth risk audit.
+
+![Application Permissions](screenshots/07-aws-app-permissions.png)
+
+![High-Risk Microsoft Graph Permissions](screenshots/08-msgraph-high-risk-permissions.png)
 
 ---
 
@@ -179,5 +195,5 @@ In real enterprise environments, unreviewed OAuth grants are a primary vector fo
 
 ---
 
-*Built by Md Rahat Islam Anik — Cloud Computing & Network Administration Graduate, George Brown Polytechnic*
+*Built by Md Rahat Islam Anik — Microsoft 365 Security Operations Portfolio*
 *[LinkedIn](https://linkedin.com/in/rahatislamanik) • [GitHub](https://github.com/rahatislamanik-spec)*

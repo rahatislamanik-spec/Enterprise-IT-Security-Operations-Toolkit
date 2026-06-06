@@ -1,13 +1,13 @@
 # Phase 6 — Web-Only Access Governance for Unmanaged Devices
 
 > **Enterprise-IT-Security-Operations-Toolkit**
-> Simulated enterprise environment using Microsoft 365 Developer Tenant (xyz.inc / nirjala.onmicrosoft.com)
+> Simulated enterprise environment using an isolated Microsoft 365 lab tenant.
 
 ---
 
 ## 📋 Project Overview
 
-This phase implements a **web-only access governance model** using Conditional Access app-enforced restrictions. The objective is to ensure that unmanaged and non-compliant personal devices can only access Microsoft 365 resources through a browser — preventing native app access, file downloads, and data exfiltration while still allowing productivity.
+This phase implements a **web-only access governance model** using Conditional Access app-enforced restrictions. The objective is to configure and validate browser-only access for unmanaged and non-compliant personal devices before production-style enforcement.
 
 ### Business Problem
 
@@ -20,7 +20,7 @@ When employees use personal or unmanaged devices to access corporate resources, 
 
 ### Solution — Web-Only Browser Access
 
-A Conditional Access policy with **app-enforced restrictions** enforces browser-only access for non-compliant devices:
+A Conditional Access policy with **app-enforced restrictions** is configured to restrict non-compliant devices to browser-only access:
 
 | Device Type | Access Type | Result |
 |---|---|---|
@@ -36,8 +36,8 @@ A Conditional Access policy with **app-enforced restrictions** enforces browser-
 |---|---|
 | Microsoft Entra ID | Conditional Access policy engine |
 | Conditional Access — App-Enforced Restrictions | Session control for browser-only access |
-| Exchange Online | Web-only OWA enforcement |
-| SharePoint Online | Web-only browser enforcement |
+| Exchange Online | Web-only OWA restriction |
+| SharePoint Online | Web-only browser restriction |
 | PowerShell + Microsoft Graph | Automated policy audit and reporting |
 
 ---
@@ -156,14 +156,14 @@ Selecting Office 365 SharePoint Online as one of the two target applications for
 ---
 
 ### 2. Both Apps Selected — SharePoint + Exchange
-Both Office 365 SharePoint Online and Office 365 Exchange Online selected as target resources — ensuring web-only enforcement covers both email and document collaboration.
+Both Office 365 SharePoint Online and Office 365 Exchange Online selected as target resources so the web-only restriction covers both email and document collaboration.
 
 ![Both Apps Selected](screenshots/02-ca-both-apps-selected.png)
 
 ---
 
 ### 3. Session Control — Use App Enforced Restrictions
-Session control panel showing **"Use app enforced restrictions"** checked — the core enforcement mechanism that restricts non-compliant devices to browser-only access.
+Session control panel showing **"Use app enforced restrictions"** checked — the core session control that restricts non-compliant devices to browser-only access when the policy is enabled.
 
 ![Session Control](screenshots/03-ca-session-app-enforced-restrictions.png)
 
@@ -201,7 +201,7 @@ Initial audit run showing 0 web-only app-enforced restriction policies and the a
 
 - ✅ Conditional Access policy created targeting SharePoint Online and Exchange Online
 - ✅ Device filter configured to target non-compliant devices (`device.isCompliant -ne True`)
-- ✅ App-enforced restrictions session control applied — enforces browser-only access
+- ✅ App-enforced restrictions session control configured for browser-only access
 - ✅ Report-only mode for safe lab testing and impact analysis
 - ✅ PowerShell audit script detects and classifies web-only governance policies
 - ✅ Before/after audit evidence demonstrating 0 → 1 web-only policy detection
@@ -234,5 +234,5 @@ This approach follows Microsoft's recommended Zero Trust access model: grant the
 
 ---
 
-*Built by Md Rahat Islam Anik — Cloud Computing & Network Administration Graduate, George Brown Polytechnic*
+*Built by Md Rahat Islam Anik — Microsoft 365 Security Operations Portfolio*
 *[LinkedIn](https://linkedin.com/in/rahatislamanik) • [GitHub](https://github.com/rahatislamanik-spec)*

@@ -1,13 +1,13 @@
 # Phase 4 — BYOD Conditional Access Governance
 
 > **Enterprise-IT-Security-Operations-Toolkit**
-> Simulated enterprise environment using Microsoft 365 Developer Tenant (xyz.inc)
+> Simulated enterprise environment using an isolated Microsoft 365 lab tenant.
 
 ---
 
 ## 📋 Project Overview
 
-This phase implements a **Zero Trust BYOD governance model** using Microsoft Entra ID, Microsoft Intune, and Conditional Access. The objective is to enforce a clear security boundary between corporate-managed devices and personal/BYOD devices accessing organizational resources.
+This phase implements a **Zero Trust BYOD governance model** using Microsoft Entra ID, Microsoft Intune, and Conditional Access. The objective is to configure and validate a clear security boundary between corporate-managed devices and personal/BYOD devices accessing organizational resources.
 
 ### Business Problem
 
@@ -36,7 +36,7 @@ This project implements a tiered device compliance and access control framework:
 |---|---|
 | Microsoft Entra ID | Device registration, identity, Conditional Access |
 | Microsoft Intune | Device compliance policies, MDM enrollment |
-| Conditional Access | Enforce compliant device requirement for cloud app access |
+| Conditional Access | Configure compliant-device requirements for cloud app access |
 | PowerShell + Microsoft Graph | Automated device inventory and compliance reporting |
 | Microsoft Graph API | Query devices, compliance policies, CA policies |
 
@@ -185,7 +185,7 @@ The core BYOD governance policy: **"Require MDM-enrolled and compliant device to
 ---
 
 ### 7. Conditional Access — Grant Control
-Grant control panel showing **"Require device to be marked as compliant"** is selected. This is the enforcement mechanism — non-compliant or unmanaged BYOD devices are denied access.
+Grant control panel showing **"Require device to be marked as compliant"** is selected. In an enabled rollout, this control would deny access for non-compliant or unmanaged BYOD devices; in this lab it is documented as part of report-only validation.
 
 ![CA Grant Control](screenshots/07-ca-grant-require-compliant.png)
 
@@ -202,7 +202,7 @@ Three device compliance policies configured in Microsoft Intune:
 ---
 
 ### 9. Intune — iOS BYOD Compliance Policy
-BYOD-specific compliance policy for iOS/iPadOS devices enforcing:
+BYOD-specific compliance policy for iOS/iPadOS devices configuring:
 - Jailbreak detection (Block)
 - Minimum OS version: 14.0
 - Password required, minimum 8 characters, alphanumeric
@@ -250,7 +250,7 @@ Intune device actions panel showing a **Retire** action pending for Rahat's MacB
 ## 🎯 Key Outcomes
 
 - ✅ Device inventory classified by ownership, trust type, and compliance state
-- ✅ Conditional Access policy enforcing compliant device requirement for all cloud apps
+- ✅ Conditional Access policy configured to require compliant devices for cloud app access
 - ✅ Three tiered compliance policies covering iOS BYOD, Windows standard, and Windows faculty/staff
 - ✅ Non-compliant BYOD device (MacBook Air) identified and retirement action initiated
 - ✅ PowerShell automation scripts for ongoing governance and reporting via Microsoft Graph
@@ -276,5 +276,5 @@ The Zero Trust principle applied here: **never trust, always verify** — every 
 
 ---
 
-*Built by Md Rahat Islam Anik — Cloud Computing & Network Administration Graduate, George Brown Polytechnic*
+*Built by Md Rahat Islam Anik — Microsoft 365 Security Operations Portfolio*
 *[LinkedIn](https://linkedin.com/in/rahatislamanik) • [GitHub](https://github.com/rahatislamanik-spec)*

@@ -313,7 +313,7 @@ Reports and screenshots are preserved as public lab evidence to show reporting f
 
 ---
 
-*Built by Md Rahat Islam Anik — Cloud Computing & Network Administration Graduate, George Brown Polytechnic*
+*Built by Md Rahat Islam Anik — Microsoft 365 Security Operations Portfolio*
 *[LinkedIn](https://linkedin.com/in/rahatislamanik) · [GitHub](https://github.com/rahatislamanik-spec) · [Portfolio](https://rahatislamanik-spec.github.io/IT-Portfolio-Rahat-Islam-Anik/)*
 
 ## 🔗 Related Portfolio Projects
