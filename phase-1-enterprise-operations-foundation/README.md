@@ -92,10 +92,10 @@ The following real outputs from the lab tenant are included in `sample-reports/m
 | Report File | Key Finding |
 |---|---|
 | `TenantHealthReport_2026-05-23.csv` | 28 total users, 27 enabled, 21 licensed, 11 active directory roles |
-| `MFA_Coverage_Report_2026-05-23.csv` | Per-user MFA state across all accounts |
+| `MFA_Coverage_Report_2026-05-23.csv` | Per-user MFA-capable method registration across all accounts |
 | `Admin_Role_Audit_Report_2026-05-23.csv` | Full privileged role assignment inventory |
 | `Conditional_Access_Audit_2026-05-24.csv` | All CA policies with state classification |
-| `Device_Compliance_Report_2026-05-23.csv` | Enrolled device inventory with trust type |
+| `Entra_Device_Inventory_Report_2026-05-23.csv` | Entra device registration inventory with trust type; not an Intune compliance report |
 | `License_Optimization_Report_2026-05-23.csv` | License waste and optimization flags |
 | `Privileged_User_Exposure_Audit_2026-05-24.csv` | CRITICAL and HIGH risk role holders |
 | `Inactive_User_Governance_Report_2026-05-24.csv` | Inactive and licensed-but-disabled accounts |

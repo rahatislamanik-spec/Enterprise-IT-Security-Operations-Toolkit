@@ -14,7 +14,7 @@ Write-Host "`n🔐 Connecting to Microsoft Graph..." -ForegroundColor Cyan
 Connect-MgGraph -Scopes "Policy.Read.All","Device.Read.All","Application.Read.All" -NoWelcome
 
 $Date = Get-Date -Format "yyyy-MM-dd"
-$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-6-web-only-access-governance/reports"
+$ReportPath = Join-Path $PSScriptRoot "../reports"
 
 # ── 1. Fetch All CA Policies ─────────────────────────────────
 Write-Host "`n📋 Fetching Conditional Access policies..." -ForegroundColor Cyan

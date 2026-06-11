@@ -1,2 +1,2 @@
-"AppName","AppId","SignInAudience","CreatedDateTime","TotalCredentials","ExpiredCreds","ExpiringSoon","PublisherDomain"
-"AWS Single-Account Access","b67e6832-aa65-47ad-86e0-4ab7be15c100","AzureADMyOrg","26/5/2026 9:40:15 PM","0","0","0","nirjala.onmicrosoft.com"
+AppName,AppId,SignInAudience,CreatedDateTime,TotalCredentials,ExpiredCreds,ExpiringSoon,PublisherDomain
+AWS Single-Account Access,cbbfb407-94e2-5d59-bdc4-714b35724e8c,AzureADMyOrg,26/5/2026 9:40:15 PM,0,0,0,enterprise.example

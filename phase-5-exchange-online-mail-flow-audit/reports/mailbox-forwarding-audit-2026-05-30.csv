@@ -1,24 +1,24 @@
-"Mailbox","UPN","MailboxType","HasForwarding","ForwardTo","DeliverAndForward","LitigationHold","HoldDate"
-"Alex Johnson","alex.johnson@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Ava Lewis","ava.lewis@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Barak Obama","bo@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Bill Clinton","bc@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Discovery Search Mailbox","DiscoverySearchMailbox{D919BA05-46A6-415f-80AD-7E09334BB852}@nirjala.onmicrosoft.com","DiscoveryMailbox","False","None","False","False","N/A"
-"Elijah Young","elijah.young@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Emily Parker","ep@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Emma Davis","emma.davis@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Ethan King","ethan.king@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Harsh Gupta","hg@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Hillary Clinton","hc@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"IT Helpdesk","helpdesk@nirjala.onmicrosoft.com","SharedMailbox","False","None","False","False","N/A"
-"Jessica Biel","jb@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Liam Thomas","liam.thomas@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Md Rahat Islam Anik","rahat.it.lab@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Megan  Fox","mf@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Mia Allen","mia.allen@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Michelle Obama","mo@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Mike Hoffman","mh@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Nancy Jones","nj@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Noah Harris","noah.harris@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Oliver Clark","oliver.clark@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
-"Sophia Walker","sophia.walker@nirjala.onmicrosoft.com","UserMailbox","False","None","False","False","N/A"
+Mailbox,UPN,MailboxType,HasForwarding,ForwardTo,DeliverAndForward,LitigationHold,HoldDate
+Lab User 001,lab.user001@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 002,lab.user002@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 003,lab.user003@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 004,lab.user004@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 005,DiscoverySearchMailbox{4a53e7ad-68a8-50b8-ac75-c508d4410544}@enterprise.example,DiscoveryMailbox,False,None,False,False,N/A
+Lab User 006,lab.user005@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 007,lab.user006@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 008,lab.user007@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 009,lab.user008@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 010,lab.user009@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 011,lab.user010@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 012,lab.user011@enterprise.example,SharedMailbox,False,None,False,False,N/A
+Lab User 013,lab.user012@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 014,lab.user013@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 015,lab.user014@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 016,lab.user015@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 017,lab.user016@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 018,lab.user017@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 019,lab.user018@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 020,lab.user019@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 021,lab.user020@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 022,lab.user021@enterprise.example,UserMailbox,False,None,False,False,N/A
+Lab User 023,lab.user022@enterprise.example,UserMailbox,False,None,False,False,N/A

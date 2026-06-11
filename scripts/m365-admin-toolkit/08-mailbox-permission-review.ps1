@@ -23,7 +23,7 @@ try {
 
 Connect-ExchangeOnline -ShowBanner:$false
 
-$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-1-enterprise-operations-foundation/reports"
+$ReportPath = Join-Path $PSScriptRoot "../../phase-1-enterprise-operations-foundation/reports"
 New-Item -ItemType Directory -Force -Path $ReportPath | Out-Null
 $DateStamp = Get-Date -Format "yyyy-MM-dd_HH-mm"
 

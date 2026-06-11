@@ -8,7 +8,7 @@ Write-Host "===================================================="
 
 Connect-MgGraph -Scopes "SecurityEvents.Read.All","SecurityActions.Read.All","Directory.Read.All"
 
-$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-2-identity-threat-security-operations/reports"
+$ReportPath = Join-Path $PSScriptRoot "../reports"
 New-Item -ItemType Directory -Force -Path $ReportPath | Out-Null
 
 $DateStamp = Get-Date -Format "yyyy-MM-dd_HH-mm"

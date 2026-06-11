@@ -21,7 +21,7 @@ External email forwarding is one of the most common and dangerous data exfiltrat
 
 ### Solution
 
-A single PowerShell script that connects to Exchange Online via Microsoft Graph and produces four structured CSV audit reports — covering the full mail flow security surface in under 3 minutes.
+A single PowerShell script that connects to Exchange Online and reviews four mail-flow datasets. Three non-empty CSV reports are retained; the inbox-forwarding query returned no rows and its zero-byte file was removed.
 
 ---
 
@@ -87,17 +87,14 @@ phase-5-exchange-online-mail-flow-audit/
 │   └── exchange-mail-flow-audit.ps1    # Main audit script
 ├── reports/
 │   ├── mailbox-forwarding-audit-2026-05-30.csv
-│   ├── inbox-forwarding-rules-2026-05-30.csv
 │   ├── transport-rules-audit-2026-05-30.csv
 │   └── antispam-policy-audit-2026-05-30.csv
 ├── screenshots/
-│   ├── 01-script-creation-terminal.png
 │   ├── 02-script-execution-audit-summary.png
 │   ├── 03-audit-findings-table.png
 │   ├── 04-exchange-transport-rules.png
 │   ├── 05-exchange-remote-domains.png
-│   ├── 06-antispam-policies-defender.png
-│   └── 07-exchange-mailboxes-list.png
+│   └── 06-antispam-policies-defender.png
 └── README.md
 ```
 
@@ -105,52 +102,38 @@ phase-5-exchange-online-mail-flow-audit/
 
 ## 📸 Implementation Screenshots
 
-### 1. Script Creation
-PowerShell script created and saved to the Phase 5 scripts directory via terminal.
-
-![Script Creation](screenshots/01-script-creation-terminal.png)
-
----
-
-### 2. Script Execution & Audit Summary
+### 1. Script Execution & Audit Summary
 Full script execution showing live connection to Exchange Online via device authentication, all 5 audit sections running, and the final summary output.
 
 ![Script Execution](screenshots/02-script-execution-audit-summary.png)
 
 ---
 
-### 3. Audit Findings Table
+### 2. Audit Findings Table
 Structured findings summary showing all 6 audit categories with results and status indicators.
 
 ![Audit Findings](screenshots/03-audit-findings-table.png)
 
 ---
 
-### 4. Exchange Admin Center — Transport Rules
+### 3. Exchange Admin Center — Transport Rules
 Exchange Admin Center showing the `Block External Auto-Forward` transport rule — configured but currently disabled. Enabling this rule prevents users from auto-forwarding emails to external addresses.
 
 ![Transport Rules](screenshots/04-exchange-transport-rules.png)
 
 ---
 
-### 5. Exchange Admin Center — Remote Domains
+### 4. Exchange Admin Center — Remote Domains
 Remote domains configuration showing the default domain policy with external OOF (Out of Office) replies enabled and automatic replies permitted.
 
 ![Remote Domains](screenshots/05-exchange-remote-domains.png)
 
 ---
 
-### 6. Microsoft Defender — Anti-Spam Policies
+### 5. Microsoft Defender — Anti-Spam Policies
 Microsoft Defender for Office 365 showing 3 active anti-spam policies — inbound, connection filter, and outbound — all set to Always on status.
 
 ![Anti-Spam Policies](screenshots/06-antispam-policies-defender.png)
-
----
-
-### 7. Exchange Admin Center — Mailboxes
-Exchange Online mailbox list showing all 22 user and shared mailboxes audited, with email addresses, recipient types, and archive status.
-
-![Mailboxes List](screenshots/07-exchange-mailboxes-list.png)
 
 ---
 
@@ -158,6 +141,7 @@ Exchange Online mailbox list showing all 22 user and shared mailboxes audited, w
 
 - ✅ 23 mailboxes audited for unauthorized forwarding — none detected
 - ✅ All inbox rules scanned for forwarding/redirect actions — none detected
+- ℹ️ The zero-result inbox-rule export was not retained as an empty file
 - ✅ Transport rule inventory documented with state and action details
 - ✅ Anti-spam policy coverage verified across inbound, outbound, and connection filtering
 - ⚠️ Litigation hold not configured — recommended for compliance-sensitive environments
@@ -184,7 +168,7 @@ This type of audit is standard practice in organizations subject to HIPAA, SOC 2
 |---|---|
 | [Phase 1](../phase-1-enterprise-operations-foundation/) | Identity & Tenant Security Baseline |
 | [Phase 2](../phase-2-identity-threat-security-operations/) | Identity Threat & Security Operations |
-| [Phase 3](../phase-3-endpoint-security-defender-operations/) | Endpoint Security & Defender Operations |
+| [Phase 3](../phase-3-endpoint-security-defender-operations/) | Endpoint Enrollment & Intune Operations |
 | [Phase 4](../phase-4-byod-conditional-access-governance/) | BYOD Conditional Access Governance |
 | **Phase 5** | **Exchange Online Mail Flow Audit** ← You are here |
 

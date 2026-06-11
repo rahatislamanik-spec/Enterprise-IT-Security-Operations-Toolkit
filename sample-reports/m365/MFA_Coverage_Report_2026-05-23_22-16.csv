@@ -1,29 +1,29 @@
-"DisplayName","UserPrincipalName","MFAStatus"
-"Aisha Rahman","aisha.rahman@nirjala.onmicrosoft.com","Disabled"
-"Alex Johnson","alex.johnson@nirjala.onmicrosoft.com","Enabled"
-"Ava Lewis","ava.lewis@nirjala.onmicrosoft.com","Disabled"
-"Bill Clinton","bc@nirjala.onmicrosoft.com","Enabled"
-"Barak Obama","bo@nirjala.onmicrosoft.com","Disabled"
-"Chloe Martin","chloe.martin@nirjala.onmicrosoft.com","Disabled"
-"Daniel Kim","daniel.kim@nirjala.onmicrosoft.com","Disabled"
-"Elijah Young","elijah.young@nirjala.onmicrosoft.com","Disabled"
-"Emma Davis","emma.davis@nirjala.onmicrosoft.com","Disabled"
-"Emily Parker","ep@nirjala.onmicrosoft.com","Disabled"
-"Ethan King","ethan.king@nirjala.onmicrosoft.com","Disabled"
-"Hillary Clinton","hc@nirjala.onmicrosoft.com","Disabled"
-"IT Helpdesk","helpdesk@nirjala.onmicrosoft.com","Disabled"
-"Harsh Gupta","hg@nirjala.onmicrosoft.com","Disabled"
-"Jason Patel","jason.patel@nirjala.onmicrosoft.com","Disabled"
-"Jessica Biel","jb@nirjala.onmicrosoft.com","Disabled"
-"Liam Thomas","liam.thomas@nirjala.onmicrosoft.com","Disabled"
-"Megan  Fox","mf@nirjala.onmicrosoft.com","Disabled"
-"Mike Hoffman","mh@nirjala.onmicrosoft.com","Disabled"
-"Mia Allen","mia.allen@nirjala.onmicrosoft.com","Enabled"
-"Michelle Obama","mo@nirjala.onmicrosoft.com","Disabled"
-"Nancy Jones","nj@nirjala.onmicrosoft.com","Disabled"
-"Noah Harris","noah.harris@nirjala.onmicrosoft.com","Disabled"
-"Oliver Clark","oliver.clark@nirjala.onmicrosoft.com","Disabled"
-"Md Rahat Islam Anik","rahat.it.lab@nirjala.onmicrosoft.com","Enabled"
-"Ryan Chen","ryan.chen@nirjala.onmicrosoft.com","Disabled"
-"Sarah Ahmed","sarah.ahmed@nirjala.onmicrosoft.com","Disabled"
-"Sophia Walker","sophia.walker@nirjala.onmicrosoft.com","Disabled"
+DisplayName,UserPrincipalName,MFARegistrationStatus
+Lab User 024,lab.user023@enterprise.example,Not Registered
+Lab User 001,lab.user001@enterprise.example,Registered
+Lab User 002,lab.user002@enterprise.example,Not Registered
+Lab User 004,lab.user004@enterprise.example,Registered
+Lab User 003,lab.user003@enterprise.example,Not Registered
+Lab User 025,lab.user024@enterprise.example,Not Registered
+Lab User 026,lab.user025@enterprise.example,Not Registered
+Lab User 006,lab.user005@enterprise.example,Not Registered
+Lab User 008,lab.user007@enterprise.example,Not Registered
+Lab User 007,lab.user006@enterprise.example,Not Registered
+Lab User 009,lab.user008@enterprise.example,Not Registered
+Lab User 011,lab.user010@enterprise.example,Not Registered
+Lab User 012,lab.user011@enterprise.example,Not Registered
+Lab User 010,lab.user009@enterprise.example,Not Registered
+Lab User 027,lab.user026@enterprise.example,Not Registered
+Lab User 013,lab.user012@enterprise.example,Not Registered
+Lab User 014,lab.user013@enterprise.example,Not Registered
+Lab User 016,lab.user015@enterprise.example,Not Registered
+Lab User 019,lab.user018@enterprise.example,Not Registered
+Lab User 017,lab.user016@enterprise.example,Registered
+Lab User 018,lab.user017@enterprise.example,Not Registered
+Lab User 020,lab.user019@enterprise.example,Not Registered
+Lab User 021,lab.user020@enterprise.example,Not Registered
+Lab User 022,lab.user021@enterprise.example,Not Registered
+Lab User 015,lab.user014@enterprise.example,Registered
+Lab User 028,lab.user027@enterprise.example,Not Registered
+Lab User 029,lab.user028@enterprise.example,Not Registered
+Lab User 023,lab.user022@enterprise.example,Not Registered

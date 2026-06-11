@@ -1,10 +1,10 @@
-"PolicyName","State","SessionControl","AppEnforcedRestrict","CloudAppSecurity","SignInFrequency","RequiresCompliant","RequiresDomainJoined","DeviceFilter","TargetApps"
-"Require multifactor authentication for admins","enabledForReportingButNotEnforced","Sign-in Frequency Control","No","No","Yes","No","No","None","All"
-"Require compliant or hybrid Azure AD joined device or multifactor authentication for all users","enabledForReportingButNotEnforced","Sign-in Frequency Control","No","No","Yes","Yes","Yes","None","All"
-"Require MFA for Admin Roles","enabledForReportingButNotEnforced","Sign-in Frequency Control","No","No","Yes","No","No","None","All"
-"Block Legacy Authentication","enabledForReportingButNotEnforced","Sign-in Frequency Control","No","No","Yes","No","No","None","All"
-"Require multifactor authentication for all users","enabledForReportingButNotEnforced","Sign-in Frequency Control","No","No","Yes","No","No","None","All"
-"Require MDM-enrolled and compliant device to access cloud apps for all users (Preview)","enabledForReportingButNotEnforced","Sign-in Frequency Control","No","No","Yes","Yes","No","None","All"
-"Require multifactor authentication for all users","enabledForReportingButNotEnforced","Sign-in Frequency Control","No","No","Yes","No","No","None","All"
-"Require MFA for Standard Users","enabledForReportingButNotEnforced","Sign-in Frequency Control","No","No","Yes","No","No","None","All"
-"BYOD-Web-Only-Access-SharePoint-Exchange","enabledForReportingButNotEnforced","App-Enforced Restrictions (Web-Only)","Yes","No","Yes","No","No","device.isCompliant -ne True","00000003-0000-0ff1-ce00-000000000000, 00000002-0000-0ff1-ce00-000000000000"
+PolicyName,State,SessionControl,AppEnforcedRestrict,CloudAppSecurity,SignInFrequency,RequiresCompliant,RequiresDomainJoined,DeviceFilter,TargetApps
+Require multifactor authentication for admins,enabledForReportingButNotEnforced,Sign-in Frequency Control,No,No,Yes,No,No,None,All
+Require compliant or hybrid Azure AD joined device or multifactor authentication for all users,enabledForReportingButNotEnforced,Sign-in Frequency Control,No,No,Yes,Yes,Yes,None,All
+Require MFA for Admin Roles,enabledForReportingButNotEnforced,Sign-in Frequency Control,No,No,Yes,No,No,None,All
+Block Legacy Authentication,enabledForReportingButNotEnforced,Sign-in Frequency Control,No,No,Yes,No,No,None,All
+Require multifactor authentication for all users,enabledForReportingButNotEnforced,Sign-in Frequency Control,No,No,Yes,No,No,None,All
+Require MDM-enrolled and compliant device to access cloud apps for all users (Preview),enabledForReportingButNotEnforced,Sign-in Frequency Control,No,No,Yes,Yes,No,None,All
+Require multifactor authentication for all users,enabledForReportingButNotEnforced,Sign-in Frequency Control,No,No,Yes,No,No,None,All
+Require MFA for Standard Users,enabledForReportingButNotEnforced,Sign-in Frequency Control,No,No,Yes,No,No,None,All
+BYOD-Web-Only-Access-SharePoint-Exchange,enabledForReportingButNotEnforced,App-Enforced Restrictions (Web-Only),Yes,No,Yes,No,No,device.isCompliant -ne True,"c8ce0a17-c413-5a2b-b827-a4c8eb679cc4, e4a5da3d-2793-517f-9a1c-79424353ab74"

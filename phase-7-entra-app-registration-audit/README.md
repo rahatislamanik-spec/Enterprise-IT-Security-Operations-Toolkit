@@ -106,49 +106,35 @@ phase-7-entra-app-registration-audit/
 
 ## 📸 Implementation Screenshots
 
-### 1. Script Setup — Folder Creation
-Terminal evidence showing the Phase 7 working folders and script file created before the Microsoft Graph audit was executed.
-
-![Script Setup](screenshots/01-script-setup-folder-creation.png)
-
----
-
-### 2. Script Execution — Audit Summary
+### 1. Script Execution — Audit Summary
 Full script execution showing Microsoft Graph connection, all 5 audit sections running, and the final summary output with 3 high-risk permission grants detected.
 
 ![Script Execution](screenshots/02-script-execution-audit-summary.png)
 
 ---
 
-### 3. Entra ID — App Registrations
+### 2. Entra ID — App Registrations
 Microsoft Entra ID App registrations blade showing the registered application in the tenant.
 
 ![App Registrations](screenshots/03-entra-app-registrations.png)
 
 ---
 
-### 4. Entra ID — Enterprise Applications
-Enterprise applications list showing the 241 service principals across Microsoft first-party services and integrated apps.
-
-![Enterprise Applications](screenshots/04-entra-enterprise-applications.png)
-
----
-
-### 5. Entra ID — User Consent Settings
+### 3. Entra ID — User Consent Settings
 User consent settings showing how app consent governance is reviewed from the Entra admin center.
 
 ![User Consent Settings](screenshots/05-entra-user-consent-settings.png)
 
 ---
 
-### 6. Entra ID — Admin Consent Settings
+### 4. Entra ID — Admin Consent Settings
 Admin consent workflow settings showing how elevated app permission approval is governed.
 
 ![Admin Consent Settings](screenshots/06-entra-admin-consent-settings.png)
 
 ---
 
-### 7. Enterprise App Permissions Review
+### 5. Enterprise App Permissions Review
 Application permission evidence showing third-party and Microsoft Graph permissions reviewed during the OAuth risk audit.
 
 ![Application Permissions](screenshots/07-aws-app-permissions.png)
@@ -187,7 +173,7 @@ In real enterprise environments, unreviewed OAuth grants are a primary vector fo
 |---|---|
 | [Phase 1](../phase-1-enterprise-operations-foundation/) | Identity & Tenant Security Baseline |
 | [Phase 2](../phase-2-identity-threat-security-operations/) | Identity Threat & Security Operations |
-| [Phase 3](../phase-3-endpoint-security-defender-operations/) | Endpoint Security & Defender Operations |
+| [Phase 3](../phase-3-endpoint-security-defender-operations/) | Endpoint Enrollment & Intune Operations |
 | [Phase 4](../phase-4-byod-conditional-access-governance/) | BYOD Conditional Access Governance |
 | [Phase 5](../phase-5-exchange-online-mail-flow-audit/) | Exchange Online Mail Flow Audit |
 | [Phase 6](../phase-6-web-only-access-governance/) | Web-Only Access Governance |

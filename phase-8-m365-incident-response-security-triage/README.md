@@ -1,15 +1,15 @@
-# Phase 8 — Microsoft 365 Incident Response Security Triage
+# Phase 8 — Microsoft 365 Initial Security Triage
 
-> **Enterprise-IT-Security-Operations-Toolkit**  
+> **Enterprise-IT-Security-Operations-Toolkit**
 > Microsoft 365 security triage workflow using Microsoft Graph PowerShell, Entra ID, licensing, group, and administrative role evidence.
 
 ---
 
 ## Project Overview
 
-Phase 8 adds an incident-response layer to the Enterprise IT Security Operations Toolkit.
+Phase 8 adds an initial evidence-collection layer to the Enterprise IT Security Operations Toolkit.
 
-This phase simulates what an IT administrator, Microsoft 365 administrator, or security operations analyst would do during an initial Microsoft 365 security investigation.
+This phase models what an IT administrator, Microsoft 365 administrator, or security operations analyst may do at the start of a Microsoft 365 security investigation.
 
 The goal is to quickly collect identity, access, licensing, group, and administrative-role evidence before escalation, remediation, or formal incident documentation.
 
@@ -60,7 +60,7 @@ Common issues include:
 
 ## Implemented Solution
 
-This phase implements a Microsoft 365 security investigation workflow using:
+This phase implements an initial Microsoft 365 security-triage workflow using:
 
 - PowerShell 7
 - Microsoft Graph PowerShell SDK
@@ -69,7 +69,7 @@ This phase implements a Microsoft 365 security investigation workflow using:
 - Security group review
 - Administrative role review
 - CSV/TXT evidence generation
-- GitHub documentation and screenshots
+- GitHub documentation and sanitized CSV/TXT reports
 
 The workflow is designed for quick triage, not full forensic investigation.
 
@@ -77,7 +77,7 @@ The workflow is designed for quick triage, not full forensic investigation.
 
 ## Architecture
 
-![Phase 8 Architecture Diagram](phase5-architecture-diagram.png)
+![Phase 8 Architecture Diagram](phase8-security-triage-architecture.png)
 
 ```text
 Suspicious Activity Reported
@@ -92,7 +92,7 @@ Security Group Review
             ↓
 Administrative Role Review
             ↓
-Incident Response Evidence Package
+Initial Security Triage Evidence Package
 ```
 
 ---
@@ -105,11 +105,11 @@ phase-8-m365-incident-response-security-triage/
 ├── scripts/
 │   └── invoke-m365-incident-response.ps1
 ├── reports/
-├── screenshots/
-│   ├── 01-microsoft-graph-user-enumeration.png
-│   ├── 02-microsoft-365-license-governance.png
-│   ├── 03-entra-security-group-review.png
-│   └── 04-administrative-role-review.png
+│   ├── Phase8_User_Enumeration_2026-06-01.csv
+│   ├── Phase8_License_Governance_2026-06-01.csv
+│   ├── Phase8_Security_Group_Review_2026-06-01.csv
+│   ├── Phase8_Admin_Role_Review_2026-06-01.csv
+│   └── Phase8_Executive_Summary_2026-06-01.txt
 └── README.md
 ```
 
@@ -118,31 +118,33 @@ phase-8-m365-incident-response-security-triage/
 ## Investigation Commands Used
 
 ```powershell
-Get-MgUser -Top 10
+Get-MgUser -Top 25
 Get-MgSubscribedSku
-Get-MgGroup -Top 10
+Get-MgGroup -Top 25
 Get-MgDirectoryRole
 ```
 
-These commands validate Microsoft Graph connectivity and collect early-stage incident response evidence from the lab tenant.
+These commands validate Microsoft Graph connectivity and collect early-stage triage evidence from the lab tenant.
 
 ---
 
 ## Evidence Collected
 
+The public evidence package uses sanitized report exports instead of terminal screenshots. This preserves the technical fields and findings while avoiding noisy local paths, account identifiers, and raw tenant values.
+
 ### 1. Microsoft Graph User Enumeration
 
-This confirms successful identity visibility through Microsoft Graph PowerShell.
+This report demonstrates the user-enumeration output structure used during initial identity review.
 
-![Microsoft Graph User Enumeration](screenshots/01-microsoft-graph-user-enumeration.png)
+[Open sanitized user enumeration report](reports/Phase8_User_Enumeration_2026-06-01.csv)
 
 ---
 
 ### 2. Microsoft 365 License Governance
 
-This confirms license visibility and tenant subscription review capability.
+This report demonstrates tenant subscription and license-capacity review.
 
-![Microsoft 365 License Governance](screenshots/02-microsoft-365-license-governance.png)
+[Open sanitized license governance report](reports/Phase8_License_Governance_2026-06-01.csv)
 
 ---
 
@@ -157,7 +159,7 @@ This validates visibility into operational and security groups such as:
 - Lab cohort groups
 - All Company
 
-![Entra Security Group Review](screenshots/03-entra-security-group-review.png)
+[Open sanitized security group review](reports/Phase8_Security_Group_Review_2026-06-01.csv)
 
 ---
 
@@ -173,7 +175,11 @@ This validates visibility into administrative role exposure, including:
 - User Administrator
 - SharePoint Administrator
 
-![Administrative Role Review](screenshots/04-administrative-role-review.png)
+[Open sanitized administrative role review](reports/Phase8_Admin_Role_Review_2026-06-01.csv)
+
+### 5. Triage Summary
+
+[Open sanitized triage summary](reports/Phase8_Executive_Summary_2026-06-01.txt)
 
 ---
 
@@ -186,7 +192,7 @@ This phase demonstrates the ability to:
 - Investigate tenant-level licensing state
 - Review security and operational groups
 - Identify administrative role exposure
-- Collect evidence for incident response
+- Collect evidence for escalation and incident-response handoff
 - Document investigation steps
 - Build repeatable investigation workflows
 
@@ -239,7 +245,7 @@ Phase 8 acts as the triage layer that brings identity, access, device, and gover
 
 ## Lab Environment Disclaimer
 
-This project was developed using an isolated Microsoft 365 lab tenant created for learning, simulation, reporting, and portfolio demonstration.
+This project was developed using an isolated Microsoft 365 demonstration tenant for self-directed implementation, reporting, and portfolio evidence.
 
 No production tenant data, confidential business information, customer records, or real-world organizational infrastructure is included in this repository.
 
@@ -263,9 +269,9 @@ Planned improvements:
 
 ## Skills Demonstrated
 
-`Microsoft Graph` · `PowerShell` · `Microsoft 365 Administration` · `Entra ID` · `Identity Investigation` · `Security Operations` · `Incident Response` · `Administrative Role Review` · `License Governance` · `Security Documentation`
+`Microsoft Graph` · `PowerShell` · `Microsoft 365 Administration` · `Entra ID` · `Identity Investigation` · `Security Operations` · `Initial Security Triage` · `Administrative Role Review` · `License Governance` · `Security Documentation`
 
 ---
 
-Built by **Md Rahat Islam Anik**  
+Built by **Md Rahat Islam Anik**
 Microsoft 365 Security Operations Portfolio

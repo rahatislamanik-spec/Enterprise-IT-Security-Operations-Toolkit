@@ -13,7 +13,7 @@ Write-Host "`n🔐 Connecting to Exchange Online..." -ForegroundColor Cyan
 Connect-ExchangeOnline -Device -ShowBanner:$false
 
 $Date = Get-Date -Format "yyyy-MM-dd"
-$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-5-exchange-online-mail-flow-audit/reports"
+$ReportPath = Join-Path $PSScriptRoot "../reports"
 
 # ── 1. Mailbox Forwarding Audit ──────────────────────────────
 Write-Host "`n📋 Checking mailbox forwarding rules..." -ForegroundColor Cyan

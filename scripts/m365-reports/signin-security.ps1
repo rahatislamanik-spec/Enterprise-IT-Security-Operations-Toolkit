@@ -2,20 +2,26 @@
 # Microsoft 365 Sign-In Security Report
 # Author: Md Rahat Islam Anik
 
+param (
+    [ValidateRange(1, 30)]
+    [int]$DaysBack = 7
+)
+
 Write-Host "=======================================" -ForegroundColor Cyan
 Write-Host " ENTERPRISE SECURITY OPS | SIGN-IN SECURITY REPORT " -ForegroundColor Cyan
 Write-Host "=======================================" -ForegroundColor Cyan
 
 Connect-MgGraph -Scopes "AuditLog.Read.All","Directory.Read.All"
 
-$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-1-enterprise-operations-foundation/reports"
+$ReportPath = Join-Path $PSScriptRoot "../../phase-1-enterprise-operations-foundation/reports"
 New-Item -ItemType Directory -Force -Path $ReportPath | Out-Null
 
 $DateStamp = Get-Date -Format "yyyy-MM-dd_HH-mm"
 
 Write-Host "`nCollecting sign-in logs..." -ForegroundColor Yellow
 
-$SignIns = Get-MgAuditLogSignIn -Top 50
+$StartDate = (Get-Date).ToUniversalTime().AddDays(-$DaysBack).ToString("yyyy-MM-ddTHH:mm:ssZ")
+$SignIns = Get-MgAuditLogSignIn -All -Filter "createdDateTime ge $StartDate"
 
 $Results = foreach ($SignIn in $SignIns) {
 
@@ -47,5 +53,6 @@ Write-Host "=======================================" -ForegroundColor Green
 
 Write-Host "Successful Sign-Ins: $SuccessfulSignins" -ForegroundColor Cyan
 Write-Host "Failed Sign-Ins: $FailedSignins" -ForegroundColor Yellow
+Write-Host "Review Window: Last $DaysBack day(s)" -ForegroundColor Cyan
 
 Write-Host "`nCSV Exported: $CsvFile" -ForegroundColor Green

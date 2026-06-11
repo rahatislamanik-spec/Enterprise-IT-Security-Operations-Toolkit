@@ -1,12 +1,12 @@
-"DisplayName","Description","Id"
-"Azure AD Joined Device Local Administrator","Users assigned to this role are added to the local administrators group on Microsoft Entra joined devices.","065009a1-8d9a-4f7f-8883-a7db212a13cd"
-"Teams Administrator","Can manage the Microsoft Teams service.","07dd9c56-ce53-4325-93b7-c541d2c5f01f"
-"Global Reader","Can read everything that a Global Administrator can, but not update anything.","1d214873-ad1a-49f3-b5a4-a3b0f33804d4"
-"Billing Administrator","Can perform common billing related tasks like updating payment information.","234a2308-40cc-426a-b742-bf4f85668a19"
-"Security Reader","Can read security information and reports in Microsoft Entra ID and Office 365.","3f434748-8d91-4345-b0fe-6c759639f9b2"
-"User Administrator","Can manage all aspects of users and groups, including resetting passwords for limited admins.","581a28c7-38a2-4de1-9fa8-ce7cefb35b1e"
-"Exchange Administrator","Can manage all aspects of the Exchange product.","76763625-c5a0-4e0e-8b94-a905ef4ef8fa"
-"Helpdesk Administrator","Can reset passwords for non-administrators and Helpdesk Administrators.","78536963-3bf9-4063-be63-85fc49f4a6f5"
-"Global Administrator","Can manage all aspects of Microsoft Entra ID and Microsoft services that use Microsoft Entra identities.","891d1939-c9a1-4b78-b3ab-b2a1abf9e303"
-"Service Support Administrator","Can read service health information and manage support tickets.","c39a32aa-b7f8-46ef-8b23-0c9b5d2675a7"
-"SharePoint Administrator","Can manage all aspects of the SharePoint service.","df46fdee-b078-4c3b-b460-79cf5cc09d2b"
+DisplayName,Description,Id
+Azure AD Joined Device Local Administrator,Users assigned to this role are added to the local administrators group on Microsoft Entra joined devices.,7b40b260-7b03-5218-8767-33ac5b0e9cfc
+Teams Administrator,Can manage the Microsoft Teams service.,32a82b68-7883-5c66-a393-5b32f664fd3e
+Global Reader,"Can read everything that a Global Administrator can, but not update anything.",5759ef7b-b7da-579f-9867-4be634c413cc
+Billing Administrator,Can perform common billing related tasks like updating payment information.,e92d3940-327a-53be-bdd2-b1e5d8a10329
+Security Reader,Can read security information and reports in Microsoft Entra ID and Office 365.,2c9a418f-c934-5ce6-b86e-b8b736325216
+User Administrator,"Can manage all aspects of users and groups, including resetting passwords for limited admins.",9029e34a-4419-51b5-a56e-5932673ffffe
+Exchange Administrator,Can manage all aspects of the Exchange product.,d7623a19-4452-539f-9850-dfd6810b2067
+Helpdesk Administrator,Can reset passwords for non-administrators and Helpdesk Administrators.,6c62bf3f-102f-51f1-b575-b95dfdfc1bb8
+Global Administrator,Can manage all aspects of Microsoft Entra ID and Microsoft services that use Microsoft Entra identities.,5796651b-a8d2-5258-872e-f4db26eedf1a
+Service Support Administrator,Can read service health information and manage support tickets.,c9037477-618e-58ec-b36c-21218c3911fa
+SharePoint Administrator,Can manage all aspects of the SharePoint service.,c9756d6a-c225-56db-b51c-4242d20ec16a

@@ -12,7 +12,7 @@
 Connect-MgGraph -Scopes "Application.Read.All","Directory.Read.All" -NoWelcome
 
 $Date = Get-Date -Format "yyyy-MM-dd"
-$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-7-entra-app-registration-audit/reports"
+$ReportPath = Join-Path $PSScriptRoot "../reports"
 
 # ── 1. App Registrations ─────────────────────────────────────
 Write-Host "`n📋 Fetching app registrations..." -ForegroundColor Cyan

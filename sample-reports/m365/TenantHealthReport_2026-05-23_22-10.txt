@@ -1,11 +1,11 @@
 ===============================================
-RAHATOS | MICROSOFT 365 TENANT HEALTH REPORT
+ENTERPRISE DEMO | MICROSOFT 365 TENANT HEALTH REPORT
 ===============================================
 
 Generated On: 05/23/2026 22:11:03
 
-Tenant Name: xyz.inc
-Tenant ID: 31faeb7a-0aac-4053-9668-2f2ccdf58abb
+Tenant Name: Enterprise Demonstration Tenant
+Tenant ID: a8da3fff-8dbe-5944-9166-9d9ef8a68d31
 Country: CA
 
 USER SUMMARY
@@ -30,8 +30,8 @@ Active Directory Roles: 11
 
 REPORT FILES
 -----------------------------------------------
-CSV: /Users/rahatislam/Documents/RahatOS-Progress-Center/reports/m365/TenantHealthReport_2026-05-23_22-10.csv
-TXT: /Users/rahatislam/Documents/RahatOS-Progress-Center/reports/m365/TenantHealthReport_2026-05-23_22-10.txt
+CSV: [local-path-redacted]
+TXT: [local-path-redacted]
 
 ===============================================
 Report completed successfully.

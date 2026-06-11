@@ -17,7 +17,7 @@ Write-Host "=================================================" -ForegroundColor 
 
 Connect-MgGraph -Scopes "AuditLog.Read.All","Directory.Read.All"
 
-$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-1-enterprise-operations-foundation/reports"
+$ReportPath = Join-Path $PSScriptRoot "../../phase-1-enterprise-operations-foundation/reports"
 New-Item -ItemType Directory -Force -Path $ReportPath | Out-Null
 $DateStamp  = Get-Date -Format "yyyy-MM-dd_HH-mm"
 $StartDate  = (Get-Date).AddDays(-$LookbackDays).ToString("yyyy-MM-ddTHH:mm:ssZ")

@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Enterprise IT Security Operations Toolkit | Md Rahat Islam Anik</title>
-<meta name="description" content="An 8-phase Microsoft 365 security operations lab built with PowerShell, Microsoft Graph, Entra ID, Intune, Defender, Exchange Online, Conditional Access, and documented lab evidence." />
+<meta name="description" content="A 9-phase Microsoft 365 security and compliance operations lab built with PowerShell, Microsoft Graph, Entra ID, Intune, Defender, Exchange Online, Conditional Access, Purview, and documented lab evidence." />
 <style>
 :root {
   --bg: #050b14;
@@ -319,7 +319,7 @@ ul { padding-left: 1.2rem; }
   <a href="#top" class="logo"><span class="logo-mark">SOC</span><span>Enterprise IT Security Operations Toolkit</span></a>
   <div class="nav-links">
     <a href="#overview">Overview</a>
-    <a href="#phases">8 Phases</a>
+    <a href="#phases">9 Phases</a>
     <a href="#architecture">Architecture</a>
     <a href="#evidence">Evidence</a>
     <a href="#stack">Stack</a>
@@ -331,7 +331,7 @@ ul { padding-left: 1.2rem; }
     <div>
       <div class="eyebrow">PowerShell · Microsoft Graph · Entra ID · Intune · Defender</div>
       <h1><span class="gradient">Enterprise IT</span><br/>Security Operations Toolkit</h1>
-      <p class="lead">An 8-phase Microsoft 365 security operations lab built in an isolated lab tenant with PowerShell automation, Graph reporting, Conditional Access governance, endpoint visibility, mail flow auditing, app registration review, and incident response triage.</p>
+      <p class="lead">A 9-phase Microsoft 365 security and compliance operations lab built in an isolated lab tenant with PowerShell automation, Graph reporting, Conditional Access governance, endpoint visibility, mail flow auditing, app registration review, incident triage, and Microsoft Purview data protection.</p>
       <div class="ctas">
         <a class="btn primary" href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit" target="_blank" rel="noreferrer">View GitHub Repository</a>
         <a class="btn secondary" href="https://rahatislamanik-spec.github.io/IT-Portfolio-Rahat-Islam-Anik/" target="_blank" rel="noreferrer">View Full Portfolio</a>
@@ -343,12 +343,12 @@ ul { padding-left: 1.2rem; }
         <div class="terminal-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
         <div class="terminal-body">
           <div><span class="cmd">PS&gt;</span> Invoke-M365-SecurityOpsToolkit</div>
-          <div><span class="ok">✓</span> 8 operational phases documented</div>
+          <div><span class="ok">✓</span> 9 operational phases documented</div>
           <div><span class="ok">✓</span> 30+ PowerShell scripts across the toolkit</div>
           <div><span class="ok">✓</span> 25+ report outputs generated</div>
-          <div><span class="warn">!</span> Secure Score captured: 238.26 / 413</div>
+          <div><span class="warn">!</span> Secure Score snapshot: 146.26 / 204</div>
           <div><span class="danger">!</span> High-risk OAuth grants detected: 3</div>
-          <div><span class="ok">✓</span> Incident response triage package ready</div>
+          <div><span class="ok">✓</span> Initial security triage package documented</div>
         </div>
       </div>
     </div>
@@ -365,7 +365,7 @@ ul { padding-left: 1.2rem; }
       <p>This project evolved from a Phase 1 tenant health dashboard into a complete Microsoft 365 security operations toolkit covering identity, endpoint, access, mail flow, OAuth risk, and triage workflows.</p>
     </div>
     <div class="stats">
-      <div class="stat"><strong>8</strong><span>Operational phases</span></div>
+      <div class="stat"><strong>9</strong><span>Operational phases</span></div>
       <div class="stat"><strong>30+</strong><span>PowerShell scripts</span></div>
       <div class="stat"><strong>25+</strong><span>Reports generated</span></div>
       <div class="stat"><strong>241</strong><span>Service principals inventoried</span></div>
@@ -381,7 +381,7 @@ ul { padding-left: 1.2rem; }
   <div class="container">
     <div class="section-head">
       <div>
-        <div class="kicker">8-Phase Build</div>
+        <div class="kicker">9-Phase Build</div>
         <h2>Security operations lifecycle.</h2>
       </div>
       <p>Each phase has a clear operational purpose and demonstrates practical Microsoft 365 administration, governance, security review, and automation skills.</p>
@@ -401,8 +401,8 @@ ul { padding-left: 1.2rem; }
       </article>
 
       <article class="phase">
-        <div class="phase-top"><h3>Endpoint Security & Defender Operations</h3><span class="badge">Phase 3</span></div>
-        <p>Intune device inventory, endpoint compliance review, Defender visibility, device risk posture, and endpoint governance evidence.</p>
+        <div class="phase-top"><h3>Endpoint Enrollment & Intune Operations</h3><span class="badge">Phase 3</span></div>
+        <p>Company Portal enrollment, Intune managed-device inventory, ownership, platform, and compliance-state evidence.</p>
         <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-3-endpoint-security-defender-operations" target="_blank" rel="noreferrer">Open Phase 3 →</a>
       </article>
 
@@ -431,9 +431,15 @@ ul { padding-left: 1.2rem; }
       </article>
 
       <article class="phase">
-        <div class="phase-top"><h3>M365 Incident Response Security Triage</h3><span class="badge">Phase 8</span></div>
-        <p>Rapid evidence collection for suspicious activity: users, licenses, groups, administrative roles, and executive triage summaries.</p>
+        <div class="phase-top"><h3>M365 Initial Security Triage</h3><span class="badge">Phase 8</span></div>
+        <p>Early evidence collection for suspicious activity: users, licenses, groups, administrative roles, and escalation summaries.</p>
         <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-8-m365-incident-response-security-triage" target="_blank" rel="noreferrer">Open Phase 8 →</a>
+      </article>
+
+      <article class="phase">
+        <div class="phase-top"><h3>Data Protection & Compliance Operations</h3><span class="badge">Phase 9</span></div>
+        <p>Microsoft Purview DLP simulation, Compliance Manager review, Insider Risk policy planning, sensitivity labels, and retention governance.</p>
+        <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-9-data-protection-compliance-operations" target="_blank" rel="noreferrer">Open Phase 9 →</a>
       </article>
     </div>
   </div>
@@ -466,11 +472,12 @@ ul { padding-left: 1.2rem; }
         <h3>Operational coverage</h3>
         <ul>
           <li>Identity governance: users, groups, admin roles, MFA, guest users, risky users.</li>
-          <li>Endpoint governance: Intune inventory, device compliance, Defender visibility.</li>
+          <li>Endpoint governance: Company Portal enrollment, Intune inventory, ownership, and compliance-state review.</li>
           <li>Access governance: Conditional Access, BYOD policy checks, web-only access restrictions.</li>
           <li>Messaging security: external forwarding, inbox rules, transport rules, anti-spam policies.</li>
           <li>Application security: app registrations, service principals, OAuth grants, credential expiry.</li>
-          <li>Incident response: rapid triage package for suspicious account activity.</li>
+          <li>Security triage: early evidence package for suspicious account activity and escalation.</li>
+          <li>Data protection: DLP simulation, compliance improvement review, insider-risk policy design, sensitivity labels, and retention.</li>
         </ul>
       </div>
     </div>
@@ -494,11 +501,15 @@ ul { padding-left: 1.2rem; }
       </div>
       <div class="card">
         <h3>Security & Risk</h3>
-        <p>Secure Score captured at 238.26 / 413, risky user workflows documented, OAuth permissions reviewed, and high-risk grants flagged.</p>
+        <p>Secure Score retained at 146.26 / 204, identity-risk workflows documented, OAuth permissions reviewed, and high-risk grants flagged.</p>
       </div>
       <div class="card">
         <h3>Operations & Response</h3>
         <p>23 mailboxes audited, 10 groups inventoried, app registration evidence captured, and incident triage outputs generated for escalation.</p>
+      </div>
+      <div class="card">
+        <h3>Data Protection & Compliance</h3>
+        <p>Purview DLP was staged in simulation, Compliance Manager posture was reviewed, and Insider Risk, sensitivity-label, and retention controls were documented.</p>
       </div>
     </div>
   </div>
@@ -522,8 +533,12 @@ ul { padding-left: 1.2rem; }
         <span class="pill">Microsoft Entra ID</span>
         <span class="pill">Conditional Access</span>
         <span class="pill">Microsoft Intune</span>
-        <span class="pill">Defender for Endpoint</span>
+        <span class="pill">Microsoft Defender</span>
         <span class="pill">Identity Protection</span>
+        <span class="pill">Microsoft Purview</span>
+        <span class="pill">Data Loss Prevention</span>
+        <span class="pill">Compliance Manager</span>
+        <span class="pill">Insider Risk Management</span>
         <span class="pill">OAuth Grants</span>
         <span class="pill">Service Principals</span>
         <span class="pill">CSV Reporting</span>

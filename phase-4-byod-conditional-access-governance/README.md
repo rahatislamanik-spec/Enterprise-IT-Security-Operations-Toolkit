@@ -136,37 +136,11 @@ Exports full audit to CSV.
 
 ---
 
-## 📸 Implementation Screenshots
+## 📸 Curated Evidence
 
-### 1. Project Setup — Terminal
-Phase 4 folder structure and PowerShell script files created via terminal.
+The retained screenshots focus on policy design and configuration. Device-specific views, assignment duplicates, setup terminals, and action screens were removed because they repeated other evidence or exposed unnecessary identifiers.
 
-![Terminal Setup](screenshots/01-terminal-phase4-setup.png)
-
----
-
-### 2. Entra ID — All Devices
-Microsoft Entra admin center showing the registered device inventory. Rahat's MacBook Air is visible as a registered BYOD device (Microsoft Entra registered, MacMDM, owned by Md Rahat Islam Anik).
-
-![Entra All Devices](screenshots/02-entra-all-devices.png)
-
----
-
-### 3. Entra ID — Device Properties (Top)
-Device detail page showing device name, Device ID, Object ID, OS (MacMDM), version, join type (Microsoft Entra registered), and owner.
-
-![Device Detail Top](screenshots/03-entra-device-detail-top.png)
-
----
-
-### 4. Entra ID — Device Compliance State
-Scrolled view of the same device showing compliance state = **No** — this BYOD device is non-compliant and would be blocked by the Conditional Access policy requiring compliant devices.
-
-![Device Compliance State](screenshots/04-entra-device-detail-compliance.png)
-
----
-
-### 5. Conditional Access — Policy List
+### 1. Conditional Access — Policy List
 8 Conditional Access policies configured in the tenant. All are in **Report-only** mode for safe lab testing. Key policies visible include:
 - Block Legacy Authentication
 - Require MDM-enrolled and compliant device to access cloud apps
@@ -177,21 +151,21 @@ Scrolled view of the same device showing compliance state = **No** — this BYOD
 
 ---
 
-### 6. Conditional Access — Require Compliant Device Policy
+### 2. Conditional Access — Require Compliant Device Policy
 The core BYOD governance policy: **"Require MDM-enrolled and compliant device to access cloud apps for all users"**. Set to Report-only mode. Targets all users and all cloud apps.
 
 ![CA Policy Detail](screenshots/06-ca-require-compliant-device-policy.png)
 
 ---
 
-### 7. Conditional Access — Grant Control
+### 3. Conditional Access — Grant Control
 Grant control panel showing **"Require device to be marked as compliant"** is selected. In an enabled rollout, this control would deny access for non-compliant or unmanaged BYOD devices; in this lab it is documented as part of report-only validation.
 
 ![CA Grant Control](screenshots/07-ca-grant-require-compliant.png)
 
 ---
 
-### 8. Intune — Compliance Policies List
+### 4. Intune — Compliance Policies List
 Three device compliance policies configured in Microsoft Intune:
 - `IOS_IPADOS_BYOD_COMPLIANCE_POLICY` — for personal iOS/iPadOS devices
 - `WIN11-Faculty-Staff-Compliance-Policy` — strict policy for staff Windows devices
@@ -201,7 +175,7 @@ Three device compliance policies configured in Microsoft Intune:
 
 ---
 
-### 9. Intune — iOS BYOD Compliance Policy
+### 5. Intune — iOS BYOD Compliance Policy
 BYOD-specific compliance policy for iOS/iPadOS devices configuring:
 - Jailbreak detection (Block)
 - Minimum OS version: 14.0
@@ -213,14 +187,7 @@ BYOD-specific compliance policy for iOS/iPadOS devices configuring:
 
 ---
 
-### 10. Intune — iOS BYOD Policy Assignments
-iOS BYOD compliance policy assigned to **All Users**. Non-compliant devices are marked immediately. Demonstrates broad BYOD coverage across the organization.
-
-![iOS BYOD Assignments](screenshots/10-intune-ios-byod-assignments.png)
-
----
-
-### 11. Intune — WIN11 Faculty/Staff Compliance Policy
+### 6. Intune — WIN11 Faculty/Staff Compliance Policy
 Strict compliance policy for corporate Windows 11 devices used by faculty and staff. Enforces:
 - BitLocker encryption (Required)
 - Secure Boot (Required)
@@ -233,26 +200,12 @@ Strict compliance policy for corporate Windows 11 devices used by faculty and st
 
 ---
 
-### 12. Intune — WIN11 Faculty/Staff Policy Assignments
-Faculty/Staff Windows compliance policy assigned to All Users with a 1-day grace period before marking non-compliant, and a 3-day retire list action for persistent non-compliance.
-
-![WIN11 Faculty Staff Assignments](screenshots/12-intune-win11-faculty-staff-assignments.png)
-
----
-
-### 13. Intune — Device Actions
-Intune device actions panel showing a **Retire** action pending for Rahat's MacBook Air — demonstrating the ability to remotely retire unmanaged or non-compliant BYOD devices from organizational access.
-
-![Device Actions](screenshots/13-intune-device-actions.png)
-
----
-
 ## 🎯 Key Outcomes
 
 - ✅ Device inventory classified by ownership, trust type, and compliance state
 - ✅ Conditional Access policy configured to require compliant devices for cloud app access
 - ✅ Three tiered compliance policies covering iOS BYOD, Windows standard, and Windows faculty/staff
-- ✅ Non-compliant BYOD device (MacBook Air) identified and retirement action initiated
+- ✅ Report-only Conditional Access design documented without claiming production enforcement
 - ✅ PowerShell automation scripts for ongoing governance and reporting via Microsoft Graph
 
 ---
@@ -271,7 +224,7 @@ The Zero Trust principle applied here: **never trust, always verify** — every 
 |---|---|
 | [Phase 1](../phase-1-enterprise-operations-foundation/) | Identity & Tenant Security Baseline |
 | [Phase 2](../phase-2-identity-threat-security-operations/) | Identity Threat & Security Operations |
-| [Phase 3](../phase-3-endpoint-security-defender-operations/) | Endpoint Security & Defender Operations |
+| [Phase 3](../phase-3-endpoint-security-defender-operations/) | Endpoint Enrollment & Intune Operations |
 | **Phase 4** | **BYOD Conditional Access Governance** ← You are here |
 
 ---

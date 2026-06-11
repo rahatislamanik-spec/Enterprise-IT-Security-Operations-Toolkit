@@ -6,7 +6,7 @@ phase-2-identity-threat-security-operations/README.md
 
 Phase 2 of the Enterprise IT Security Operations Toolkit focuses on identity security, Microsoft Entra ID threat visibility, governance reporting, Secure Score analysis, and operational security monitoring workflows.
 
-This phase simulates enterprise-level Identity Protection and security operations processes commonly performed by Tier 2 / Tier 3 administrators, security analysts, governance teams, and SOC environments.
+This phase models Identity Protection and security-review processes commonly performed by Microsoft 365 administrators, identity analysts, and security operations teams.
 
 The objective of this phase is to improve operational visibility into identity-based threats, governance posture, authentication security, and Microsoft 365 tenant security posture using Microsoft Graph and PowerShell automation.
 
@@ -29,7 +29,11 @@ The toolkit focuses on:
 - Operational evidence collection
 - Administrative reporting automation
 
-The goal is to reduce manual operational overhead while improving security visibility, governance consistency, and incident response readiness.
+The goal is to reduce manual review effort while improving identity-security visibility, governance consistency, and escalation readiness.
+
+## Evidence Status
+
+The Secure Score report contains retained lab output. Risky-user, risk-detection, and guest-governance runs returned no rows in the captured tenant state; their zero-byte exports were removed because empty files add no interview value. The scripts remain available to demonstrate query logic and can generate populated reports when matching tenant data exists.
 
 ---
 

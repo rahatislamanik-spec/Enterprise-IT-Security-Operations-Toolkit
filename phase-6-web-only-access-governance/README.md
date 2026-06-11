@@ -138,9 +138,7 @@ phase-6-web-only-access-governance/
 │   ├── 02-ca-both-apps-selected.png
 │   ├── 03-ca-session-app-enforced-restrictions.png
 │   ├── 04-ca-byod-web-only-policy-detail.png
-│   ├── 05-audit-before-after-terminal.png
-│   ├── 06-audit-after-git-push.png
-│   └── 07-audit-before-zero-web-only.png
+│   └── 05-audit-before-after-terminal.png
 └── README.md
 ```
 
@@ -183,20 +181,6 @@ Terminal showing both audit runs — first showing 0 web-only policies before cr
 
 ---
 
-### 6. After Audit — Git Push
-Full audit output showing the new policy detected as "App-Enforced Restrictions (Web-Only)" followed by successful git push to GitHub.
-
-![After Audit Git Push](screenshots/06-audit-after-git-push.png)
-
----
-
-### 7. Before Audit — Zero Web-Only Policies
-Initial audit run showing 0 web-only app-enforced restriction policies and the automated recommendation to create one — demonstrating the gap identification capability of the script.
-
-![Before Audit](screenshots/07-audit-before-zero-web-only.png)
-
----
-
 ## 🎯 Key Outcomes
 
 - ✅ Conditional Access policy created targeting SharePoint Online and Exchange Online
@@ -227,7 +211,7 @@ This approach follows Microsoft's recommended Zero Trust access model: grant the
 |---|---|
 | [Phase 1](../phase-1-enterprise-operations-foundation/) | Identity & Tenant Security Baseline |
 | [Phase 2](../phase-2-identity-threat-security-operations/) | Identity Threat & Security Operations |
-| [Phase 3](../phase-3-endpoint-security-defender-operations/) | Endpoint Security & Defender Operations |
+| [Phase 3](../phase-3-endpoint-security-defender-operations/) | Endpoint Enrollment & Intune Operations |
 | [Phase 4](../phase-4-byod-conditional-access-governance/) | BYOD Conditional Access Governance |
 | [Phase 5](../phase-5-exchange-online-mail-flow-audit/) | Exchange Online Mail Flow Audit |
 | **Phase 6** | **Web-Only Access Governance** ← You are here |

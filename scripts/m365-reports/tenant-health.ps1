@@ -11,7 +11,7 @@ Write-Host "===============================================" -ForegroundColor Cy
 Connect-MgGraph -Scopes "User.Read.All","Directory.Read.All","Organization.Read.All"
 
 # Create report folder
-$ReportPath = "$HOME/Documents/Enterprise-IT-Security-Operations-Toolkit/phase-1-enterprise-operations-foundation/reports"
+$ReportPath = Join-Path $PSScriptRoot "../../phase-1-enterprise-operations-foundation/reports"
 New-Item -ItemType Directory -Force -Path $ReportPath | Out-Null
 
 # Date stamp
