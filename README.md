@@ -216,7 +216,8 @@ For a quick evidence review, start with [`docs/evidence-map.md`](docs/evidence-m
 - DLP policy retained in simulation mode for staged validation
 - Compliance Manager assessments, score snapshot, and improvement actions documented
 - Insider Risk Management policy design and policy-health evidence captured
-- Sensitivity-label hierarchy and seven-year retention-label configuration reviewed
+- Sensitivity-label hierarchy, publishing policy, adaptive scope, and simulation-mode auto-labeling workflow documented
+- Seven-year retention-label configuration reviewed
 
 [→ Phase 9 README](phase-9-data-protection-compliance-operations/README.md)
 

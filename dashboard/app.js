@@ -3,7 +3,7 @@ const toolkitMetrics = [
   { value: '9', label: 'Operational Phases' },
   { value: '30+', label: 'PowerShell Scripts' },
   { value: '25+', label: 'Reports and Evidence Files' },
-  { value: '42', label: 'Curated Visual Assets' },
+  { value: '47', label: 'Curated Visual Assets' },
   { value: '146.26 / 204', label: 'Lab Secure Score Snapshot' },
   { value: '241', label: 'Service Principals Reviewed' },
   { value: '23', label: 'Exchange Mailboxes Audited' },

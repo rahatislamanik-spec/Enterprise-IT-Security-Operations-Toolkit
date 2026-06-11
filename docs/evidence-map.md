@@ -14,7 +14,7 @@ This map connects each phase of the Enterprise IT Security Operations Toolkit to
 | Phase 6 — Web-Only Access Governance | App-enforced restrictions for unmanaged-device browser access | Web-only audit script, before/after report, screenshots | Conditional Access, SharePoint/Exchange access governance |
 | Phase 7 — Entra ID App Registration Audit | App registrations, service principals, OAuth grants, high-risk permissions, credential expiry | App registration script, 4 CSV reports, Entra screenshots | Identity Security, Entra ID, Cloud Security |
 | Phase 8 — M365 Initial Security Triage | Initial identity, license, group, and role evidence collection | Triage script plus sanitized user/license/group/role reports | Security Operations, M365 Admin, IT Support escalation |
-| Phase 9 — Data Protection & Compliance Operations | DLP design, compliance posture review, insider-risk planning, information protection, and retention governance | `phase-9-data-protection-compliance-operations/README.md` and 16 sanitized Purview screenshots | Purview Administrator, M365 Security, Compliance Operations, GRC support |
+| Phase 9 — Data Protection & Compliance Operations | DLP design, compliance posture review, insider-risk planning, information protection, adaptive scope, auto-labeling, and retention governance | `phase-9-data-protection-compliance-operations/README.md` and 21 sanitized Purview screenshots | Purview Administrator, M365 Security, Compliance Operations, GRC support |
 
 ## Lab Scope
 
