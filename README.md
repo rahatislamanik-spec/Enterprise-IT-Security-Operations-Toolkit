@@ -1,4 +1,5 @@
 # Enterprise IT Security Operations Toolkit
+> **Status:** Evidence Update Pending
 
 Microsoft 365 security operations lab and governance toolkit built with PowerShell, Microsoft Graph, Entra ID, Intune, Microsoft Defender, and Exchange Online.
 
