@@ -28,6 +28,29 @@ Security operations must protect sensitive information without interrupting legi
 | Sensitivity labels | Classification hierarchy plus publishing-policy review and creation | Policy creation is shown; propagation and end-user label application are not claimed |
 | Retention and auto-labeling | Seven-year retention label, adaptive scope, and simulation-mode auto-labeling policy | Configuration and creation are shown; matched content, enforcement, and disposition outcomes are not claimed |
 
+## PowerShell Governance Baseline
+
+[`scripts/Get-PurviewTenantComplianceBaseline.ps1`](scripts/Get-PurviewTenantComplianceBaseline.ps1) is a read-only validation utility for collecting a timestamped Microsoft Purview configuration inventory. It queries sensitivity labels and publishing policies, DLP policies and child rules, retention policies and labels, and any endpoint workload scope exposed by the available DLP policy cmdlets.
+
+The script exports TXT, CSV, and JSON reports. It records unavailable cmdlets, insufficient permissions, and unsupported properties as unverified areas rather than treating them as healthy or absent controls. It does not determine regulatory compliance, prove policy enforcement, or verify Endpoint DLP device onboarding.
+
+### Requirements and Usage
+
+```powershell
+Install-Module ExchangeOnlineManagement -Scope CurrentUser
+pwsh ./phase-9-data-protection-compliance-operations/scripts/Get-PurviewTenantComplianceBaseline.ps1
+```
+
+An administrator UPN can be supplied with `-UserPrincipalName`, and the report destination can be changed with `-OutputPath`.
+
+### Execution Status
+
+Static PowerShell parsing completed successfully. Interactive tenant authentication was also tested with PowerShell 7.6.2, macOS 26.5.1, and ExchangeOnlineManagement 3.9.2. `Connect-IPPSSession` returned `PlatformNotSupportedException`, including when `-DisableWAM` was tested. This confirms that the current macOS environment cannot complete the required interactive Purview authentication flow.
+
+Tenant execution and generated report validation are therefore pending from a supported Windows PowerShell 7 environment with appropriate Purview permissions. The script accepts an in-memory `-AccessToken` with `-UserPrincipalName` for separately approved token workflows, but tokens must never be saved in the repository, terminal screenshots, command history, or report files.
+
+> **Evidence note:** No successful tenant execution or generated reports are currently claimed. Review and sanitize generated files before publishing them as portfolio evidence after Windows validation.
+
 ## Evidence Gallery
 
 ### Data Loss Prevention
