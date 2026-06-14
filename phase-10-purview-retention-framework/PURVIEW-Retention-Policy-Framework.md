@@ -1,4 +1,4 @@
-# Microsoft Purview Retention Policy Framework — Port Food Mart
+# Microsoft Purview Retention Policy Framework — Crestline Retail Group
 
 ---
 
@@ -6,32 +6,32 @@
 
 | Field | Detail |
 |---|---|
-| **Company** | Port Food Mart |
-| **Environment** | 300 users · 6 sites · Microsoft 365 E5 · Tampa, FL |
-| **Administrator** | Md Rahat Islam Anik — Sole IT Administrator |
-| **Tenure** | 3.5 years |
+| **Company** | Crestline Retail Group |
+| **Environment** | Fictional 300-user · 6-site · Microsoft 365 E5 enterprise environment |
+| **Artifact owner** | Md Rahat Islam Anik |
+| **Evidence state** | Target-state retention governance design |
 | **Date** | June 2026 |
 | **Phase** | Phase 10 — Microsoft Purview Retention Policy Framework |
 | **Regulatory Framework** | PIPEDA · Canadian PII Compliance · Employment Law |
-| **Outcome** | Full data lifecycle governance across all 6 sites and 300 users |
+| **Outcome** | Multi-workload retention and records-management framework documented |
 
 ---
 
 ## Business Context
 
-Port Food Mart operates across 6 retail sites in Tampa, FL with 300 Microsoft 365 E5 users generating business communications, transactional records, HR documentation, and financial data daily across every Microsoft 365 workload. As the sole IT administrator over a 3.5-year tenure, the responsibility for data lifecycle governance — including retention, records management, archiving, and deletion — falls under a single operational framework.
+Crestline Retail Group is a fictional 300-user, 6-site Microsoft 365 E5 enterprise used to model business communications, transactional records, HR documentation, and financial data across Microsoft 365 workloads. The framework defines a target-state approach to retention, records management, archiving, deletion, and legal preservation.
 
-**Why retention matters at Port Food Mart:**
+**Why retention matters at Crestline Retail Group:**
 
 Uncontrolled data retention creates two opposing risks:
 
-1. **Under-retention:** Business records, HR documentation, financial data, and client records are deleted before their legally or operationally required retention period expires. This exposes Port Food Mart to regulatory non-compliance under PIPEDA, inability to respond to employment disputes, and loss of audit evidence.
+1. **Under-retention:** Business records, HR documentation, financial data, and client records are deleted before their legally or operationally required retention period expires. This exposes Crestline Retail Group to regulatory non-compliance under PIPEDA, inability to respond to employment disputes, and loss of audit evidence.
 
 2. **Over-retention:** Data is kept indefinitely without a deletion schedule. This increases storage costs, broadens the scope of any potential data breach, and creates PIPEDA exposure for retaining personal information beyond its legitimate business purpose.
 
-The retention framework documented here resolves both risks by establishing a defined retention period for every category of data across every Microsoft 365 workload — and ensuring that retention is enforced by policy, not by individual user discretion.
+The retention framework addresses both risks by proposing defined retention periods and centrally governed policies rather than relying on individual user discretion. Final periods and enforcement require legal, records-management, privacy, and business-owner approval.
 
-**Key business drivers at Port Food Mart:**
+**Key business drivers at Crestline Retail Group:**
 
 | Driver | Detail |
 |---|---|
@@ -46,13 +46,13 @@ The retention framework documented here resolves both risks by establishing a de
 
 ## Retention Policy Taxonomy
 
-The retention policy taxonomy defines the base retention period for each Microsoft 365 workload. These policies apply across the full tenant — all 6 sites and all 300 users — and establish the minimum floor for data retention.
+The retention policy taxonomy defines proposed base retention periods for each Microsoft 365 workload. The target scope covers the fictional six-site, 300-user tenant, subject to stakeholder approval, testing, and documented exceptions.
 
 ### Exchange Online — 7 Year Retention
 
 | Setting | Value |
 |---|---|
-| **Policy name** | `PortFoodMart-Exchange-7Year-Retention` |
+| **Policy name** | `CrestlineRetailGroup-Exchange-7Year-Retention` |
 | **Workload** | Exchange Online mailboxes |
 | **Retention period** | 7 years |
 | **Retention action** | Retain and then delete |
@@ -60,7 +60,7 @@ The retention policy taxonomy defines the base retention period for each Microso
 | **Scope** | All mailboxes (all 300 users across 6 sites) |
 | **Regulatory basis** | Business email records, PIPEDA, financial communications |
 
-**Rationale:** Business email at Port Food Mart includes procurement approvals, HR communications, financial authorizations, vendor correspondence, and customer service records. A 7-year retention period aligns with standard financial record-keeping requirements and ensures availability for any employment, procurement, or regulatory dispute that may arise during the lifecycle of the business relationship.
+**Rationale:** Business email at Crestline Retail Group includes procurement approvals, HR communications, financial authorizations, vendor correspondence, and customer service records. A 7-year retention period aligns with standard financial record-keeping requirements and ensures availability for any employment, procurement, or regulatory dispute that may arise during the lifecycle of the business relationship.
 
 ---
 
@@ -68,7 +68,7 @@ The retention policy taxonomy defines the base retention period for each Microso
 
 | Setting | Value |
 |---|---|
-| **Policy name** | `PortFoodMart-SharePoint-5Year-Retention` |
+| **Policy name** | `CrestlineRetailGroup-SharePoint-5Year-Retention` |
 | **Workload** | SharePoint Online site collections |
 | **Retention period** | 5 years |
 | **Retention action** | Retain and then delete |
@@ -76,7 +76,7 @@ The retention policy taxonomy defines the base retention period for each Microso
 | **Scope** | All SharePoint sites (all 6 site collections) |
 | **Regulatory basis** | Business document management, PIPEDA |
 
-**Rationale:** SharePoint hosts operational documents, policy documents, standard operating procedures, vendor contracts, and shared business records for all 6 Port Food Mart sites. A 5-year retention period provides sufficient history for operational continuity, audit response, and contract dispute resolution without creating permanent storage accumulation.
+**Rationale:** SharePoint hosts operational documents, policy documents, standard operating procedures, vendor contracts, and shared business records for all 6 Crestline Retail Group sites. A 5-year retention period provides sufficient history for operational continuity, audit response, and contract dispute resolution without creating permanent storage accumulation.
 
 ---
 
@@ -84,7 +84,7 @@ The retention policy taxonomy defines the base retention period for each Microso
 
 | Setting | Value |
 |---|---|
-| **Policy name** | `PortFoodMart-OneDrive-5Year-Retention` |
+| **Policy name** | `CrestlineRetailGroup-OneDrive-5Year-Retention` |
 | **Workload** | OneDrive for Business accounts |
 | **Retention period** | 5 years |
 | **Retention action** | Retain and then delete |
@@ -92,7 +92,7 @@ The retention policy taxonomy defines the base retention period for each Microso
 | **Scope** | All OneDrive accounts (all 300 users) |
 | **Regulatory basis** | Individual user document management, PIPEDA |
 
-**Rationale:** OneDrive accounts at Port Food Mart store individual user work files, locally synced documents, and personal work product. A 5-year retention period mirrors the SharePoint policy and ensures individual work files are preserved for the same operational window, while deleted user accounts (departing employees) are subject to the same retention guarantee.
+**Rationale:** OneDrive accounts at Crestline Retail Group store individual user work files, locally synced documents, and personal work product. A 5-year retention period mirrors the SharePoint policy and ensures individual work files are preserved for the same operational window, while deleted user accounts (departing employees) are subject to the same retention guarantee.
 
 ---
 
@@ -100,7 +100,7 @@ The retention policy taxonomy defines the base retention period for each Microso
 
 | Setting | Value |
 |---|---|
-| **Policy name** | `PortFoodMart-Teams-Channels-3Year-Retention` |
+| **Policy name** | `CrestlineRetailGroup-Teams-Channels-3Year-Retention` |
 | **Workload** | Microsoft Teams channel messages |
 | **Retention period** | 3 years |
 | **Retention action** | Retain and then delete |
@@ -108,7 +108,7 @@ The retention policy taxonomy defines the base retention period for each Microso
 | **Scope** | All Teams channel messages (all teams across all 6 sites) |
 | **Regulatory basis** | Business communications, operational records |
 
-**Rationale:** Teams channel messages at Port Food Mart are used for operational coordination, project communications, and site-level discussions. A 3-year retention period captures the active lifecycle of most operational projects and preserves the record of decisions made in team channels without creating permanent accumulation of routine operational chat.
+**Rationale:** Teams channel messages at Crestline Retail Group are used for operational coordination, project communications, and site-level discussions. A 3-year retention period captures the active lifecycle of most operational projects and preserves the record of decisions made in team channels without creating permanent accumulation of routine operational chat.
 
 ---
 
@@ -116,7 +116,7 @@ The retention policy taxonomy defines the base retention period for each Microso
 
 | Setting | Value |
 |---|---|
-| **Policy name** | `PortFoodMart-Teams-Chats-1Year-Retention` |
+| **Policy name** | `CrestlineRetailGroup-Teams-Chats-1Year-Retention` |
 | **Workload** | Microsoft Teams private chats |
 | **Retention period** | 1 year |
 | **Retention action** | Retain and then delete |
@@ -130,7 +130,7 @@ The retention policy taxonomy defines the base retention period for each Microso
 
 ## Retention Label Hierarchy
 
-Retention labels provide record-level governance that applies to specific documents and items regardless of their location. Labels allow Port Food Mart to retain specific categories of records for their legally or operationally required periods — even within workloads that have shorter base retention policies.
+Retention labels provide record-level governance that applies to specific documents and items regardless of their location. Labels allow Crestline Retail Group to retain specific categories of records for their legally or operationally required periods — even within workloads that have shorter base retention policies.
 
 Labels are published to Exchange Online, SharePoint Online, and OneDrive for Business, and can be applied manually by users or automatically by trainable classifiers and sensitive information type rules.
 
@@ -148,7 +148,7 @@ Labels are published to Exchange Online, SharePoint Online, and OneDrive for Bus
 | **Auto-apply rule** | Sensitive information types: Credit Card Number, Canada Bank Account Number |
 | **Records management** | Mark as record (immutable during retention period) |
 
-**Examples of content at Port Food Mart:**
+**Examples of content at Crestline Retail Group:**
 - Accounts payable invoices and payment confirmations
 - Payroll records and direct deposit documentation
 - Financial statements and budget documents
@@ -169,7 +169,7 @@ Labels are published to Exchange Online, SharePoint Online, and OneDrive for Bus
 | **Auto-apply rule** | Sensitive information types: Canada Social Insurance Number, Canada Passport Number |
 | **Records management** | Mark as record (immutable during retention period) |
 
-**Examples of content at Port Food Mart:**
+**Examples of content at Crestline Retail Group:**
 - Employee onboarding documentation
 - Tax forms containing Social Insurance Numbers
 - Performance review records
@@ -191,7 +191,7 @@ Labels are published to Exchange Online, SharePoint Online, and OneDrive for Bus
 | **Auto-apply rule** | Keyword classifiers: customer, client account, loyalty program |
 | **Records management** | Standard retention (not immutable) |
 
-**Examples of content at Port Food Mart:**
+**Examples of content at Crestline Retail Group:**
 - Customer account records
 - Loyalty program enrollment data
 - Customer service correspondence
@@ -212,7 +212,7 @@ Labels are published to Exchange Online, SharePoint Online, and OneDrive for Bus
 | **Auto-apply rule** | Keyword classifiers: standard operating procedure, site operations, shift schedule |
 | **Records management** | Standard retention (not immutable) |
 
-**Examples of content at Port Food Mart:**
+**Examples of content at Crestline Retail Group:**
 - Site standard operating procedures
 - Shift scheduling and attendance records
 - Inventory management documents
@@ -233,7 +233,7 @@ Labels are published to Exchange Online, SharePoint Online, and OneDrive for Bus
 | **Auto-apply rule** | Keyword classifiers: daily report, transaction log, register summary |
 | **Records management** | Standard retention (not immutable) |
 
-**Examples of content at Port Food Mart:**
+**Examples of content at Crestline Retail Group:**
 - Daily sales reports
 - Register reconciliation logs
 - Routine operational emails and status updates
@@ -255,7 +255,7 @@ Records management applies to content labeled as `Financial Records` or `HR Reco
 | Visible metadata | Record status is visible to users in SharePoint and OneDrive |
 | Audit trail | All access attempts are logged in the Unified Audit Log |
 
-**Records management lifecycle at Port Food Mart:**
+**Records management lifecycle at Crestline Retail Group:**
 
 ```text
 Content Created / Uploaded
@@ -287,7 +287,7 @@ For Financial Records and HR Records, a disposition review is configured to noti
 
 A legal hold in Microsoft Purview preserves all content for a custodian (user) or content location regardless of retention policies or deletion actions. Legal holds override all retention policies and prevent any deletion during the hold period.
 
-**When to apply a legal hold at Port Food Mart:**
+**When to apply a legal hold at Crestline Retail Group:**
 
 | Trigger | Action |
 |---|---|
@@ -333,7 +333,7 @@ Navigation: Microsoft Purview compliance portal
 
 For each policy in the taxonomy:
 
-1. Enter the policy name (e.g., `PortFoodMart-Exchange-7Year-Retention`)
+1. Enter the policy name (e.g., `CrestlineRetailGroup-Exchange-7Year-Retention`)
 2. Select the workload locations to include
 3. Set retention period and action (retain + delete)
 4. Set the retention trigger (creation or last modification)
@@ -377,7 +377,7 @@ Navigation: Microsoft Purview compliance portal
    - Exchange Online (all mailboxes)
    - SharePoint Online (all sites)
    - OneDrive for Business (all accounts)
-3. Name the label policy: `PortFoodMart-RetentionLabels-AllLocations`
+3. Name the label policy: `CrestlineRetailGroup-RetentionLabels-AllLocations`
 4. Labels appear in SharePoint and Outlook within 1–7 days
 
 ---
@@ -407,7 +407,7 @@ Set confidence threshold to `High confidence` to minimize false-positive labelin
 
 **Exchange Online archiving:**
 
-All 300 user mailboxes at Port Food Mart have `Archive mailbox` enabled through Exchange Online. Primary mailbox content older than 2 years is automatically moved to the archive mailbox by the `Default MRM Policy`. The archive mailbox is subject to the same 7-year retention policy as the primary mailbox.
+The target state enables Exchange Online Archive for eligible mailboxes and applies an approved MRM policy for older content. Archive and primary mailbox retention would be validated together before broad rollout; no tenant-wide archive deployment is claimed here.
 
 **SharePoint and OneDrive deletion:**
 
@@ -419,7 +419,7 @@ Teams messages subject to retention are preserved in the `SubstrateHolds` folder
 
 **Deleted user accounts (departing employees):**
 
-When an employee departs Port Food Mart:
+When an employee departs Crestline Retail Group:
 
 1. The account is disabled in Entra ID (Phase 2 procedure)
 2. The mailbox is converted to a shared mailbox or placed on litigation hold (if applicable)
@@ -446,28 +446,27 @@ PIPEDA (Personal Information Protection and Electronic Documents Act) establishe
 
 **PIPEDA breach consideration:**
 
-If a data breach occurs at Port Food Mart involving personal information, the retention framework ensures that the scope of the breach can be assessed — all personal data holdings are labeled, located, and auditable through the Microsoft Purview compliance portal.
+If a data breach occurs in the fictional environment, the framework is intended to improve evidence preservation and discovery. It does not guarantee that all personal data is labeled, located, or auditable without implementation testing and operational validation.
 
 ---
 
-## Operational Outcomes — 3.5 Year Tenure
+## Target-State Design Coverage
 
-| Metric | Result |
+| Design area | Documented state |
 |---|---|
-| Retention policies deployed | 5 workload policies across all locations |
-| Retention labels created and published | 5 labels across Financial, HR, Client, Operational, Transactional |
-| Users covered by retention governance | All 300 users across 6 sites |
-| PIPEDA compliance incidents | **Zero** |
-| Records marked as immutable (Financial + HR) | All content matching SIT auto-apply rules |
-| Legal holds applied | Applied as required — all holds documented and released on legal clearance |
-| Auto-apply label policies | 2 policies using sensitive information type detection |
-| Archiving enabled | All 300 user mailboxes with Exchange Online Archive |
+| Retention policy taxonomy | Five workload policy categories documented |
+| Retention label taxonomy | Five label categories mapped to business record types |
+| Target scope | Fictional 300-user, six-site Microsoft 365 environment |
+| Records controls | Immutable-record concepts documented for Financial and HR records |
+| Legal preservation | Hold initiation, review, and release workflow documented |
+| Auto-apply design | Two candidate label-policy patterns using sensitive information types |
+| Production validation | Pending; deployment, coverage, and compliance outcomes are not claimed |
 
 ---
 
 ## Lab Environment Disclaimer
 
-This framework was developed based on a 3.5-year operational tenure managing Microsoft Purview data lifecycle governance for Port Food Mart. The policy names, label names, retention periods, and configuration steps are documented for portfolio and educational purposes. No actual employee records, customer personal information, financial data, or confidential business content is included in this document.
+Crestline Retail Group is fictional. This target-state framework is documented for portfolio and lab-planning purposes; it does not claim production deployment, universal workload coverage, legal approval, or regulatory compliance. No actual employee records, customer personal information, financial data, or confidential business content is included.
 
 ---
 

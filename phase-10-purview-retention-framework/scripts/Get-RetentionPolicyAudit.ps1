@@ -3,7 +3,7 @@
 #  Phase 10 — Microsoft Purview Retention Policy Framework
 #  Enterprise-IT-Security-Operations-Toolkit
 #  Author: Md Rahat Islam Anik
-#  Company: Port Food Mart — 300 users, 6 sites, Tampa FL
+#  Scenario: Crestline Retail Group — fictional 300-user, 6-site environment
 #  Environment: Microsoft 365 E5
 #  Regulatory Framework: PIPEDA, Canadian PII Compliance
 #
@@ -44,7 +44,7 @@ Write-Host ""
 Write-Host "=============================================================" -ForegroundColor DarkGray
 Write-Host "  Get-RetentionPolicyAudit.ps1" -ForegroundColor Cyan
 Write-Host "  Phase 10 — Microsoft Purview Retention Policy Framework" -ForegroundColor Cyan
-Write-Host "  Port Food Mart — Microsoft 365 E5 Environment" -ForegroundColor Cyan
+Write-Host "  Crestline Retail Group — Microsoft 365 E5 Environment" -ForegroundColor Cyan
 Write-Host "=============================================================" -ForegroundColor DarkGray
 Write-Host ""
 Write-Host "  Audit Date : $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" -ForegroundColor White
@@ -147,12 +147,12 @@ $PolicyReport = foreach ($Policy in $RetentionPolicies) {
         LastModifiedTime       = $Policy.WhenChangedUTC
         PolicyGUID             = $Policy.Guid
         AuditDate              = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-        AuditedBy              = "Get-RetentionPolicyAudit.ps1 | Port Food Mart IT"
+        AuditedBy              = "Get-RetentionPolicyAudit.ps1 | Crestline Retail Group IT"
     }
 }
 
 # Export retention policy audit report.
-$PolicyReportFile = Join-Path -Path $OutputPath -ChildPath "PortFoodMart_RetentionPolicies_Audit_${DateStamp}.csv"
+$PolicyReportFile = Join-Path -Path $OutputPath -ChildPath "CrestlineRetailGroup_RetentionPolicies_Audit_${DateStamp}.csv"
 if ($PolicyReport) {
     try {
         $PolicyReport | Export-Csv -Path $PolicyReportFile -NoTypeInformation -Encoding UTF8
@@ -207,12 +207,12 @@ $LabelReport = foreach ($Label in $RetentionLabels) {
         LastModifiedTime           = $Label.WhenChangedUTC
         LabelGUID                  = $Label.Guid
         AuditDate                  = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-        AuditedBy                  = "Get-RetentionPolicyAudit.ps1 | Port Food Mart IT"
+        AuditedBy                  = "Get-RetentionPolicyAudit.ps1 | Crestline Retail Group IT"
     }
 }
 
 # Export retention label audit report.
-$LabelReportFile = Join-Path -Path $OutputPath -ChildPath "PortFoodMart_RetentionLabels_Audit_${DateStamp}.csv"
+$LabelReportFile = Join-Path -Path $OutputPath -ChildPath "CrestlineRetailGroup_RetentionLabels_Audit_${DateStamp}.csv"
 if ($LabelReport) {
     try {
         $LabelReport | Export-Csv -Path $LabelReportFile -NoTypeInformation -Encoding UTF8
@@ -274,12 +274,12 @@ $CoverageReport = foreach ($Workload in $WorkloadCoverage.Keys) {
         CoverageStatus = if ($PolicyCount -gt 0) { "Covered" } else { "Gap — No active retention policy" }
         Recommendation = if ($PolicyCount -eq 0) { "Create and enable a retention policy for this workload" } else { "Review policy scope to ensure all locations are included" }
         AuditDate      = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-        AuditedBy      = "Get-RetentionPolicyAudit.ps1 | Port Food Mart IT"
+        AuditedBy      = "Get-RetentionPolicyAudit.ps1 | Crestline Retail Group IT"
     }
 }
 
 # Export coverage gap report.
-$CoverageReportFile = Join-Path -Path $OutputPath -ChildPath "PortFoodMart_RetentionCoverage_Audit_${DateStamp}.csv"
+$CoverageReportFile = Join-Path -Path $OutputPath -ChildPath "CrestlineRetailGroup_RetentionCoverage_Audit_${DateStamp}.csv"
 if ($CoverageReport) {
     try {
         $CoverageReport | Export-Csv -Path $CoverageReportFile -NoTypeInformation -Encoding UTF8
@@ -312,16 +312,16 @@ $CoverageGapCount = if ($CoverageReport) {
     @($CoverageReport | Where-Object { $_.ActivePolicies -eq 0 }).Count
 } else { 0 }
 
-$SummaryFile = Join-Path -Path $OutputPath -ChildPath "PortFoodMart_RetentionAudit_Summary_${DateStamp}.txt"
+$SummaryFile = Join-Path -Path $OutputPath -ChildPath "CrestlineRetailGroup_RetentionAudit_Summary_${DateStamp}.txt"
 
 $SummaryContent = @"
 ====================================================
-RETENTION POLICY FRAMEWORK AUDIT — PORT FOOD MART
+RETENTION POLICY FRAMEWORK AUDIT — CRESTLINE RETAIL GROUP
 ====================================================
 Generated         : $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
 Phase             : 10 — Microsoft Purview Retention Policy Framework
 Regulatory        : PIPEDA, Canadian PII Compliance
-Environment       : 300 users, 6 sites, Microsoft 365 E5, Tampa FL
+Environment       : Fictional 300-user, 6-site Microsoft 365 E5 scenario
 
 RETENTION POLICIES
   Total Policies  : $(@($RetentionPolicies).Count)
@@ -346,8 +346,8 @@ REPORT FILES
 
 INVESTIGATOR
   Name              : Md Rahat Islam Anik
-  Role              : Sole IT Administrator
-  Organization      : Port Food Mart
+  Role              : Portfolio Lab Administrator
+  Organization      : Crestline Retail Group
 
 Generated By        : Get-RetentionPolicyAudit.ps1
 Repository          : Enterprise-IT-Security-Operations-Toolkit
@@ -387,6 +387,6 @@ Write-Host "  Coverage Gaps Identified   : $CoverageGapCount" -ForegroundColor $
 Write-Host ""
 Write-Host "  Reports saved to: $OutputPath" -ForegroundColor White
 Write-Host ""
-Write-Host "  Phase 10 — Port Food Mart Retention Policy Framework" -ForegroundColor Cyan
+Write-Host "  Phase 10 — Crestline Retail Group Retention Policy Framework" -ForegroundColor Cyan
 Write-Host ""
 #endregion

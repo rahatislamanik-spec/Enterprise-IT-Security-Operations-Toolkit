@@ -1,4 +1,4 @@
-# Phase 9 — Microsoft Purview DLP Investigation Runbook
+# Phase 11 — Microsoft Purview DLP Investigation Runbook
 
 > **Enterprise-IT-Security-Operations-Toolkit**
 > Data Loss Prevention investigation workflow using Microsoft Purview compliance portal, Activity Explorer, Unified Audit Log, eDiscovery, and Insider Risk Management.
@@ -7,9 +7,9 @@
 
 ## Phase Summary
 
-Phase 9 documents the structured DLP incident investigation methodology developed and operated at **Port Food Mart** over a 3.5-year tenure as sole IT administrator for a 300-user, 6-site Microsoft 365 E5 environment in Tampa, FL.
+Phase 11 documents a structured DLP incident investigation methodology for **Crestline Retail Group**, a fictional 300-user, 6-site Microsoft 365 E5 enterprise environment.
 
-This runbook captures the exact investigation sequence used to investigate DLP policy alerts, identify root causes, escalate insider risk events, and document outcomes — resulting in **zero unauthorized data disclosure incidents** across the full tenure.
+This runbook captures a target-state sequence for triaging DLP policy alerts, identifying root causes, escalating insider-risk indicators, and documenting investigation outcomes. It is a lab design artifact and does not claim production incident history or control effectiveness.
 
 ---
 
@@ -17,7 +17,7 @@ This runbook captures the exact investigation sequence used to investigate DLP p
 
 | Document | Description |
 |---|---|
-| [PURVIEW-DLP-Investigation-Runbook-PortFoodMart.md](./PURVIEW-DLP-Investigation-Runbook-PortFoodMart.md) | Full 8-step DLP investigation runbook with root cause scenarios and escalation criteria |
+| [PURVIEW-DLP-Investigation-Runbook.md](./PURVIEW-DLP-Investigation-Runbook.md) | Full 8-step DLP investigation runbook with root cause scenarios and escalation criteria |
 | [scripts/Get-DLPAlertReport.ps1](./scripts/Get-DLPAlertReport.ps1) | PowerShell script to export DLP alerts by date range, policy, and severity |
 
 ---
@@ -57,7 +57,7 @@ Step 8: Incident documentation and stakeholder reporting
 
 ## Outcome
 
-> Zero unauthorized data disclosure incidents across a 3.5-year tenure managing 300 users and 6 sites under PIPEDA and Canadian PII compliance requirements.
+> Lab outcome: an eight-step investigation workflow, escalation model, and reporting structure were documented for a fictional enterprise scenario. No production incident outcome is claimed.
 
 ---
 

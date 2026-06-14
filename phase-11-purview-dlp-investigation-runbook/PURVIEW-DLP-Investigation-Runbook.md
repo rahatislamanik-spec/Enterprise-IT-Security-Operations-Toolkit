@@ -1,4 +1,4 @@
-# Microsoft Purview DLP Investigation Runbook — Port Food Mart
+# Microsoft Purview DLP Investigation Runbook — Crestline Retail Group
 
 ---
 
@@ -6,20 +6,20 @@
 
 | Field | Detail |
 |---|---|
-| **Company** | Port Food Mart |
-| **Environment** | 300 users · 6 sites · Microsoft 365 E5 · Tampa, FL |
-| **Administrator** | Md Rahat Islam Anik — Sole IT Administrator |
-| **Tenure** | 3.5 years |
+| **Company** | Crestline Retail Group |
+| **Environment** | Fictional 300-user · 6-site · Microsoft 365 E5 enterprise environment |
+| **Artifact owner** | Md Rahat Islam Anik |
+| **Evidence state** | Target-state runbook and lab simulation design |
 | **Date** | June 2026 |
-| **Phase** | Phase 9 — Microsoft Purview DLP Investigation Runbook |
+| **Phase** | Phase 11 — Microsoft Purview DLP Investigation Runbook |
 | **Regulatory Framework** | PIPEDA · Canadian PII Compliance |
-| **Outcome** | Zero unauthorized data disclosure incidents |
+| **Outcome** | Investigation workflow and escalation model documented |
 
 ---
 
 ## Business Context
 
-Port Food Mart operates across 6 sites with 300 Microsoft 365 E5 users handling daily business operations including procurement, HR, finance, and customer-facing retail transactions. As the sole IT administrator, the responsibility for data loss prevention encompasses all Microsoft 365 workloads — Exchange Online, SharePoint Online, OneDrive for Business, Microsoft Teams, and endpoint devices.
+Crestline Retail Group is a fictional 300-user, 6-site Microsoft 365 E5 enterprise used to model procurement, HR, finance, and customer-facing retail workflows. The runbook defines how an authorized security and compliance team could investigate DLP events across Exchange Online, SharePoint Online, OneDrive for Business, Microsoft Teams, and endpoint devices.
 
 The business operates under **PIPEDA (Personal Information Protection and Electronic Documents Act)** and handles regulated sensitive data categories including:
 
@@ -27,13 +27,13 @@ The business operates under **PIPEDA (Personal Information Protection and Electr
 - **Passport numbers** — collected for employee onboarding and background processes
 - **Financial account data** — collected in procurement, accounts payable, and payroll systems
 
-A DLP incident at Port Food Mart carries direct regulatory exposure under PIPEDA, reputational risk to the brand across 6 active retail sites, and potential civil liability. The investigation runbook documented here was developed and refined over 3.5 years to ensure consistent, fast, and fully documented responses to every DLP alert.
+A DLP incident in this scenario could create PIPEDA, reputational, and legal risk. The runbook is designed to support consistent triage, evidence review, escalation, and documentation; it is not presented as a record of historical production investigations.
 
 ---
 
 ## Sensitive Information Types Monitored
 
-| Sensitive Information Type | Microsoft Purview Built-in Type | Business Context at Port Food Mart |
+| Sensitive Information Type | Microsoft Purview Built-in Type | Business Context at Crestline Retail Group |
 |---|---|---|
 | Canadian Social Insurance Number | `Canada Social Insurance Number` | HR onboarding, payroll, tax documentation |
 | Canadian Passport Number | `Canada Passport Number` | Employee identity verification, onboarding |
@@ -45,13 +45,13 @@ A DLP incident at Port Food Mart carries direct regulatory exposure under PIPEDA
 
 ## DLP Policies in Scope
 
-| Policy Name | Workloads Covered | Mode | Sensitive Types Covered |
+| Policy Name | Workloads Covered | Target Mode | Sensitive Types Covered |
 |---|---|---|---|
-| `PortFoodMart-PIPEDA-Core` | Exchange, SharePoint, OneDrive, Teams | Enforce | Canadian SIN, Passport, Bank Account |
-| `PortFoodMart-Financial-Protection` | Exchange, SharePoint, OneDrive | Enforce | Credit Card, Bank Account |
-| `PortFoodMart-HR-Records-Protection` | Exchange, SharePoint, OneDrive | Enforce | Canadian SIN, Passport, Driver's License |
-| `PortFoodMart-Endpoint-DLP` | Endpoint devices | Enforce | Canadian SIN, Credit Card |
-| `PortFoodMart-Teams-Protection` | Teams chats and channel messages | Enforce | Canadian SIN, Financial data |
+| `CrestlineRetailGroup-PIPEDA-Core` | Exchange, SharePoint, OneDrive, Teams | Proposed enforcement after validation | Canadian SIN, Passport, Bank Account |
+| `CrestlineRetailGroup-Financial-Protection` | Exchange, SharePoint, OneDrive | Proposed enforcement after validation | Credit Card, Bank Account |
+| `CrestlineRetailGroup-HR-Records-Protection` | Exchange, SharePoint, OneDrive | Proposed enforcement after validation | Canadian SIN, Passport, Driver's License |
+| `CrestlineRetailGroup-Endpoint-DLP` | Endpoint devices | Proposed enforcement after validation | Canadian SIN, Credit Card |
+| `CrestlineRetailGroup-Teams-Protection` | Teams chats and channel messages | Proposed enforcement after validation | Canadian SIN, Financial data |
 
 ---
 
@@ -77,7 +77,7 @@ The investigation begins at the DLP Alert Queue. Each alert is triaged using the
 | Matched content | Sensitive information type detected |
 | Time | Alert generation timestamp |
 
-**Severity classification at Port Food Mart:**
+**Severity classification at Crestline Retail Group:**
 
 | Severity | Response Time | Example Trigger |
 |---|---|---|
@@ -207,7 +207,7 @@ Date filter:    [Alert timestamp - 7 days] to [Alert timestamp + 7 days]
 
 ### Step 5 — Root Cause Identification
 
-Root cause identification determines whether the DLP alert represents a policy gap, a configuration deficiency, or deliberate user behavior. At Port Food Mart, every DLP alert is traced to one of three root cause scenarios before remediation.
+Root cause identification determines whether the DLP alert represents a policy gap, a configuration deficiency, or deliberate user behavior. At Crestline Retail Group, every DLP alert is traced to one of three root cause scenarios before remediation.
 
 ---
 
@@ -220,7 +220,7 @@ Root cause identification determines whether the DLP alert represents a policy g
 - No DLP rule match appears in the UAL for the specific workload involved
 - The sensitive information type involved is covered in policies for other workloads but not this one
 
-**Examples at Port Food Mart:**
+**Examples at Crestline Retail Group:**
 - Canadian SIN data transmitted via a Teams chat not included in the Teams protection policy scope
 - Financial account data shared through a SharePoint site collection added after policy creation
 - Endpoint DLP not yet deployed to a specific site's devices
@@ -239,7 +239,7 @@ Root cause identification determines whether the DLP alert represents a policy g
 - UAL shows `DLPRuleMatch` but no corresponding `PolicyTip` or `BlockedAction` event
 - User was not presented with any policy tip or override prompt
 
-**Examples at Port Food Mart:**
+**Examples at Crestline Retail Group:**
 - A newly created PIPEDA policy left in test mode after initial deployment
 - A policy that was temporarily switched to audit mode during a policy refinement exercise and not switched back to enforce
 - A cloned policy used for testing that inadvertently remained active in audit mode
@@ -259,7 +259,7 @@ Root cause identification determines whether the DLP alert represents a policy g
 - The override occurred outside normal business hours or from an atypical location
 - The external recipient is not a recognized business contact
 
-**Examples at Port Food Mart:**
+**Examples at Crestline Retail Group:**
 - An employee emailing their personal account with a Canadian SIN-containing file and justifying the override as "personal backup"
 - An employee sharing an HR payroll document with an external party and citing "management approval" as the override reason without any corroborating approval record
 - Repeated override behavior by the same user across multiple policy tips within a short timeframe
@@ -272,7 +272,7 @@ Root cause identification determines whether the DLP alert represents a policy g
 
 **Location:** `Microsoft Purview compliance portal → Insider risk management`
 
-Not every DLP alert requires escalation to Insider Risk Management (IRM). The following criteria determine when a DLP investigation at Port Food Mart crosses the threshold for IRM escalation.
+Not every DLP alert requires escalation to Insider Risk Management (IRM). The following criteria determine when a DLP investigation at Crestline Retail Group crosses the threshold for IRM escalation.
 
 **Automatic escalation triggers:**
 
@@ -285,7 +285,7 @@ Not every DLP alert requires escalation to Insider Risk Management (IRM). The fo
 | Repeated alert — same user, same policy | 2 or more alerts within 14 days | Escalate to IRM |
 | Sensitive data in personal storage | OneDrive sync to personal device or USB export | Escalate to IRM |
 
-**IRM escalation process at Port Food Mart:**
+**IRM escalation process at Crestline Retail Group:**
 
 1. Open the IRM portal and review whether the user already has an active IRM alert or case
 2. If no existing case: create a new IRM case and link all DLP evidence collected in Steps 1–4
@@ -294,13 +294,13 @@ Not every DLP alert requires escalation to Insider Risk Management (IRM). The fo
 5. Notify management with a summary of findings — without disclosing investigation methodology to the subject user
 6. Do not confront the user until HR has reviewed the evidence and a formal process is determined
 
-**IRM policies active at Port Food Mart:**
+**IRM policy concepts included in the target-state design:**
 
 | IRM Policy | Trigger Indicators | Scope |
 |---|---|---|
-| `PortFoodMart-DataTheft-Detection` | Bulk file download, cloud egress, personal email forwarding | All users |
-| `PortFoodMart-DeparingEmployee-Risk` | Resignation detected + data activity spike | Departing employees |
-| `PortFoodMart-PolicyViolation-Escalation` | DLP override pattern | All users |
+| `CrestlineRetailGroup-DataTheft-Detection` | Bulk file download, cloud egress, personal email forwarding | All users |
+| `CrestlineRetailGroup-DeparingEmployee-Risk` | Resignation detected + data activity spike | Departing employees |
+| `CrestlineRetailGroup-PolicyViolation-Escalation` | DLP override pattern | All users |
 
 ---
 
@@ -368,13 +368,13 @@ Remediation is performed after the root cause has been confirmed from Step 5. Se
 
 ### Step 8 — Incident Documentation and Stakeholder Reporting
 
-Every DLP investigation at Port Food Mart is closed with a complete incident record. This record serves as compliance evidence under PIPEDA and as institutional knowledge for future investigations.
+The target-state workflow requires each authorized DLP investigation to close with a complete incident record. The record supports governance review and institutional knowledge; whether it constitutes regulatory evidence depends on legal and compliance approval.
 
 **Incident record structure:**
 
 ```text
 ====================================================
-DLP INCIDENT RECORD — PORT FOOD MART
+DLP INCIDENT RECORD — CRESTLINE RETAIL GROUP
 ====================================================
 Incident ID:        DLP-[YYYY]-[###]
 Date Opened:        [Date]
@@ -383,7 +383,7 @@ Alert ID:           [Purview alert ID]
 Severity:           High / Medium / Low
 
 SUBJECT
-  User UPN:         [user@portfoodmart.com]
+  User UPN:         [user@crestlineretailgroup.test]
   Department:       [Department]
   Site:             [Site location]
 
@@ -415,13 +415,13 @@ OUTCOME
 
 INVESTIGATOR
   Name:             Md Rahat Islam Anik
-  Role:             Sole IT Administrator
+  Role:             Authorized Security or Compliance Investigator
   Signature:        ___________________
   Date:             [Date]
 ====================================================
 ```
 
-**Stakeholder reporting at Port Food Mart:**
+**Stakeholder reporting at Crestline Retail Group:**
 
 | Stakeholder | Report Trigger | Report Content |
 |---|---|---|
@@ -431,21 +431,20 @@ INVESTIGATOR
 | All users (post-incident) | Pattern of alerts across multiple users | General awareness reminder — no names disclosed |
 
 **PIPEDA breach notification threshold:**
-Under PIPEDA, a breach involving personal information must be reported to the Privacy Commissioner of Canada if it poses a **real risk of significant harm** to individuals. At Port Food Mart, any confirmed external disclosure of Canadian SIN, passport numbers, or financial account data is treated as a potential reportable breach pending legal review.
+Under PIPEDA, a breach involving personal information must be reported to the Privacy Commissioner of Canada if it poses a **real risk of significant harm** to individuals. At Crestline Retail Group, any confirmed external disclosure of Canadian SIN, passport numbers, or financial account data is treated as a potential reportable breach pending legal review.
 
 ---
 
-## Operational Outcomes — 3.5 Year Tenure
+## Lab Design Coverage
 
-| Metric | Result |
+| Design area | Documented state |
 |---|---|
-| Unauthorized data disclosure incidents | **Zero** |
-| DLP policies deployed and maintained | 5 active policies across all workloads |
-| Sensitive information types monitored | Canadian SIN, Passport, Bank Account, Credit Card, Driver's License |
-| PIPEDA-reportable breaches | **Zero** |
-| IRM escalations | Documented and resolved through HR process |
-| Policy scope gaps identified and remediated | Remediated within SLA on all occasions |
-| Users who received DLP policy tip awareness | All 300 users covered by enforce-mode policies |
+| DLP policy framework | Five DLP rule categories designed across Microsoft 365 workloads |
+| Sensitive information types | Canadian SIN, Passport, Bank Account, Credit Card, and Driver's License mapped |
+| Investigation workflow | Eight review, escalation, remediation, and reporting steps documented |
+| Insider Risk escalation | Decision criteria and handoff process documented |
+| Incident outcomes | Not claimed; no production incident dataset is included |
+| Policy enforcement | Proposed target state; tenant-wide enforcement is not evidenced by this runbook |
 
 ---
 
@@ -464,7 +463,7 @@ Under PIPEDA, a breach involving personal information must be reported to the Pr
 
 ## Lab Environment Disclaimer
 
-This runbook was developed based on a 3.5-year operational tenure managing Microsoft Purview DLP for Port Food Mart. The sensitive information type examples, policy names, and scenario descriptions are documented for portfolio and educational purposes. No actual customer records, employee personal information, or confidential business data is included in this document.
+Crestline Retail Group is fictional. This runbook is a portfolio and lab-planning artifact; it does not claim production operation, historical incident outcomes, regulatory compliance, or tenant-wide policy enforcement. No actual customer records, employee personal information, financial data, or confidential business content is included.
 
 ---
 
@@ -475,4 +474,4 @@ This runbook was developed based on a 3.5-year operational tenure managing Micro
 ---
 
 Built by **Md Rahat Islam Anik**
-Microsoft 365 Security Operations Portfolio · Phase 9
+Microsoft 365 Security Operations Portfolio · Phase 11

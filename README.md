@@ -3,7 +3,7 @@
 
 Microsoft 365 security operations lab and governance toolkit built with PowerShell, Microsoft Graph, Entra ID, Intune, Microsoft Defender, and Exchange Online.
 
-**30+ PowerShell scripts. 9 operational phases. Executed lab evidence. Microsoft 365 security and compliance operations simulation.**
+**30+ PowerShell scripts. 11 operational phases. Executed lab evidence. Microsoft 365 security and compliance operations simulation.**
 
 🌐 **[View Live Portfolio Site](https://rahatislamanik-spec.github.io/Enterprise-IT-Security-Operations-Toolkit/)**
 
@@ -15,7 +15,7 @@ Microsoft 365 security operations lab and governance toolkit built with PowerShe
 |---|---|
 | Situation | Microsoft 365 administrators often need to review tenant health, identity exposure, endpoint posture, mail flow security, app permissions, and investigation evidence across several portals. |
 | Task | Build a repeatable lab toolkit that collects security and governance evidence with PowerShell instead of relying only on manual portal review. |
-| Action | Implemented Microsoft Graph, Exchange Online, Entra ID, Intune, Defender, Conditional Access, Purview, and reporting workflows across 9 operational phases. |
+| Action | Implemented Microsoft Graph, Exchange Online, Entra ID, Intune, Defender, Conditional Access, Purview, and reporting workflows across 11 operational phases. |
 | Result | Produced scripts, CSV/TXT reports, screenshots, and dashboard views that demonstrate Microsoft 365 administration, security review, and incident triage readiness. |
 
 ---
@@ -224,6 +224,36 @@ For a quick evidence review, start with [`docs/evidence-map.md`](docs/evidence-m
 
 ---
 
+### Phase 10 — Microsoft Purview Retention Policy Framework
+
+**Focus:** Target-state data lifecycle governance for a fictional 300-user, six-site Microsoft 365 E5 environment.
+
+**Highlights:**
+- Retention policy taxonomy across Exchange Online, SharePoint Online, OneDrive, and Teams
+- Retention-label hierarchy for financial, HR, client, operational, and transactional records
+- Records-management, legal-hold, archiving, deletion, and audit-review workflows
+- PowerShell audit script for retention policies, labels, and workload coverage
+- Explicit separation between design coverage and unverified production outcomes
+
+[→ Phase 10 README](phase-10-purview-retention-framework/README.md)
+
+---
+
+### Phase 11 — Microsoft Purview DLP Investigation Runbook
+
+**Focus:** Target-state DLP investigation, evidence review, escalation, remediation, and stakeholder reporting for a fictional enterprise scenario.
+
+**Highlights:**
+- Eight-step workflow spanning DLP alerts, Activity Explorer, audit, eDiscovery, and Insider Risk
+- Root-cause scenarios and escalation criteria for security, compliance, HR, and business stakeholders
+- Five DLP rule categories documented as design concepts rather than claimed enforcement history
+- PowerShell script for date-, policy-, and severity-scoped DLP alert reporting
+- Fictional organization and reserved example identifiers used throughout
+
+[→ Phase 11 README](phase-11-purview-dlp-investigation-runbook/README.md)
+
+---
+
 ## Key Design Decisions & Lessons Learned
 
 - **Stage before enforcing:** Conditional Access and DLP controls were reviewed in report-only or simulation modes where supported to reduce rollout risk.
@@ -271,6 +301,8 @@ Enterprise-IT-Security-Operations-Toolkit/
 ├── phase-7-entra-app-registration-audit/
 ├── phase-8-m365-incident-response-security-triage/
 ├── phase-9-data-protection-compliance-operations/
+├── phase-10-purview-retention-framework/
+├── phase-11-purview-dlp-investigation-runbook/
 ├── scripts/
 │   ├── m365-reports/
 │   └── m365-admin-toolkit/

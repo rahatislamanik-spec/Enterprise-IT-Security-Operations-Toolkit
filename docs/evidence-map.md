@@ -15,6 +15,8 @@ This map connects each phase of the Enterprise IT Security Operations Toolkit to
 | Phase 7 — Entra ID App Registration Audit | App registrations, service principals, OAuth grants, high-risk permissions, credential expiry | App registration script, 4 CSV reports, Entra screenshots | Identity Security, Entra ID, Cloud Security |
 | Phase 8 — M365 Initial Security Triage | Initial identity, license, group, and role evidence collection | Triage script plus sanitized user/license/group/role reports | Security Operations, M365 Admin, IT Support escalation |
 | Phase 9 — Data Protection & Compliance Operations | DLP design, compliance posture review, insider-risk planning, information protection, adaptive scope, auto-labeling, and retention governance | `phase-9-data-protection-compliance-operations/README.md` and 21 sanitized Purview screenshots | Purview Administrator, M365 Security, Compliance Operations, GRC support |
+| Phase 10 — Purview Retention Policy Framework | Target-state retention taxonomy, labels, records management, legal hold, archiving, and deletion governance | `phase-10-purview-retention-framework/README.md`, framework document, and retention audit script; production execution evidence is not claimed | Purview Administrator, Compliance Administrator, Records and Information Governance |
+| Phase 11 — Purview DLP Investigation Runbook | Target-state DLP triage, audit review, eDiscovery, Insider Risk escalation, remediation, and reporting | `phase-11-purview-dlp-investigation-runbook/README.md`, eight-step runbook, and DLP alert-reporting script; production incident outcomes are not claimed | Security Operations, Purview Administrator, Compliance Operations, Incident Triage |
 
 ## Lab Scope
 
