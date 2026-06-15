@@ -1,578 +1,758 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Enterprise IT Security Operations Toolkit | Md Rahat Islam Anik</title>
-<meta name="description" content="An 11-phase Microsoft 365 security and compliance operations toolkit built with PowerShell, Microsoft Graph, Entra ID, Intune, Defender, Exchange Online, Conditional Access, Purview, and documented lab evidence." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise IT Security Operations Toolkit — Md Rahat Islam Anik</title>
 <style>
-:root {
-  --bg: #050b14;
-  --bg2: #081426;
-  --panel: rgba(14, 28, 51, .82);
-  --panel2: rgba(255,255,255,.065);
-  --line: rgba(148, 190, 255, .18);
-  --text: #f6f9ff;
-  --muted: rgba(246,249,255,.72);
-  --soft: rgba(246,249,255,.10);
-  --blue: #5ab7ff;
-  --azure: #0078d4;
-  --violet: #8a7cff;
-  --green: #45d48a;
-  --gold: #f2c86d;
-  --red: #ff6b6b;
-  --shadow: 0 30px 90px rgba(0,0,0,.45);
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  min-height: 100vh;
-  color: var(--text);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background:
-    radial-gradient(circle at 10% 5%, rgba(0,120,212,.24), transparent 32%),
-    radial-gradient(circle at 82% 0%, rgba(138,124,255,.22), transparent 34%),
-    radial-gradient(circle at 50% 70%, rgba(69,212,138,.10), transparent 35%),
-    linear-gradient(180deg, var(--bg), #020710 100%);
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,.78), transparent 85%);
-}
-a { color: inherit; }
-.page { position: relative; z-index: 1; }
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem clamp(1rem, 4vw, 3.5rem);
-  border-bottom: 1px solid var(--line);
-  background: rgba(5, 11, 20, .76);
-  backdrop-filter: blur(18px);
-}
-.logo {
-  font-weight: 900;
-  letter-spacing: -.04em;
-  text-decoration: none;
-  display: flex;
-  gap: .65rem;
-  align-items: center;
-}
-.logo-mark {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--azure), var(--violet));
-  box-shadow: 0 10px 30px rgba(0,120,212,.35);
-  display: grid;
-  place-items: center;
-  font-weight: 950;
-  font-size: .78rem;
-}
-.nav-links { display: flex; flex-wrap: wrap; gap: .55rem; }
-.nav-links a {
-  text-decoration: none;
-  color: var(--muted);
-  font-size: .92rem;
-  font-weight: 750;
-  padding: .5rem .75rem;
-  border: 1px solid transparent;
-  border-radius: 999px;
-}
-.nav-links a:hover { color: var(--text); border-color: var(--line); background: var(--soft); }
-.hero { padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 5vw, 5rem) 3rem; }
-.hero-grid {
-  max-width: 1220px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1.06fr .94fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
-}
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: .55rem;
-  padding: .45rem .75rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--blue);
-  background: rgba(90,183,255,.09);
-  font-size: .88rem;
-  font-weight: 800;
-  margin-bottom: 1.4rem;
-}
-.eyebrow::before {
-  content:"";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 24px var(--green);
-}
-h1 {
-  font-size: clamp(3rem, 7vw, 6.7rem);
-  line-height: .92;
-  letter-spacing: -.075em;
-  max-width: 960px;
-}
-.gradient {
-  background: linear-gradient(100deg, #ffffff 0%, #9dd9ff 45%, #a99bff 100%);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-.lead {
-  color: var(--muted);
-  font-size: clamp(1.05rem, 1.5vw, 1.28rem);
-  margin: 1.45rem 0 2rem;
-  max-width: 790px;
-}
-.ctas { display: flex; flex-wrap: wrap; gap: .85rem; }
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: .5rem;
-  padding: .85rem 1.15rem;
-  border-radius: 14px;
-  text-decoration: none;
-  font-weight: 850;
-  border: 1px solid var(--line);
-  transition: transform .2s ease, background .2s ease;
-}
-.btn:hover { transform: translateY(-2px); }
-.btn.primary { background: linear-gradient(135deg, var(--azure), var(--violet)); box-shadow: 0 18px 40px rgba(0,120,212,.28); }
-.btn.secondary { background: var(--panel2); color: var(--text); }
-.hero-card {
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  padding: 1rem;
-  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-.terminal {
-  border-radius: 22px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.14);
-  background: #07111f;
-}
-.terminal-bar {
-  height: 42px;
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  padding: 0 .9rem;
-  background: rgba(255,255,255,.08);
-}
-.dot { width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; }
-.dot:nth-child(2) { background: #ffbd2e; }
-.dot:nth-child(3) { background: #28c840; }
-.terminal-body {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  color: #dbeafe;
-  padding: 1.35rem;
-  line-height: 1.85;
-  font-size: .93rem;
-}
-.cmd { color:#7dd3fc; }
-.ok { color:#86efac; }
-.warn { color:#fde68a; }
-.danger { color:#fca5a5; }
-section { padding: 4rem clamp(1rem, 5vw, 5rem); }
-.container { max-width: 1220px; margin: auto; }
-.section-head {
-  display:flex;
-  justify-content:space-between;
-  gap:2rem;
-  align-items:end;
-  margin-bottom: 1.7rem;
-}
-.kicker {
-  color: var(--green);
-  font-size:.82rem;
-  text-transform:uppercase;
-  letter-spacing:.14em;
-  font-weight:950;
-  margin-bottom:.55rem;
-}
-h2 {
-  font-size: clamp(2rem, 4vw, 3.6rem);
-  line-height:1;
-  letter-spacing:-.055em;
-}
-.section-head p { max-width: 610px; color: var(--muted); }
-.stats { display:grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 2rem; }
-.stat {
-  border:1px solid var(--line);
-  border-radius: 22px;
-  padding: 1.35rem;
-  background: var(--panel);
-  box-shadow: 0 20px 50px rgba(0,0,0,.18);
-}
-.stat strong { display:block; font-size:2.2rem; letter-spacing:-.06em; color:#fff; }
-.stat span { color: var(--muted); font-weight: 800; font-size:.9rem; }
-.grid-3 { display:grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
-.card {
-  border:1px solid var(--line);
-  border-radius: 24px;
-  padding: 1.35rem;
-  background: var(--panel);
-  box-shadow: 0 22px 60px rgba(0,0,0,.22);
-}
-.card h3 { margin-bottom:.55rem; font-size:1.12rem; }
-.card p, .card li { color: var(--muted); }
-ul { padding-left: 1.2rem; }
-.phase-grid { display:grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
-.phase {
-  position: relative;
-  border:1px solid var(--line);
-  border-radius: 24px;
-  padding: 1.35rem;
-  background: var(--panel);
-  box-shadow: 0 22px 60px rgba(0,0,0,.20);
-  overflow: hidden;
-}
-.phase::before {
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width: 6px;
-  height:100%;
-  background: linear-gradient(180deg, var(--azure), var(--violet), var(--green));
-}
-.phase-top { display:flex; justify-content:space-between; gap:1rem; align-items:flex-start; margin-bottom:.55rem; }
-.badge {
-  flex:0 0 auto;
-  padding:.35rem .65rem;
-  border:1px solid var(--line);
-  border-radius:999px;
-  color:#dbeafe;
-  background:rgba(255,255,255,.07);
-  font-size:.8rem;
-  font-weight:900;
-}
-.phase p { color: var(--muted); margin: .45rem 0 .85rem; }
-.phase a { display:inline-flex; margin-top:.3rem; text-decoration:none; color:var(--blue); font-weight:900; }
-.architecture { display:grid; grid-template-columns:.9fr 1.1fr; gap:1rem; }
-.flow { display:grid; gap:.78rem; }
-.node {
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:1rem;
-  background:rgba(255,255,255,.06);
-}
-.node b { display:block; margin-bottom:.2rem; }
-.node span { color:var(--muted); }
-.arrow { text-align:center; color:var(--blue); font-weight:950; }
-.pill-list { display:flex; flex-wrap: wrap; gap:.6rem; margin-top: 1rem; }
-.pill {
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.065);
-  padding:.52rem .7rem;
-  border-radius:999px;
-  color: var(--muted);
-  font-weight:800;
-  font-size:.88rem;
-}
-.note {
-  border-left: 4px solid var(--gold);
-  padding: 1rem 1.2rem;
-  background: rgba(242,200,109,.08);
-  border-radius: 18px;
-  color: var(--muted);
-}
-.footer {
-  padding: 3rem clamp(1rem, 5vw, 5rem);
-  border-top:1px solid var(--line);
-  color: var(--muted);
-  text-align:center;
-}
-.footer strong { color: var(--text); }
-.small { font-size: .92rem; color: var(--muted); }
-@media (max-width: 980px) {
-  .hero-grid, .architecture, .section-head { grid-template-columns:1fr; display:grid; }
-  .stats, .grid-3, .phase-grid { grid-template-columns:1fr; }
-  .nav-links { display:none; }
-  h1 { font-size: clamp(2.8rem, 15vw, 4.7rem); }
-}
+  :root{
+    --ink:#1a1f1c;
+    --paper:#f6f5f1;
+    --line:#d8d4cb;
+    --accent:#2f6b4f;
+    --accent-soft:#dff0e6;
+    --flag:#c2542c;
+    --flag-soft:#fbe7dc;
+    --gold:#c79a3b;
+    --gold-soft:#fbf2dd;
+    --teal:#2d6e7e;
+    --teal-soft:#dff1f4;
+    --mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --sans: 'IBM Plex Sans', Arial, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+  }
+  body::before{
+    content:"";
+    display:block;
+    height:6px;
+    width:100%;
+    background:linear-gradient(90deg, var(--accent) 0 33.3%, var(--teal) 33.3% 66.6%, var(--gold) 66.6% 100%);
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--flag); outline-offset:2px;}
+
+  .wrap{max-width:1040px;margin:0 auto;padding:0 28px;}
+
+  /* ===== Top status strip ===== */
+  .statusbar{
+    border-bottom:1px solid var(--line);
+    background:var(--flag-soft);
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.04em;
+  }
+  .statusbar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:10px;padding-bottom:10px;
+    flex-wrap:wrap;gap:8px;
+  }
+  .status-pill{
+    display:inline-flex;align-items:center;gap:6px;
+    color:var(--flag);
+    text-transform:uppercase;
+  }
+  .status-pill::before{
+    content:"";width:7px;height:7px;border-radius:50%;
+    background:var(--flag);display:inline-block;
+  }
+  .statusbar .meta{color:#6b6a64;}
+
+  /* ===== Header / Hero ===== */
+  header.hero{
+    padding:64px 0 48px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:18px;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{
+    content:"";display:inline-block;width:22px;height:2px;background:var(--gold);
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(2.1rem, 5vw, 3.4rem);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    max-width:14ch;
+  }
+  h1 em{
+    font-style:normal;
+    color:var(--accent);
+  }
+  .hero-sub{
+    margin-top:18px;
+    font-size:1.08rem;
+    max-width:62ch;
+    color:#3c3b37;
+  }
+  .hero-links{
+    margin-top:28px;
+    display:flex;gap:22px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:13px;
+  }
+  .hero-links a{
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+  }
+  .hero-links a:hover{border-color:var(--accent);text-decoration:none;}
+
+  /* ===== Section scaffolding ===== */
+  section{padding:54px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-head{
+    display:flex;align-items:baseline;justify-content:space-between;
+    gap:24px;margin-bottom:30px;flex-wrap:wrap;
+  }
+  h2{
+    font-family:var(--serif);
+    font-size:1.7rem;
+    font-weight:600;
+    padding-left:16px;
+    border-left:4px solid var(--accent);
+  }
+  .section-tag{
+    font-family:var(--mono);font-size:12px;
+    color:var(--teal);letter-spacing:.08em;text-transform:uppercase;
+    background:var(--teal-soft);
+    padding:4px 10px;border-radius:2px;
+  }
+
+  /* ===== STAR table ===== */
+  .star{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    border:1px solid var(--line);
+    background:#fff;
+  }
+  .star > div{padding:16px 18px;border-bottom:1px solid var(--line);}
+  .star > div:nth-last-child(-n+2){border-bottom:none;}
+  .star .label{
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;
+    border-right:1px solid var(--line);
+    font-weight:600;
+  }
+  .star > div:nth-of-type(1){color:var(--accent);background:var(--accent-soft);}
+  .star > div:nth-of-type(3){color:var(--teal);background:var(--teal-soft);}
+  .star > div:nth-of-type(5){color:var(--gold);background:var(--gold-soft);}
+  .star > div:nth-of-type(7){color:var(--flag);background:var(--flag-soft);}
+  @media(max-width:620px){
+    .star{grid-template-columns:1fr;}
+    .star .label{border-right:none;border-bottom:1px dashed var(--line);}
+  }
+
+  /* ===== Two-column feature grid ===== */
+  .grid2{
+    display:grid;grid-template-columns:1fr 1fr;gap:1px;
+    border:1px solid var(--line);background:var(--line);
+  }
+  .grid2 .cell{background:#fff;padding:18px 20px;border-top:3px solid var(--line);}
+  .grid2 .cell:nth-child(8n+1){border-top-color:var(--accent);}
+  .grid2 .cell:nth-child(8n+2){border-top-color:var(--teal);}
+  .grid2 .cell:nth-child(8n+3){border-top-color:var(--gold);}
+  .grid2 .cell:nth-child(8n+4){border-top-color:var(--flag);}
+  .grid2 .cell:nth-child(8n+5){border-top-color:var(--flag);}
+  .grid2 .cell:nth-child(8n+6){border-top-color:var(--gold);}
+  .grid2 .cell:nth-child(8n+7){border-top-color:var(--teal);}
+  .grid2 .cell:nth-child(8n+8){border-top-color:var(--accent);}
+  .grid2 .cell .k{
+    font-weight:600;font-size:.95rem;margin-bottom:4px;
+  }
+  .grid2 .cell .v{font-size:.92rem;color:#5a5950;}
+  @media(max-width:700px){.grid2{grid-template-columns:1fr;}}
+
+  /* ===== Metrics ledger ===== */
+  .ledger{
+    width:100%;border-collapse:collapse;font-size:.95rem;background:#fff;
+    border:1px solid var(--line);
+  }
+  .ledger th, .ledger td{
+    padding:12px 18px;text-align:left;border-bottom:1px solid var(--line);
+  }
+  .ledger th{
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:#fff;font-weight:500;
+    background:var(--ink);
+  }
+  .ledger td.num{
+    font-family:var(--mono);font-weight:600;color:var(--accent);
+    text-align:right;
+  }
+  .ledger tr:last-child td{border-bottom:none;}
+  .ledger tr:hover{background:var(--accent-soft);}
+  .ledger tr.flag td.num{color:var(--flag);}
+  .ledger tr.gold td.num{color:var(--gold);}
+
+  /* ===== Phase timeline ===== */
+  .phase-list{display:flex;flex-direction:column;}
+  .phase{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:22px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+    cursor:pointer;
+  }
+  .phase:last-child{border-bottom:none;}
+  .phase-num{
+    font-family:var(--serif);font-weight:600;font-size:1.6rem;
+    color:var(--line);transition:color .2s;
+  }
+  .phase:hover .phase-num,.phase[aria-expanded="true"] .phase-num{color:var(--accent);}
+  .phase:nth-child(3n+2):hover .phase-num,.phase:nth-child(3n+2)[aria-expanded="true"] .phase-num{color:var(--teal);}
+  .phase:nth-child(3n):hover .phase-num,.phase:nth-child(3n)[aria-expanded="true"] .phase-num{color:var(--gold);}
+  .phase-title{
+    font-weight:600;font-size:1.05rem;margin-bottom:2px;
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  }
+  .phase-focus{color:#6b6a64;font-size:.92rem;margin-bottom:10px;}
+  .phase-toggle{
+    font-family:var(--mono);font-size:11px;color:#8a8980;
+    border:1px solid var(--line);border-radius:3px;padding:1px 7px;
+    transition:.2s;
+  }
+  .phase[aria-expanded="true"] .phase-toggle{
+    border-color:var(--accent);color:var(--accent);background:var(--accent-soft);
+  }
+  .phase:nth-child(3n+2)[aria-expanded="true"] .phase-toggle{border-color:var(--teal);color:var(--teal);background:var(--teal-soft);}
+  .phase:nth-child(3n)[aria-expanded="true"] .phase-toggle{border-color:var(--gold);color:var(--gold);background:var(--gold-soft);}
+  .phase-body{
+    display:grid;grid-template-rows:0fr;overflow:hidden;
+    transition:grid-template-rows .25s ease;
+  }
+  .phase[aria-expanded="true"] .phase-body{grid-template-rows:1fr;}
+  .phase-body-inner{min-height:0;overflow:hidden;}
+  .phase-body ul{
+    list-style:none;padding-top:4px;
+  }
+  .phase-body li{
+    font-size:.93rem;color:#46453f;
+    padding:6px 0 6px 20px;position:relative;
+    border-top:1px dashed var(--line);
+  }
+  .phase-body li:first-child{border-top:none;}
+  .phase-body li::before{
+    content:"›";position:absolute;left:0;color:var(--accent);font-weight:600;
+  }
+
+  /* ===== Architecture diagram ===== */
+  .arch{
+    font-family:var(--mono);font-size:12.5px;line-height:2;
+    background:#fff;border:1px solid var(--line);
+    padding:28px;color:#46453f;overflow-x:auto;
+  }
+  .arch .row{text-align:center;white-space:pre;}
+  .arch .node{
+    font-weight:600;
+  }
+  .arch .node.tier1{color:var(--accent);}
+  .arch .node.tier2{color:var(--teal);}
+  .arch .node.tier3{color:var(--gold);}
+  .arch .arrow{color:var(--line);}
+
+  /* ===== Lessons ===== */
+  .lessons{display:flex;flex-direction:column;gap:0;}
+  .lesson{
+    display:grid;grid-template-columns:200px 1fr;gap:24px;
+    padding:18px 0;border-bottom:1px solid var(--line);
+  }
+  .lesson:last-child{border-bottom:none;}
+  .lesson-term{
+    font-family:var(--mono);font-size:.85rem;
+    text-transform:uppercase;letter-spacing:.06em;
+    font-weight:600;
+  }
+  .lesson:nth-child(5n+1) .lesson-term{color:var(--accent);}
+  .lesson:nth-child(5n+2) .lesson-term{color:var(--teal);}
+  .lesson:nth-child(5n+3) .lesson-term{color:var(--gold);}
+  .lesson:nth-child(5n+4) .lesson-term{color:var(--flag);}
+  .lesson:nth-child(5n+5) .lesson-term{color:var(--accent);}
+  .lesson-def{font-size:.95rem;color:#3c3b37;}
+  @media(max-width:640px){.lesson{grid-template-columns:1fr;gap:6px;}}
+
+  /* ===== Ecosystem ===== */
+  .eco{display:flex;flex-direction:column;}
+  .eco-row{
+    display:grid;grid-template-columns:170px 1fr 1fr;gap:18px;
+    padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline;
+  }
+  .eco-row.you{background:var(--accent-soft);margin:0 -20px;padding:16px 20px;border-radius:2px;border-bottom:1px solid var(--accent-soft);border-left:3px solid var(--accent);}
+  .eco-row:last-child{border-bottom:none;}
+  .eco-layer{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);}
+  .eco-row.you .eco-layer{color:var(--accent);font-weight:600;}
+  .eco-name{font-weight:600;}
+  .eco-focus{font-size:.9rem;color:#6b6a64;}
+  @media(max-width:680px){.eco-row{grid-template-columns:1fr;gap:4px;}}
+
+  /* ===== Disclaimer ===== */
+  .disclaimer{
+    background:var(--flag-soft);border:1px solid var(--line);
+    border-left:4px solid var(--flag);
+    padding:20px 24px;font-size:.92rem;color:#46453f;
+  }
+  .disclaimer strong{color:var(--ink);}
+
+  /* ===== Footer ===== */
+  footer{
+    padding:48px 0 64px;
+    font-family:var(--mono);font-size:12.5px;color:#6b6a64;
+  }
+  footer .name{
+    font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--ink);
+    margin-bottom:10px;
+  }
+  footer a{margin-right:18px;}
+
+  /* ===== Quick start code block ===== */
+  pre.code{
+    background:#16241f;color:#cfe8da;
+    font-family:var(--mono);font-size:12.5px;line-height:1.7;
+    padding:22px 24px;border-radius:3px;overflow-x:auto;
+    border-left:4px solid var(--accent);
+  }
+  pre.code .c{color:#6fb88a;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
 </style>
 </head>
 <body>
-<div class="page">
-<nav>
-  <a href="#top" class="logo"><span class="logo-mark">SOC</span><span>Enterprise IT Security Operations Toolkit</span></a>
-  <div class="nav-links">
-    <a href="#overview">Overview</a>
-    <a href="#phases">11 Phases</a>
-    <a href="#architecture">Architecture</a>
-    <a href="#evidence">Evidence</a>
-    <a href="#stack">Stack</a>
+
+<div class="statusbar">
+  <div class="wrap">
+    <span class="status-pill">Evidence Update Pending</span>
+    <span class="meta">Last updated: June 2026 — 11 operational phases · 30+ scripts</span>
   </div>
-</nav>
+</div>
 
-<header class="hero" id="top">
-  <div class="hero-grid">
-    <div>
-      <div class="eyebrow">PowerShell · Microsoft Graph · Entra ID · Intune · Defender</div>
-      <h1><span class="gradient">Enterprise IT</span><br/>Security Operations Toolkit</h1>
-      <p class="lead">An 11-phase Microsoft 365 security and compliance operations toolkit built in an isolated lab tenant with PowerShell automation, Graph reporting, Conditional Access governance, endpoint visibility, mail flow auditing, app registration review, incident triage, and Microsoft Purview data protection.</p>
-      <div class="ctas">
-        <a class="btn primary" href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit" target="_blank" rel="noreferrer">View GitHub Repository</a>
-        <a class="btn secondary" href="https://rahatislamanik-spec.github.io/IT-Portfolio-Rahat-Islam-Anik/" target="_blank" rel="noreferrer">View Full Portfolio</a>
-      </div>
-    </div>
-
-    <div class="hero-card">
-      <div class="terminal">
-        <div class="terminal-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="terminal-body">
-          <div><span class="cmd">PS&gt;</span> Invoke-M365-SecurityOpsToolkit</div>
-          <div><span class="ok">✓</span> 11 operational phases documented</div>
-          <div><span class="ok">✓</span> 30+ PowerShell scripts across the toolkit</div>
-          <div><span class="ok">✓</span> 25+ report outputs generated</div>
-          <div><span class="warn">!</span> Secure Score snapshot: 146.26 / 204</div>
-          <div><span class="danger">!</span> High-risk OAuth grants detected: 3</div>
-          <div><span class="ok">✓</span> Initial security triage package documented</div>
-        </div>
-      </div>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Microsoft 365 Security Operations Lab</div>
+    <h1>Enterprise IT <em>Security Operations</em> Toolkit</h1>
+    <p class="hero-sub">
+      A repeatable Microsoft 365 governance and security operations lab — Entra ID, Intune, Defender, Exchange Online, Conditional Access, and Microsoft Purview — built across eleven phases with executed PowerShell, exported reports, and screenshot evidence rather than manual portal review.
+    </p>
+    <div class="hero-links">
+      <a href="https://rahatislamanik-spec.github.io/Enterprise-IT-Security-Operations-Toolkit/" target="_blank" rel="noopener">Live Portfolio Site →</a>
+      <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit" target="_blank" rel="noopener">Repository on GitHub →</a>
+      <a href="https://linkedin.com/in/rahatislamanik" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </header>
 
-<section id="overview">
-  <div class="container">
+<section id="summary">
+  <div class="wrap">
     <div class="section-head">
-      <div>
-        <div class="kicker">Platform Overview</div>
-        <h2>From tenant baseline to incident response.</h2>
-      </div>
-      <p>This project evolved from a Phase 1 tenant health dashboard into a complete Microsoft 365 security operations toolkit covering identity, endpoint, access, mail flow, OAuth risk, and triage workflows.</p>
+      <h2>Portfolio Case Summary</h2>
+      <span class="section-tag">STAR Framework</span>
     </div>
-    <div class="stats">
-      <div class="stat"><strong>11</strong><span>Operational phases</span></div>
-      <div class="stat"><strong>30+</strong><span>PowerShell scripts</span></div>
-      <div class="stat"><strong>25+</strong><span>Reports generated</span></div>
-      <div class="stat"><strong>241</strong><span>Service principals inventoried</span></div>
-      <div class="stat"><strong>28</strong><span>Users audited</span></div>
-      <div class="stat"><strong>23</strong><span>Mailboxes audited</span></div>
-      <div class="stat"><strong>11</strong><span>Admin roles reviewed</span></div>
-      <div class="stat"><strong>3</strong><span>High-risk OAuth grants</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="phases">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <div class="kicker">11-Phase Build</div>
-        <h2>Security operations lifecycle.</h2>
-      </div>
-      <p>Each phase has a clear operational purpose and demonstrates practical Microsoft 365 administration, governance, security review, and automation skills.</p>
-    </div>
-
-    <div class="phase-grid">
-      <article class="phase">
-        <div class="phase-top"><h3>Enterprise Operations Foundation</h3><span class="badge">Phase 1</span></div>
-        <p>Tenant health, identity hygiene, license governance, MFA compliance, privileged access reviews, Conditional Access auditing, and offboarding automation.</p>
-        <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-1-enterprise-operations-foundation" target="_blank" rel="noreferrer">Open Phase 1 →</a>
-      </article>
-
-      <article class="phase">
-        <div class="phase-top"><h3>Identity Threat & Security Operations</h3><span class="badge">Phase 2</span></div>
-        <p>Risky user auditing, risk detection reporting, Secure Score tracking, guest governance, and Identity Protection workflows.</p>
-        <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-2-identity-threat-security-operations" target="_blank" rel="noreferrer">Open Phase 2 →</a>
-      </article>
-
-      <article class="phase">
-        <div class="phase-top"><h3>Endpoint Enrollment & Intune Operations</h3><span class="badge">Phase 3</span></div>
-        <p>Company Portal enrollment, Intune managed-device inventory, ownership, platform, and compliance-state evidence.</p>
-        <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-3-endpoint-security-defender-operations" target="_blank" rel="noreferrer">Open Phase 3 →</a>
-      </article>
-
-      <article class="phase">
-        <div class="phase-top"><h3>BYOD Conditional Access Governance</h3><span class="badge">Phase 4</span></div>
-        <p>Zero Trust device governance using ownership classification, compliant-device requirements, and Conditional Access policy validation.</p>
-        <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-4-byod-conditional-access-governance" target="_blank" rel="noreferrer">Open Phase 4 →</a>
-      </article>
-
-      <article class="phase">
-        <div class="phase-top"><h3>Exchange Online Mail Flow Audit</h3><span class="badge">Phase 5</span></div>
-        <p>External forwarding checks, inbox rule review, transport rule inventory, anti-spam policy audit, and mailbox security reporting.</p>
-        <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-5-exchange-online-mail-flow-audit" target="_blank" rel="noreferrer">Open Phase 5 →</a>
-      </article>
-
-      <article class="phase">
-        <div class="phase-top"><h3>Web-Only Access Governance</h3><span class="badge">Phase 6</span></div>
-        <p>App-enforced restrictions for unmanaged devices, browser-only access controls, and SharePoint / Exchange access governance.</p>
-        <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-6-web-only-access-governance" target="_blank" rel="noreferrer">Open Phase 6 →</a>
-      </article>
-
-      <article class="phase">
-        <div class="phase-top"><h3>Entra ID App Registration Audit</h3><span class="badge">Phase 7</span></div>
-        <p>App registration inventory, OAuth grants, service principals, credential expiry checks, and high-risk permission detection.</p>
-        <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-7-entra-app-registration-audit" target="_blank" rel="noreferrer">Open Phase 7 →</a>
-      </article>
-
-      <article class="phase">
-        <div class="phase-top"><h3>M365 Initial Security Triage</h3><span class="badge">Phase 8</span></div>
-        <p>Early evidence collection for suspicious activity: users, licenses, groups, administrative roles, and escalation summaries.</p>
-        <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-8-m365-incident-response-security-triage" target="_blank" rel="noreferrer">Open Phase 8 →</a>
-      </article>
-
-      <article class="phase">
-        <div class="phase-top"><h3>Data Protection & Compliance Operations</h3><span class="badge">Phase 9</span></div>
-        <p>Microsoft Purview DLP simulation, Compliance Manager review, Insider Risk policy planning, sensitivity labels, and retention governance.</p>
-        <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-9-data-protection-compliance-operations" target="_blank" rel="noreferrer">Open Phase 9 →</a>
-      </article>
-
-      <article class="phase">
-        <div class="phase-top"><h3>Purview Retention Policy Framework</h3><span class="badge">Phase 10</span></div>
-        <p>End-to-end data lifecycle governance using Microsoft Purview retention policies, retention labels, records management, and legal hold procedures across Exchange, SharePoint, OneDrive, and Teams.</p>
-        <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-10-purview-retention-framework" target="_blank" rel="noreferrer">Open Phase 10 →</a>
-      </article>
-
-      <article class="phase">
-        <div class="phase-top"><h3>Purview DLP Investigation Runbook</h3><span class="badge">Phase 11</span></div>
-        <p>Structured DLP incident investigation workflow using Activity Explorer, Unified Audit Log, eDiscovery, and Insider Risk Management for triaging policy alerts and escalating insider-risk incidents.</p>
-        <a href="https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit/tree/main/phase-11-purview-dlp-investigation-runbook" target="_blank" rel="noreferrer">Open Phase 11 →</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="architecture">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <div class="kicker">Architecture</div>
-        <h2>How the toolkit works.</h2>
-      </div>
-      <p>The toolkit uses PowerShell as the automation layer between Microsoft 365 services, Graph APIs, governance logic, and evidence outputs.</p>
-    </div>
-
-    <div class="architecture">
-      <div class="flow">
-        <div class="node"><b>Microsoft 365 E3/E5 Lab Tenant</b><span>Entra ID, Intune, Defender, Exchange Online, SharePoint, Conditional Access</span></div>
-        <div class="arrow">↓</div>
-        <div class="node"><b>Microsoft Graph + Security APIs</b><span>User, group, role, device, risk, app registration, and service principal data</span></div>
-        <div class="arrow">↓</div>
-        <div class="node"><b>PowerShell Automation Layer</b><span>30+ scripts for audit, governance, reporting, and operational triage</span></div>
-        <div class="arrow">↓</div>
-        <div class="node"><b>Risk & Governance Logic</b><span>Critical / high / medium classifications, compliance states, license waste, OAuth risk</span></div>
-        <div class="arrow">↓</div>
-        <div class="node"><b>Evidence Outputs</b><span>CSV reports, TXT summaries, screenshots, README documentation, and GitHub Pages</span></div>
-      </div>
-
-      <div class="card">
-        <h3>Operational coverage</h3>
-        <ul>
-          <li>Identity governance: users, groups, admin roles, MFA, guest users, risky users.</li>
-          <li>Endpoint governance: Company Portal enrollment, Intune inventory, ownership, and compliance-state review.</li>
-          <li>Access governance: Conditional Access, BYOD policy checks, web-only access restrictions.</li>
-          <li>Messaging security: external forwarding, inbox rules, transport rules, anti-spam policies.</li>
-          <li>Application security: app registrations, service principals, OAuth grants, credential expiry.</li>
-          <li>Security triage: early evidence package for suspicious account activity and escalation.</li>
-          <li>Data protection: DLP simulation, compliance improvement review, insider-risk policy design, sensitivity labels, and retention.</li>
-        </ul>
-      </div>
+    <div class="star">
+      <div class="label">Situation</div>
+      <div>Microsoft 365 administrators often need to review tenant health, identity exposure, endpoint posture, mail flow security, app permissions, and investigation evidence across several portals.</div>
+      <div class="label">Task</div>
+      <div>Build a repeatable lab toolkit that collects security and governance evidence with PowerShell instead of relying only on manual portal review.</div>
+      <div class="label">Action</div>
+      <div>Implemented Microsoft Graph, Exchange Online, Entra ID, Intune, Defender, Conditional Access, Purview, and reporting workflows across eleven operational phases.</div>
+      <div class="label">Result</div>
+      <div>Produced scripts, CSV/TXT reports, screenshots, and dashboard views that demonstrate Microsoft 365 administration, security review, and incident triage readiness.</div>
     </div>
   </div>
 </section>
 
 <section id="evidence">
-  <div class="container">
+  <div class="wrap">
     <div class="section-head">
-      <div>
-        <div class="kicker">Real Lab Evidence</div>
-        <h2>Built and documented like an operations toolkit.</h2>
-      </div>
-      <p>The repository includes executed scripts, exported reports, screenshots, and phase-by-phase documentation from an isolated Microsoft 365 lab environment.</p>
+      <h2>What This Proves</h2>
+      <span class="section-tag">Target skill → evidence</span>
     </div>
+    <div class="grid2">
+      <div class="cell"><div class="k">Microsoft 365 administration</div><div class="v">Tenant health, users, groups, licenses, roles, Exchange Online, and report generation</div></div>
+      <div class="cell"><div class="k">Entra ID / identity governance</div><div class="v">MFA method review, risky users, guest users, admin roles, PIM-related review, OAuth grants</div></div>
+      <div class="cell"><div class="k">Conditional Access</div><div class="v">Policy inventory, report-only validation, compliant-device requirements, web-only access controls</div></div>
+      <div class="cell"><div class="k">Intune / endpoint administration</div><div class="v">Company Portal enrollment, managed-device inventory, ownership, and compliance-state evidence</div></div>
+      <div class="cell"><div class="k">PowerShell automation</div><div class="v">30+ scripts using Microsoft Graph and Exchange Online modules</div></div>
+      <div class="cell"><div class="k">Security operations</div><div class="v">Secure Score tracking, high-risk permission review, sign-in evidence, and initial triage package</div></div>
+      <div class="cell"><div class="k">Microsoft Purview</div><div class="v">DLP design and simulation, Compliance Manager review, Insider Risk policy planning, sensitivity labels, and retention labels</div></div>
+      <div class="cell"><div class="k">Documentation discipline</div><div class="v">Phase READMEs, screenshots, sample reports, GitHub Pages site, and evidence map</div></div>
+    </div>
+  </div>
+</section>
 
-    <div class="grid-3">
-      <div class="card">
-        <h3>Identity & Access</h3>
-        <p>28 users audited, 27 enabled accounts, 21 licensed accounts, 11 active directory roles, MFA method review, and Conditional Access posture checks.</p>
+<section id="results">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Real Lab Results</h2>
+      <span class="section-tag">Snapshot metrics</span>
+    </div>
+    <table class="ledger">
+      <thead>
+        <tr><th>Metric</th><th style="text-align:right;">Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Total users audited</td><td class="num">28</td></tr>
+        <tr><td>Enabled accounts</td><td class="num">27</td></tr>
+        <tr><td>Licensed accounts</td><td class="num">21</td></tr>
+        <tr><td>Active directory roles</td><td class="num">11</td></tr>
+        <tr><td>Microsoft Secure Score (retained snapshot)</td><td class="num">146.26 / 204 (71.7%)</td></tr>
+        <tr><td>Groups audited</td><td class="num">10</td></tr>
+        <tr><td>App registrations audited</td><td class="num">1</td></tr>
+        <tr><td>Service principals inventoried</td><td class="num">241</td></tr>
+        <tr class="flag"><td>High-risk OAuth grants detected</td><td class="num">3</td></tr>
+        <tr><td>Mailboxes audited</td><td class="num">23</td></tr>
+        <tr class="gold"><td>Report types generated</td><td class="num">25+</td></tr>
+        <tr class="gold"><td>Scripts in toolkit</td><td class="num">30+</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="phases">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Multi-Phase Platform Architecture</h2>
+      <span class="section-tag">Click a phase to expand</span>
+    </div>
+    <div class="phase-list" id="phaseList">
+
+      <article class="phase" tabindex="0" role="button" aria-expanded="false">
+        <div class="phase-num">01</div>
+        <div>
+          <div class="phase-title">Enterprise Operations Foundation <span class="phase-toggle">expand</span></div>
+          <div class="phase-focus">Baseline tenant health, identity hygiene, license governance, MFA compliance, CA auditing, privileged access reviews, and administrative reporting.</div>
+          <div class="phase-body"><div class="phase-body-inner"><ul>
+            <li>Full tenant health snapshot (users, groups, licenses, roles) in a single script</li>
+            <li>MFA method-level audit — Authenticator, Phone, FIDO2, Passwordless-ready classification</li>
+            <li>Admin role review with CRITICAL/HIGH/MEDIUM/STANDARD risk tier classification</li>
+            <li>License waste identification — disabled users holding licenses flagged automatically</li>
+            <li>User offboarding automation — disable, revoke sessions, remove licenses and groups</li>
+          </ul></div></div>
+        </div>
+      </article>
+
+      <article class="phase" tabindex="0" role="button" aria-expanded="false">
+        <div class="phase-num">02</div>
+        <div>
+          <div class="phase-title">Identity Threat &amp; Security Operations <span class="phase-toggle">expand</span></div>
+          <div class="phase-focus">Microsoft Entra ID Identity Protection workflows — risky users, risk detections, Secure Score analysis, and guest user governance.</div>
+          <div class="phase-body"><div class="phase-body-inner"><ul>
+            <li>Identity Protection scripts prepared for risky-user and risk-detection review</li>
+            <li>Zero-result risk and guest queries documented honestly; empty exports were not retained</li>
+            <li>Secure Score analysis — retained lab snapshot scored 146.26 / 204 (71.7%)</li>
+            <li>Guest user governance — inactive guest detection with external domain mapping</li>
+          </ul></div></div>
+        </div>
+      </article>
+
+      <article class="phase" tabindex="0" role="button" aria-expanded="false">
+        <div class="phase-num">03</div>
+        <div>
+          <div class="phase-title">Endpoint Enrollment &amp; Intune Operations <span class="phase-toggle">expand</span></div>
+          <div class="phase-focus">Microsoft Intune macOS enrollment, Company Portal workflow, managed-device visibility, ownership, and compliance-state review.</div>
+          <div class="phase-body"><div class="phase-body-inner"><ul>
+            <li>Company Portal management-profile installation workflow</li>
+            <li>Intune managed-device inventory with platform, ownership, and compliance state</li>
+            <li>Company Portal device-status review</li>
+            <li>Unsupported Defender incident and recommendation claims explicitly removed</li>
+          </ul></div></div>
+        </div>
+      </article>
+
+      <article class="phase" tabindex="0" role="button" aria-expanded="false">
+        <div class="phase-num">04</div>
+        <div>
+          <div class="phase-title">BYOD Conditional Access Governance <span class="phase-toggle">expand</span></div>
+          <div class="phase-focus">Zero Trust device governance — configured and audited compliant-device requirements for BYOD and personal devices accessing Microsoft 365 resources via Conditional Access.</div>
+          <div class="phase-body"><div class="phase-body-inner"><ul>
+            <li>BYOD device inventory — classifies all Entra ID devices by ownership, trust type, and compliance state</li>
+            <li>Conditional Access policy audit — identifies policies requiring compliant devices</li>
+            <li>Three tiered Intune compliance policies: iOS BYOD, Windows Standard, Windows Faculty/Staff</li>
+            <li>Report-only compliant-device access design documented with Intune policy evidence</li>
+          </ul></div></div>
+        </div>
+      </article>
+
+      <article class="phase" tabindex="0" role="button" aria-expanded="false">
+        <div class="phase-num">05</div>
+        <div>
+          <div class="phase-title">Exchange Online Mail Flow Audit <span class="phase-toggle">expand</span></div>
+          <div class="phase-focus">Automated audit of Exchange Online mail flow security — external forwarding rules, inbox rules, transport rules, anti-spam policies, and litigation hold status.</div>
+          <div class="phase-body"><div class="phase-body-inner"><ul>
+            <li>23 mailboxes audited for unauthorized external forwarding — none detected</li>
+            <li>Inbox rules scanned for forwarding/redirect actions</li>
+            <li>Transport rule inventory with state and action documentation</li>
+            <li>Anti-spam policy coverage verified across inbound, outbound, and connection filtering</li>
+            <li>3 non-empty CSV reports retained from PowerShell and Exchange Online Management workflows</li>
+          </ul></div></div>
+        </div>
+      </article>
+
+      <article class="phase" tabindex="0" role="button" aria-expanded="false">
+        <div class="phase-num">06</div>
+        <div>
+          <div class="phase-title">Web-Only Access Governance for Unmanaged Devices <span class="phase-toggle">expand</span></div>
+          <div class="phase-focus">Zero Trust web-only access configuration — Conditional Access app-enforced restrictions limiting non-compliant BYOD devices to browser-only access for SharePoint Online and Exchange Online.</div>
+          <div class="phase-body"><div class="phase-body-inner"><ul>
+            <li>CA policy targeting non-compliant devices with device filter rule</li>
+            <li>App-enforced restrictions session control — browser-only, no native apps, no downloads</li>
+            <li>PowerShell audit script detects and classifies web-only governance policies</li>
+            <li>Before/after audit evidence showing 0 → 1 web-only policy detection</li>
+          </ul></div></div>
+        </div>
+      </article>
+
+      <article class="phase" tabindex="0" role="button" aria-expanded="false">
+        <div class="phase-num">07</div>
+        <div>
+          <div class="phase-title">Entra ID App Registration Audit <span class="phase-toggle">expand</span></div>
+          <div class="phase-focus">Automated audit of all Entra ID app registrations, OAuth permission grants, service principals, credential expiry, and high-risk permission assignments.</div>
+          <div class="phase-body"><div class="phase-body-inner"><ul>
+            <li>1 app registration audited — AWS Single-Account Access (SAML SSO integration)</li>
+            <li>241 service principals inventoried across Microsoft first-party and third-party apps</li>
+            <li>8 OAuth grants reviewed — full delegated permission inventory</li>
+            <li>3 high-risk permission grants detected — User.ReadWrite.All, Directory.ReadWrite.All, AuditLog.Read.All</li>
+            <li>0 expired credentials — no abandoned app registrations</li>
+            <li>4 CSV reports exported via PowerShell and Microsoft Graph</li>
+          </ul></div></div>
+        </div>
+      </article>
+
+      <article class="phase" tabindex="0" role="button" aria-expanded="false">
+        <div class="phase-num">08</div>
+        <div>
+          <div class="phase-title">M365 Initial Security Triage <span class="phase-toggle">expand</span></div>
+          <div class="phase-focus">Early Microsoft 365 evidence collection — user enumeration, license governance, security group review, and administrative role exposure assessment.</div>
+          <div class="phase-body"><div class="phase-body-inner"><ul>
+            <li>Scenario: a user reports suspicious activity; the administrator uses Microsoft Graph PowerShell to collect early-stage evidence before escalation</li>
+            <li>25 user accounts enumerated with account status and identity details</li>
+            <li>3 license SKUs reviewed — consumption and capability status documented</li>
+            <li>10 security groups inventoried — membership and security enablement verified</li>
+            <li>11 administrative roles identified — exposure assessment for incident triage</li>
+            <li>Executive summary report generated for escalation documentation</li>
+            <li>5 structured reports exported via PowerShell and Microsoft Graph</li>
+          </ul></div></div>
+        </div>
+      </article>
+
+      <article class="phase" tabindex="0" role="button" aria-expanded="false">
+        <div class="phase-num">09</div>
+        <div>
+          <div class="phase-title">Data Protection &amp; Compliance Operations <span class="phase-toggle">expand</span></div>
+          <div class="phase-focus">Microsoft Purview policy design and governance review across DLP, Compliance Manager, Insider Risk Management, sensitivity labels, and retention labels.</div>
+          <div class="phase-body"><div class="phase-body-inner"><ul>
+            <li>DLP policy scope documented across Exchange, SharePoint, OneDrive, and Teams</li>
+            <li>Sensitive information conditions, alert behavior, user notifications, and overrides reviewed</li>
+            <li>DLP policy retained in simulation mode for staged validation</li>
+            <li>Compliance Manager assessments, score snapshot, and improvement actions documented</li>
+            <li>Insider Risk Management policy design and policy-health evidence captured</li>
+            <li>Sensitivity-label hierarchy, publishing policy, adaptive scope, and simulation-mode auto-labeling workflow documented</li>
+            <li>Seven-year retention-label configuration reviewed</li>
+          </ul></div></div>
+        </div>
+      </article>
+
+      <article class="phase" tabindex="0" role="button" aria-expanded="false">
+        <div class="phase-num">10</div>
+        <div>
+          <div class="phase-title">Microsoft Purview Retention Policy Framework <span class="phase-toggle">expand</span></div>
+          <div class="phase-focus">Target-state data lifecycle governance for a fictional 300-user, six-site Microsoft 365 E5 environment.</div>
+          <div class="phase-body"><div class="phase-body-inner"><ul>
+            <li>Retention policy taxonomy across Exchange Online, SharePoint Online, OneDrive, and Teams</li>
+            <li>Retention-label hierarchy for financial, HR, client, operational, and transactional records</li>
+            <li>Records-management, legal-hold, archiving, deletion, and audit-review workflows</li>
+            <li>PowerShell audit script for retention policies, labels, and workload coverage</li>
+            <li>Explicit separation between design coverage and unverified production outcomes</li>
+          </ul></div></div>
+        </div>
+      </article>
+
+      <article class="phase" tabindex="0" role="button" aria-expanded="false">
+        <div class="phase-num">11</div>
+        <div>
+          <div class="phase-title">Microsoft Purview DLP Investigation Runbook <span class="phase-toggle">expand</span></div>
+          <div class="phase-focus">Target-state DLP investigation, evidence review, escalation, remediation, and stakeholder reporting for a fictional enterprise scenario.</div>
+          <div class="phase-body"><div class="phase-body-inner"><ul>
+            <li>Eight-step workflow spanning DLP alerts, Activity Explorer, audit, eDiscovery, and Insider Risk</li>
+            <li>Root-cause scenarios and escalation criteria for security, compliance, HR, and business stakeholders</li>
+            <li>Five DLP rule categories documented as design concepts rather than claimed enforcement history</li>
+            <li>PowerShell script for date-, policy-, and severity-scoped DLP alert reporting</li>
+            <li>Fictional organization and reserved example identifiers used throughout</li>
+          </ul></div></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="architecture">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Platform Architecture</h2>
+      <span class="section-tag">Data flow</span>
+    </div>
+    <div class="arch">
+<div class="row"><span class="node tier1">Enterprise Environment (M365 E3/E5 Lab)</span></div>
+<div class="row arrow">↓</div>
+<div class="row">Microsoft 365 / Entra ID / Intune / Microsoft Defender / Exchange Online / Purview</div>
+<div class="row arrow">↓</div>
+<div class="row"><span class="node tier2">Microsoft Graph + Security APIs</span></div>
+<div class="row arrow">↓</div>
+<div class="row"><span class="node tier2">PowerShell Automation Layer</span> (30+ scripts)</div>
+<div class="row arrow">↓</div>
+<div class="row">Governance &amp; Risk Classification Logic</div>
+<div class="row arrow">↙                                    ↘</div>
+<div class="row">Identity + Endpoint Security Operations &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; License + Access Governance Reporting</div>
+<div class="row arrow">↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↓</div>
+<div class="row">CSV / TXT Reports &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HTML Dashboards &amp; Visualization</div>
+<div class="row arrow">↓</div>
+<div class="row"><span class="node tier3">GitHub Security Operations Lab Evidence</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="lessons">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Key Design Decisions &amp; Lessons Learned</h2>
+      <span class="section-tag">Operating principles</span>
+    </div>
+    <div class="lessons">
+      <div class="lesson">
+        <div class="lesson-term">Stage before enforcing</div>
+        <div class="lesson-def">Conditional Access and DLP controls were reviewed in report-only or simulation modes where supported, to reduce rollout risk.</div>
       </div>
-      <div class="card">
-        <h3>Security & Risk</h3>
-        <p>Secure Score retained at 146.26 / 204, identity-risk workflows documented, OAuth permissions reviewed, and high-risk grants flagged.</p>
+      <div class="lesson">
+        <div class="lesson-term">Separate inventory from compliance</div>
+        <div class="lesson-def">Entra device registration is not the same as Intune managed-device compliance; the reporting script queries Intune managed devices directly.</div>
       </div>
-      <div class="card">
-        <h3>Operations & Response</h3>
-        <p>23 mailboxes audited, 10 groups inventoried, app registration evidence captured, and incident triage outputs generated for escalation.</p>
+      <div class="lesson">
+        <div class="lesson-term">Registration ≠ enforcement</div>
+        <div class="lesson-def">Registered MFA methods indicate authentication readiness, but do not by themselves prove that a Conditional Access policy enforced MFA for every sign-in.</div>
       </div>
-      <div class="card">
-        <h3>Data Protection & Compliance</h3>
-        <p>Purview DLP was staged in simulation, Compliance Manager posture was reviewed, and Insider Risk, sensitivity-label, and retention controls were documented.</p>
+      <div class="lesson">
+        <div class="lesson-term">Evidence limits</div>
+        <div class="lesson-def">A Compliance Manager score, healthy policy status, or empty alert list is a point-in-time posture signal — not proof of regulatory compliance or incident-free operations.</div>
+      </div>
+      <div class="lesson">
+        <div class="lesson-term">Destructive automation, designed carefully</div>
+        <div class="lesson-def">Offboarding actions support -WhatIf, confirmation, and protected-group safeguards before any tenant change occurs.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="stack">
-  <div class="container">
+<section id="quickstart">
+  <div class="wrap">
     <div class="section-head">
-      <div>
-        <div class="kicker">Technical Stack</div>
-        <h2>Cloud admin + security operations skills.</h2>
-      </div>
-      <p>This project is designed to show practical Microsoft 365 administration, PowerShell automation, security governance, evidence collection, and documentation ability.</p>
+      <h2>Quick Start</h2>
+      <span class="section-tag">PowerShell 7+</span>
     </div>
+    <pre class="code"><span class="c"># Clone the repository</span>
+git clone https://github.com/rahatislamanik-spec/Enterprise-IT-Security-Operations-Toolkit.git
+cd Enterprise-IT-Security-Operations-Toolkit
 
-    <div class="card">
-      <div class="pill-list">
-        <span class="pill">PowerShell 7</span>
-        <span class="pill">Microsoft Graph SDK</span>
-        <span class="pill">Exchange Online PowerShell</span>
-        <span class="pill">Microsoft Entra ID</span>
-        <span class="pill">Conditional Access</span>
-        <span class="pill">Microsoft Intune</span>
-        <span class="pill">Microsoft Defender</span>
-        <span class="pill">Identity Protection</span>
-        <span class="pill">Microsoft Purview</span>
-        <span class="pill">Data Loss Prevention</span>
-        <span class="pill">Compliance Manager</span>
-        <span class="pill">Insider Risk Management</span>
-        <span class="pill">OAuth Grants</span>
-        <span class="pill">Service Principals</span>
-        <span class="pill">CSV Reporting</span>
-        <span class="pill">HTML Dashboard</span>
-        <span class="pill">GitHub Pages</span>
-      </div>
+<span class="c"># Phase 1 — Tenant health report</span>
+./scripts/m365-reports/tenant-health.ps1
+
+<span class="c"># Phase 5 — Exchange mail flow audit</span>
+./phase-5-exchange-online-mail-flow-audit/scripts/exchange-mail-flow-audit.ps1
+
+<span class="c"># Phase 7 — App registration audit</span>
+./phase-7-entra-app-registration-audit/scripts/entra-app-registration-audit.ps1
+
+<span class="c"># Phase 8 — Initial security triage</span>
+./phase-8-m365-incident-response-security-triage/scripts/invoke-m365-incident-response.ps1</pre>
+  </div>
+</section>
+
+<section id="ecosystem">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Portfolio Ecosystem</h2>
+      <span class="section-tag">Related projects</span>
     </div>
-    <br />
-    <div class="note">
-      Lab disclaimer: this toolkit was built in isolated Microsoft 365 E3/E5 lab tenants for security operations simulation, governance workflow testing, automation engineering, and portfolio demonstration. No production customer data or confidential organizational information is exposed.
+    <div class="eco">
+      <div class="eco-row">
+        <div class="eco-layer">01 — Network Foundation</div>
+        <div class="eco-name"><a href="#" target="_blank">Enterprise IT Network Diagnostics Toolkit</a></div>
+        <div class="eco-focus">DNS · Connectivity · Network Diagnostics</div>
+      </div>
+      <div class="eco-row">
+        <div class="eco-layer">02 — User Lifecycle</div>
+        <div class="eco-name"><a href="#" target="_blank">Project Arabesque</a></div>
+        <div class="eco-focus">Onboarding · Offboarding · M365 Automation</div>
+      </div>
+      <div class="eco-row you">
+        <div class="eco-layer">03 — Identity &amp; Security</div>
+        <div class="eco-name">Enterprise IT Security Operations Toolkit <em>(this project)</em></div>
+        <div class="eco-focus">Entra ID · Intune · Defender · Zero Trust</div>
+      </div>
+      <div class="eco-row">
+        <div class="eco-layer">04 — M365 Operations</div>
+        <div class="eco-name"><a href="#" target="_blank">Meridian Institute M365 Lab</a></div>
+        <div class="eco-focus">Exchange · Teams · SharePoint · Purview</div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer class="footer">
-  <p><strong>Built by Md Rahat Islam Anik</strong> — Microsoft 365 Security Operations Portfolio</p>
-  <p class="small">
-    <a href="https://linkedin.com/in/rahatislamanik" target="_blank" rel="noreferrer">LinkedIn</a> ·
-    <a href="https://github.com/rahatislamanik-spec" target="_blank" rel="noreferrer">GitHub</a> ·
-    <a href="https://rahatislamanik-spec.github.io/IT-Portfolio-Rahat-Islam-Anik/" target="_blank" rel="noreferrer">Portfolio</a>
-  </p>
+<section id="disclaimer">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Lab Environment Disclaimer</h2>
+    </div>
+    <div class="disclaimer">
+      This toolkit was developed in isolated Microsoft 365 E3 and E5 lab tenants created exclusively for security operations simulation, governance workflow testing, automation engineering, and portfolio demonstration. Reports and screenshots are preserved as public lab evidence to show reporting format, audit logic, and operational workflow. Public exports use <strong>pseudonymized names, domains, addresses, and identifiers</strong> where needed. They are not production customer records or confidential organizational data.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="name">Md Rahat Islam Anik</div>
+    <div>Microsoft 365 Security Operations Portfolio</div>
+    <div style="margin-top:14px;">
+      <a href="https://linkedin.com/in/rahatislamanik" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/rahatislamanik-spec" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://rahatislamanik-spec.github.io/IT-Portfolio-Rahat-Islam-Anik" target="_blank" rel="noopener">Portfolio</a>
+    </div>
+    <div style="margin-top:20px;color:#9c9b92;">PowerShell 7 · Microsoft Graph PowerShell SDK · Microsoft 365 · Entra ID · Intune · Defender · Purview · Exchange Online · Conditional Access · Identity Protection</div>
+    <div style="margin-top:8px;color:#9c9b92;">MIT License · © 2026</div>
+  </div>
 </footer>
-</div>
+
+<script>
+  document.querySelectorAll('.phase').forEach(p => {
+    function toggle(){
+      const open = p.getAttribute('aria-expanded') === 'true';
+      p.setAttribute('aria-expanded', open ? 'false' : 'true');
+      const tog = p.querySelector('.phase-toggle');
+      tog.textContent = open ? 'expand' : 'collapse';
+    }
+    p.addEventListener('click', toggle);
+    p.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+    });
+  });
+</script>
+
 </body>
 </html>
